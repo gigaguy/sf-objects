@@ -376,24 +376,23 @@ public with sharing class TQBCPWizardController {
        System.debug('value of candPackage.TQB_Panel_Member_3_Name__c = '+ candPackage.TQB_Panel_Member_3_Name__c);
 
 
-
         if(candPackage.TQB_Panel_Member_1_Name__c == null){
            candPackage.TQB_Panel_Member_1_Name__c = user.Id;
            System.debug('value of candPackage.TQB_Panel_Member_1_Name__c = '+ candPackage.TQB_Panel_Member_1_Name__c);
            listofPanelMembers.add(user);
         }
-        if(candPackage.TQB_Panel_Member_1_Name__c == null ){
+        if(candPackage.TQB_Panel_Member_2_Name__c == null ){
            candPackage.TQB_Panel_Member_2_Name__c = user.Id;
            System.debug('value of candPackage.TQB_Panel_Member_2_Name__c = '+ candPackage.TQB_Panel_Member_2_Name__c);
            listofPanelMembers.add(user);
         }
-        if(candPackage.TQB_Panel_Member_1_Name__c == null){
+        if(candPackage.TQB_Panel_Member_3_Name__c == null){
            candPackage.TQB_Panel_Member_3_Name__c = user.Id;
            System.debug('value of candPackage.TQB_Panel_Member_3_Name__c = '+ candPackage.TQB_Panel_Member_3_Name__c);
            listofPanelMembers.add(user);
         }
      
-      update candPackage;
+      upsert candPackage;
      System.debug('value of listofPanelMembers = '+ listofPanelMembers);
 
     return listofPanelMembers;
