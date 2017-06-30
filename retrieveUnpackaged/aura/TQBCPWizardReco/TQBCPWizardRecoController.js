@@ -14,7 +14,7 @@
 		helper.populateCandidateLOI(component, event, candpkg);
 		helper.getloggedInUserRole(component, event);
 	    helper.populateAdHoc(component, event);
-	    //helper.populateAttachments(component, event);
+	    helper.populateAttachments(component, event);
 
 	    if (recoType == 'approve') {
 			var toggleText = component.find("adHocEditView"); //hide ad hoc new entry
@@ -25,10 +25,14 @@
 			$A.util.addClass(toggleText,'toggle');
 			var toggleText = component.find("rejectReviewView"); //hide
 			$A.util.addClass(toggleText,'toggle');
+			var toggleText = component.find("adHocListSelectionView"); //show
+			$A.util.removeClass(toggleText,'toggle');
 		}
 
 	    if (recoType == 'return') {
 			var toggleText = component.find("adHocEditView"); //hide
+			$A.util.addClass(toggleText,'toggle');
+			var toggleText = component.find("approveReviewView"); //hide
 			$A.util.addClass(toggleText,'toggle');
 			var toggleText = component.find("returnReviewView"); //show
 			$A.util.removeClass(toggleText,'toggle');
@@ -39,12 +43,16 @@
 		}
 
 	    if (recoType == 'reject') {
+			var toggleText = component.find("adHocEditView"); //hide
+			$A.util.addClass(toggleText,'toggle');
 			var toggleText = component.find("approveReviewView"); //hide
 			$A.util.addClass(toggleText,'toggle');
 			var toggleText = component.find("returnReviewView"); //hide
 			$A.util.addClass(toggleText,'toggle');
-			var toggleText = component.find("rejectReviewView"); //hide
+			var toggleText = component.find("rejectReviewView"); //show
 			$A.util.removeClass(toggleText,'toggle');
+			var toggleText = component.find("adHocListSelectionView"); //hide
+			$A.util.addClass(toggleText,'toggle');			
 		}
 
 	},
@@ -112,6 +120,7 @@
 				console.log('INFO - TQBCPWizardRecoController : getSelectedAdhocEntries : calling helper.setAdhocEntriesSelected');				
 	 		}
 	 	if (selectedEntryCounter != 3) {
+	 		state = "ERROR";
 	 		alert('Please select 3 ad hoc references before attempting to save.');
 	 	} else {
 	 		for (var i = 0; i < getAllCheckboxes.length; i++) {
@@ -121,8 +130,64 @@
 				adHocEntryName = selectedEntryArray[i];
 	 			helper.setAdhocEntriesSelected(component, event, candPkgId, adHocEntryName, newSelectedValue);
 	 		}
+	 		state = "SUCCESS";
 	 	}
-   	
+      if (state === "SUCCESS") {
+        $A.createComponents([
+          ["ui:message",{
+            "title" : "Success :",
+            "severity" : "confirm",
+            "class" : "slds-size--1-of-2"
+          }],
+          ["ui:outputText",{
+            "value" : "Your ad hoc selections have been saved successfully."
+          }]
+        ],
+        function(components) {
+          var message = components[0];
+          var outputText = components[1];
+          // set the body of the ui:message to be the ui:outputText
+          message.set("v.body", outputText);
+          component.set("v.messages", message);
+          window.setTimeout(
+            $A.getCallback(function() {
+              component.set("v.messages", []);
+			document.body.scrollTop = document.documentElement.scrollTop = 0;
 
-   		}
+            }), 5000
+          );
+        } )
+      } else if (state === "ERROR") {
+        var errors = response.getError();
+        if (errors[0] && errors[0].pageErrors) {
+          console.log(errors[0].pageErrors);
+          $A.createComponents([
+            ["ui:message",{
+              "title" : "Save Failed:",
+              "severity" : "error",
+              "class" : "slds-size--1-of-2"
+            }],
+            ["ui:outputText",{
+              "value" : "Please select 3 ad hoc references before attempting to save."
+            }]
+          ],
+          function(components) {
+            var message = components[0];
+            var outputText = components[1];
+            // set the body of the ui:message to be the ui:outputText
+            message.set("v.body", outputText);
+            component.set("v.messages", message);
+            window.setTimeout(
+              $A.getCallback(function() {
+                component.set("v.messages", []);
+				document.body.scrollTop = document.documentElement.scrollTop = 0;
+
+              }), 5000
+            );
+          } )
+        } else {
+          //$A.error("Unknown error"); DEPRACATED
+        }   	
+      }//end error checking and message code
+   	} // end getSelectedAdhocEntries
 })

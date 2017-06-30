@@ -9,6 +9,7 @@
 		var candpkg = event.getParam("candpkg");
 		component.set("v.candPackage",candpkg);
 		//helper.populateCandidatePackage(component, event);
+		console.log("INFO - TQBCPWizardReturnRejectReviewController : calling helper.populateRejectReason");
 		helper.populateRejectReason(component, event);
     	component.set("v.messages", []);
 		document.body.scrollTop = document.documentElement.scrollTop = 0;

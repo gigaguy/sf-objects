@@ -23,6 +23,8 @@
 		$A.enqueueAction(action);
 	},
 	populateRejectReason : function(component, event) {
+	  	console.log("==============================================");
+	  	console.log('INFO - TQBCPWizardRejectReviewHelper: populateRejectReason : START');		
 		var action = component.get("c.getRejectReasonValues");
 		var inputsel = component.find("rejectReasonSelect");
 		var opts=[];
