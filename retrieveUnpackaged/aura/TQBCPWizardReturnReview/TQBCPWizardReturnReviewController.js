@@ -14,19 +14,18 @@
 	submitReturnReview : function(component, event, helper) {
 		console.log("==============================================");
 	  	console.log("INFO - TQBCPWizardReturnReviewController : submitReturnReview : START");
-
-	
+		candidatePackage = component.get("v.candPackage");
+		candidatePackageId = component.get("v.candPackage.Id");
+  		console.log("INFO - TQBCPWizardReturnReviewController : submitReturnReview : candidatePackageId = " + candidatePackage);	
+  		console.log("INFO - TQBCPWizardReturnReviewController : submitReturnReview : candidatePackageId = " + candidatePackageId);	
 			var action = component.get("c.saveReviewCommentAndReturn");
 			action.setParams({
-				 "TQB_Candidate_Package_ID": component.get("v.candPackage.Id"),
+				"candidatePackageId" : component.get("v.candPackage.Id"),
 				"reviewComment": component.get("v.newComment")
 			});
 			action.setCallback(this, function(response) {
 				var state = response.getState();
 				if (state === "SUCCESS") {
-					//var evt = $A.get("e.c:TQBCPSummaryNavigator");
-					//evt.setParams({ "candpkg": component.get("v.candPackage"), "msg" :  "Candidate package has been returned." });
-					//evt.fire();
 					var toggleText = component.find("returnReviewView");
                     $A.util.addClass(toggleText,'toggle');
 

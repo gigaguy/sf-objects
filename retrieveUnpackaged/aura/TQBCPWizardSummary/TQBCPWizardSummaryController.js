@@ -53,8 +53,9 @@
 
 	},
 	gotoReviewRecoReturn : function(component, event, helper) {
-		console.log('INFO - RETURN - TQBCPWizardSummaryController : gotoReviewRecoReturn firing TQBCPRecoNavigator event');
+		
 		var pkg = component.get("v.candPackage");
+		console.log('INFO - RETURN - TQBCPWizardSummaryController : gotoReviewRecoReturn firing TQBCPRecoNavigator event cand pkg =' + pkg);
 		var evt = $A.get("e.c:TQBCPRecoNavigator");
 		evt.setParams({ "candpkg": pkg, "recoType": "return" });
 		evt.fire();

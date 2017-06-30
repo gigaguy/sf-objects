@@ -4,7 +4,9 @@
 		//helper.populateRejectReason(component, event);
 	},
 	populateRecoReview : function(component, event, helper) {
+		console.log("=============================================");
 		helper.populateCandidatePackage(component, event);
+
 		helper.populateRejectReason(component, event);
     component.set("v.messages", []);
 		document.body.scrollTop = document.documentElement.scrollTop = 0;

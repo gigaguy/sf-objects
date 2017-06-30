@@ -18,6 +18,9 @@
       <div class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
        <div class="slds-panel__section">
         <h3 class="slds-text-heading_small slds-m-bottom_medium">TQB Panel Members</h3>
+         <br/>
+         <ui:button aura:id="button" buttonTitle="Notify" class="button" label="Notify" press="{!c.getSelectedPanelMembers}"/>
+         <br/>
          <form role="form" class="slds-form slds-form--stacked slds-grid slds-wrap">
           <div class="slds-col--padded slds-size--1-of-3">
             <c:TQBCustomLookUp />
@@ -27,9 +30,6 @@
                  <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_striped">
                     <thead>
                       <tr class="slds-text-title_caps">
-                      	<th scope="col">
-                         <div class="slds-truncate" title="Select"></div>
-                        </th>
                         <th scope="col">
                          <div class="slds-truncate" title="Full Name"> Full Name</div>
                         </th>
@@ -47,28 +47,23 @@
                     <tbody>
                        <aura:iteration items="{!v.listOfTQBPanelMembers}" var="tqbPanelMember">
                          <tr>
-                         	  <th scope="row" data-label="Select">
-						        <div class="slds-truncate">
-						          <ui:inputCheckbox text="{!tqbPanelMember.Name}" aura:id="panelCheckbox" value="" />
-						        </div>
-						      </th>
-						      <th scope="row" data-label="FullName">
-						        <div class="slds-truncate" title="FullName">
-						          {!tqbPanelMember.Name}
-						        </div>
-						      </th>
-						      <td data-label="Title">
-						        <div class="slds-truncate" title="Title">
-						        	{!tqbPanelMember.Title}
-						        </div>
-						      </td>
-						      <td data-label="Phone">
-						        <div class="slds-truncate" title="Phone">{!tqbPanelMember.Phone}</div>
-						      </td>
-						      <td data-label="Email">
-						        <div class="slds-truncate" title="Phone">{!tqbPanelMember.Email}</div>
-						      </td>
-						     </tr>
+    						           <td scope="row" data-label="FullName">
+    						             <div class="slds-truncate" title="FullName">
+    						               {!tqbPanelMember.Name}
+    						             </div>
+    						           </td>
+  						             <td data-label="Title">
+  						               <div class="slds-truncate" title="Title">
+  						        	      {!tqbPanelMember.Title}
+  						               </div>
+  						              </td>
+  						              <td data-label="Phone">
+  						                <div class="slds-truncate" title="Phone">{!tqbPanelMember.Phone}</div>
+  						              </td>
+  						              <td data-label="Email">
+  						                <div class="slds-truncate" title="Phone">{!tqbPanelMember.Email}</div>
+  						             </td>
+						             </tr>
                        </aura:iteration>
                    </tbody>
                    </table>
@@ -78,7 +73,4 @@
 	    </div>
 	  </div>
 	</div>
-  <div>
-     <ui:button aura:id="button" buttonTitle="Notify" class="button" label="Notify" press="{!c.getSelectedPanelMembers}"/>
-  </div>
 </aura:component>

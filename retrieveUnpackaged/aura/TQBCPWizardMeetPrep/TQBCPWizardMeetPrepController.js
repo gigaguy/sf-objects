@@ -6,6 +6,6 @@
 		helper.populateCandidateLOI(component, event);
 	    helper.getloggedInUserRole(component, event);
 	    helper.getTQBChairPersonList(component, event);
-	    //helper.getTQBPanelMembersList(component, event);
+	    helper.getTQBPanelMembersList(component, event);
 	}
 })

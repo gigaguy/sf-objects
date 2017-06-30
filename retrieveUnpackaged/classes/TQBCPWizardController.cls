@@ -367,55 +367,104 @@ public with sharing class TQBCPWizardController {
   @AuraEnabled
   public static List<User> setTQBPanelMembersList(Id candPkgId, User user) {
 
-    List<User> listofPanelMembers = new List<User>();
-    
-    TQB_Candidate_Package__c candPackage = [Select Id , Name, TQB_Panel_Member_1_Name__c, TQB_Panel_Member_2_Name__c, TQB_Panel_Member_3_Name__c from TQB_Candidate_Package__c where id =:candPkgId ];
-       
+    List<User> listofPanelMembers;
+
+
+    TQB_Candidate_Package__c candPackage = [Select Id , Name, TQB_Panel_Member_1_Name__c, TQB_Panel_Member_2_Name__c, TQB_Panel_Member_3_Name__c,
+    TQB_Panel_Member_4_Name__c,TQB_Panel_Member_5_Name__c from TQB_Candidate_Package__c where id =:candPkgId ];
+        
+
+    if(candPackage.TQB_Panel_Member_1_Name__c == null && candPackage.TQB_Panel_Member_2_Name__c == null && candPackage.TQB_Panel_Member_3_Name__c == null &&
+    candPackage.TQB_Panel_Member_4_Name__c == null && candPackage.TQB_Panel_Member_5_Name__c == null ){
+      listofPanelMembers = new List<User>();
+    }
+    else{
+      listofPanelMembers = TQBCPWizardController.getTQBPanelMembersList(candPkgId);
+    }
+      
        System.debug('value of candPackage.TQB_Panel_Member_1_Name__c = '+ candPackage.TQB_Panel_Member_1_Name__c);
        System.debug('value of candPackage.TQB_Panel_Member_2_Name__c = '+ candPackage.TQB_Panel_Member_2_Name__c);
        System.debug('value of candPackage.TQB_Panel_Member_3_Name__c = '+ candPackage.TQB_Panel_Member_3_Name__c);
-
-
+       
         if(candPackage.TQB_Panel_Member_1_Name__c == null){
            candPackage.TQB_Panel_Member_1_Name__c = user.Id;
            System.debug('value of candPackage.TQB_Panel_Member_1_Name__c = '+ candPackage.TQB_Panel_Member_1_Name__c);
            listofPanelMembers.add(user);
+           upsert candPackage;
+           System.debug('value of listofPanelMembers = '+ listofPanelMembers);
+           return listofPanelMembers;
         }
         if(candPackage.TQB_Panel_Member_2_Name__c == null ){
            candPackage.TQB_Panel_Member_2_Name__c = user.Id;
            System.debug('value of candPackage.TQB_Panel_Member_2_Name__c = '+ candPackage.TQB_Panel_Member_2_Name__c);
            listofPanelMembers.add(user);
+           upsert candPackage;
+           System.debug('value of listofPanelMembers = '+ listofPanelMembers);
+           return listofPanelMembers;
         }
         if(candPackage.TQB_Panel_Member_3_Name__c == null){
            candPackage.TQB_Panel_Member_3_Name__c = user.Id;
            System.debug('value of candPackage.TQB_Panel_Member_3_Name__c = '+ candPackage.TQB_Panel_Member_3_Name__c);
            listofPanelMembers.add(user);
+           upsert candPackage;
+           System.debug('value of listofPanelMembers = '+ listofPanelMembers);
+           return listofPanelMembers;
         }
-     
-      upsert candPackage;
-     System.debug('value of listofPanelMembers = '+ listofPanelMembers);
+        if(candPackage.TQB_Panel_Member_4_Name__c == null){
+           candPackage.TQB_Panel_Member_4_Name__c = user.Id;
+           System.debug('value of candPackage.TQB_Panel_Member_4_Name__c = '+ candPackage.TQB_Panel_Member_4_Name__c);
+           listofPanelMembers.add(user);
+           upsert candPackage;
+           System.debug('value of listofPanelMembers = '+ listofPanelMembers);
+           return listofPanelMembers;
+        }
+        if(candPackage.TQB_Panel_Member_5_Name__c == null){
+           candPackage.TQB_Panel_Member_5_Name__c = user.Id;
+           System.debug('value of candPackage.TQB_Panel_Member_5_Name__c = '+ candPackage.TQB_Panel_Member_5_Name__c);
+           listofPanelMembers.add(user);
+           upsert candPackage;
+           System.debug('value of listofPanelMembers = '+ listofPanelMembers);
+           return listofPanelMembers;
+        }
 
-    return listofPanelMembers;
+      return listofPanelMembers;
   }
 
   @AuraEnabled
   public static List<User> getTQBPanelMembersList(Id candPkgId) {
           List<User> listofPanelMembers = new List<User>();
           
-          TQB_Candidate_Package__c candPackage = [Select Id , Name,TQB_Panel_Member_1_Name__c, TQB_Panel_Member_2_Name__c, TQB_Panel_Member_3_Name__c from TQB_Candidate_Package__c where id =:candPkgId ];
-          
+          TQB_Candidate_Package__c candPackage = [Select Id , Name,TQB_Panel_Member_1_Name__c, TQB_Panel_Member_2_Name__c, TQB_Panel_Member_3_Name__c,
+          TQB_Panel_Member_4_Name__c,TQB_Panel_Member_5_Name__c from TQB_Candidate_Package__c where id =:candPkgId ];
+        
           System.debug('value of candPackage.TQB_Panel_Member_1_Name__c = '+ candPackage.TQB_Panel_Member_1_Name__c);
           System.debug('value of candPackage.TQB_Panel_Member_2_Name__c = '+ candPackage.TQB_Panel_Member_2_Name__c);
           System.debug('value of candPackage.TQB_Panel_Member_3_Name__c = '+ candPackage.TQB_Panel_Member_3_Name__c);
+          System.debug('value of candPackage.TQB_Panel_Member_2_Name__c = '+ candPackage.TQB_Panel_Member_4_Name__c);
+          System.debug('value of candPackage.TQB_Panel_Member_3_Name__c = '+ candPackage.TQB_Panel_Member_5_Name__c);
 
-          if(!String.isBlank(candPackage.TQB_Panel_Member_1_Name__c)){
+          /*candPackage.TQB_Panel_Member_1_Name__c = null;
+          candPackage.TQB_Panel_Member_2_Name__c = null;
+          candPackage.TQB_Panel_Member_3_Name__c = null;
+          candPackage.TQB_Panel_Member_4_Name__c = null;
+          candPackage.TQB_Panel_Member_5_Name__c = null;
+
+          upsert candPackage;*/
+
+            if(!String.isBlank(candPackage.TQB_Panel_Member_1_Name__c)){
                 listofPanelMembers.add(TQBCPWizardController.getUserFromUserId(candPackage.TQB_Panel_Member_1_Name__c));
             }
-            if(!String.isBlank(candPackage.TQB_Panel_Member_1_Name__c)){
+            if(!String.isBlank(candPackage.TQB_Panel_Member_2_Name__c)){
                listofPanelMembers.add(TQBCPWizardController.getUserFromUserId(candPackage.TQB_Panel_Member_2_Name__c));
             }
-            if(!String.isBlank(candPackage.TQB_Panel_Member_1_Name__c)){
+            if(!String.isBlank(candPackage.TQB_Panel_Member_3_Name__c)){
                listofPanelMembers.add(TQBCPWizardController.getUserFromUserId(candPackage.TQB_Panel_Member_3_Name__c));
+            }
+            if(!String.isBlank(candPackage.TQB_Panel_Member_4_Name__c)){
+               listofPanelMembers.add(TQBCPWizardController.getUserFromUserId(candPackage.TQB_Panel_Member_4_Name__c));
+            }
+            if(!String.isBlank(candPackage.TQB_Panel_Member_5_Name__c)){
+               listofPanelMembers.add(TQBCPWizardController.getUserFromUserId(candPackage.TQB_Panel_Member_5_Name__c));
             }
           return listofPanelMembers;
   }
@@ -944,6 +993,7 @@ public with sharing class TQBCPWizardController {
     if (String.isNotBlank(reviewComment.Comment__c)) {
       reviewComment.TQB_Candidate_Package_ID__c = candidatePackageId;
       reviewComment.Comment_Type__c = 'Review';
+    System.debug('INFO - TQBCPWizardController :  saveReviewCommentAndReturn candidatePackageId = ' + candidatePackageId);
 
       upsert reviewComment;
 

@@ -356,49 +356,29 @@
     </fields>
     <fields>
         <fullName>TQB_Panel_Member_4_Name__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>TQB Panel Member 4 Name</description>
+        <description>Name of Panel Member</description>
         <externalId>false</externalId>
         <label>TQB Panel Member 4 Name</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>User.UserRole.DeveloperName</field>
-                <operation>equals</operation>
-                <value>TQB_PANEL</value>
-            </filterItems>
-            <isOptional>true</isOptional>
-        </lookupFilter>
-        <referenceTo>User</referenceTo>
-        <relationshipName>TQB_Candidate_Packages6</relationshipName>
+        <length>30</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>TQB_Panel_Member_5_Name__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>TQB Panel Member 5 Name</description>
+        <description>Name of Panel Member 5</description>
         <externalId>false</externalId>
         <label>TQB Panel Member 5 Name</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>User.UserRole.DeveloperName</field>
-                <operation>equals</operation>
-                <value>TQB_PANEL</value>
-            </filterItems>
-            <isOptional>true</isOptional>
-        </lookupFilter>
-        <referenceTo>User</referenceTo>
-        <relationshipName>TQB_Candidate_Packages7</relationshipName>
+        <length>30</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <label>TQB Candidate Package</label>
     <listViews>
