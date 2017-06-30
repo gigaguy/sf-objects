@@ -5,10 +5,12 @@
 	},
 	populateRecoReview : function(component, event, helper) {
 		console.log("=============================================");
-		helper.populateCandidatePackage(component, event);
-
+		console.log("INFO - TQBCPWizardReturnRejectReviewController : populateRecoReview : START");
+		var candpkg = event.getParam("candpkg");
+		component.set("v.candPackage",candpkg);
+		//helper.populateCandidatePackage(component, event);
 		helper.populateRejectReason(component, event);
-    component.set("v.messages", []);
+    	component.set("v.messages", []);
 		document.body.scrollTop = document.documentElement.scrollTop = 0;
 	},
      cancelRejectReview : function(component, event, helper) {

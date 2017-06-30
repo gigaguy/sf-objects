@@ -23,7 +23,7 @@
 			} else if (state === "ERROR") {
 				var errors = response.getError();
 				if (errors) {
-					$A.logf("Errors", errors);
+					$A.log("Errors", errors);
 					if (errors[0] && errors[0].message) {
 						$A.error("Error message: " + errors[0].message);
 					}
@@ -91,14 +91,20 @@
 
 	populateAttachments : function(component, event) {
 		console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-		console.log('INFO - TQBCWizardApproveReviewHelper : populateAttachments: START, candPackage Id = ' + component.get("v.candPackage.Id"));
+		console.log('INFO - TQBCWizardApproveReviewHelper : populateAttachments: START');
 		console.log("+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-		var toggleText = component.find("ListAttachmentView");
+		console.log('INFO - TQBCWizardApproveReviewHelper : populateAttachments: candPackage Id = ' + component.get("v.candPackage.Id"));
+		
+		//show the list of attachments and hide the add attchment controls
+		var toggleText = component.find("ListAttachmentView"); //show
 		$A.util.removeClass(toggleText,'toggle');
-		var toggleText = component.find("addAttachmentView");
+		var toggleText = component.find("addAttachmentView"); //hide
 		$A.util.addClass(toggleText,'toggle');
 		var selected = event.getParam("candpkg");
 		component.set("v.candPackage",selected);
+		
+		console.log('INFO - TQBCWizardApproveReviewHelper : populateAttachments: calling getCPAttachmentsServer role = supervisor');
+
 		var action = component.get("c.getCPAttachmentsServer");
 		action.setParams({
 			"candPkgId": component.get("v.candPackage.Id"),
@@ -111,7 +117,7 @@
 			} else if (state === "ERROR") {
 				var errors = response.getError();
 				if (errors) {
-					$A.logf("Errors", errors);
+					$A.log("Errors", errors);
 					if (errors[0] && errors[0].message) {
 						$A.error("Error message: " + errors[0].message);
 					}

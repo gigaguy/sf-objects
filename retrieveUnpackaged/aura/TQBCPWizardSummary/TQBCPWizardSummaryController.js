@@ -53,18 +53,21 @@
 
 	},
 	gotoReviewRecoReturn : function(component, event, helper) {
-		
+		console.log('INFO - RETURN - TQBCPWizardSummaryController : gotoReviewRecoReturn firing TQBCPRecoNavigator event, candPackage Id = ' + component.get("v.candPackage.Id"));
 		var pkg = component.get("v.candPackage");
-		console.log('INFO - RETURN - TQBCPWizardSummaryController : gotoReviewRecoReturn firing TQBCPRecoNavigator event cand pkg =' + pkg);
+		var adHocEntries = component.get("v.listOfAdHocEntries");
+
 		var evt = $A.get("e.c:TQBCPRecoNavigator");
-		evt.setParams({ "candpkg": pkg, "recoType": "return" });
+		evt.setParams({ "candpkg": pkg, "recoType": "return", "listOfAdHocEntries" : adHocEntries  });
 		evt.fire();
 	},
 	gotoReviewRecoReject : function(component, event, helper) {
 		console.log('INFO - REJECT - TQBCPWizardSummaryController : gotoReviewRecoReject firing TQBCPRecoNavigator event');
 		var pkg = component.get("v.candPackage");
+		var adHocEntries = component.get("v.listOfAdHocEntries");
+
 		var evt = $A.get("e.c:TQBCPRecoNavigator");
-		evt.setParams({ "candpkg": pkg, "recoType": "reject" });
+		evt.setParams({ "candpkg": pkg, "recoType": "reject", "listOfAdHocEntries" : adHocEntries  });
 		evt.fire();
 	},
 	goToMeetPrep : function(component, event, helper) {

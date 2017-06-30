@@ -1,12 +1,12 @@
 <aura:component implements="flexipage:availableForAllPageTypes,force:appHostable" access="global" controller="TQBCPWizardController">
 
   <aura:attribute name="candPackage" type="TQB_Candidate_Package__c"/>
-  <aura:attribute name="candidatePackageId" type="Id"/>
-  <aura:attribute name="candpkg" type="TQB_Candidate_Package__c"/>
+  <aura:attribute name="candLOI" type="TQB_Letter_of_Intent__c" />
 
   <aura:attribute name="newComment" type="TQB_Comment__c" default="{'sobjectType' : 'TQB_Comment__c', 'Comment__c':'', 'Comment_Type__c':'Review', 'Comment_Type_ID__c':'', TQB_Candidate_Package_ID__c : ''}"/>
   <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
   <aura:attribute name="messages" type="Aura.Component[]" access="GLOBAL"/>  
+  <aura:handler event="c:TQBCPRecoNavigator" action="{!c.doInit}"/>
 
   <h3 class="slds-text-heading_small slds-m-bottom_medium">Candidate Package Return</h3>
     

@@ -1,7 +1,10 @@
 ({
 	doInit : function(component, event, helper) {
-		helper.populateCandidatePackage(component, event);
-
+			console.log("INFO - TQBCPWizardReturnReviewController : doInit START");
+	  		var candpkg = event.getParam("candpkg");
+			component.set("v.candPackage",candpkg);			
+			//helper.populateCandidatePackage(component, event);
+		
     		component.set("v.messages", []);
     		document.body.scrollTop = document.documentElement.scrollTop = 0;
 	},
@@ -11,11 +14,14 @@
 		evt.setParams({ "candpkg": component.get("v.candPackage")});
 		evt.fire();
     },
+
+
 	submitReturnReview : function(component, event, helper) {
 		console.log("==============================================");
 	  	console.log("INFO - TQBCPWizardReturnReviewController : submitReturnReview : START");
-		candidatePackage = component.get("v.candPackage");
-		candidatePackageId = component.get("v.candPackage.Id");
+	  	component.set("v.messages", []);
+		var candidatePackage = component.get("v.candPackage");
+		var candidatePackageId = component.get("v.candPackage.Id");
   		console.log("INFO - TQBCPWizardReturnReviewController : submitReturnReview : candidatePackageId = " + candidatePackage);	
   		console.log("INFO - TQBCPWizardReturnReviewController : submitReturnReview : candidatePackageId = " + candidatePackageId);	
 			var action = component.get("c.saveReviewCommentAndReturn");

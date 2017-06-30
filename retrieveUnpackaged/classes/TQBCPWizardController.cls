@@ -469,6 +469,64 @@ public with sharing class TQBCPWizardController {
           return listofPanelMembers;
   }
 
+  @AuraEnabled
+  public static Boolean deleteSelectedPanelMember(Id candPkgId,  Id deletePanelMemberId) {
+
+     Boolean isDeleteSuccess = false;
+
+     TQB_Candidate_Package__c candPackage = [Select Id , Name,TQB_Panel_Member_1_Name__c, TQB_Panel_Member_2_Name__c, TQB_Panel_Member_3_Name__c,
+          TQB_Panel_Member_4_Name__c,TQB_Panel_Member_5_Name__c from TQB_Candidate_Package__c where id =:candPkgId ];
+
+      System.debug('value of candPkgId in TQBCpWizardController:deleteSelectedPanelMember = '+ candPkgId);
+      System.debug('value of candPkgId in TQBCpWizardController:deletePanelMemberId = '+ deletePanelMemberId);
+
+         if(!String.isBlank(candPackage.TQB_Panel_Member_1_Name__c) && candPackage.TQB_Panel_Member_1_Name__c == deletePanelMemberId){
+             candPackage.TQB_Panel_Member_1_Name__c = null;
+             isDeleteSuccess = true;
+             upsert candPackage;
+             return isDeleteSuccess;
+         }
+         if(!String.isBlank(candPackage.TQB_Panel_Member_2_Name__c) && candPackage.TQB_Panel_Member_2_Name__c == deletePanelMemberId){
+             candPackage.TQB_Panel_Member_2_Name__c = null;
+             isDeleteSuccess = true;
+             upsert candPackage;
+             return isDeleteSuccess;
+         }
+         if(!String.isBlank(candPackage.TQB_Panel_Member_3_Name__c) && candPackage.TQB_Panel_Member_3_Name__c == deletePanelMemberId){
+             candPackage.TQB_Panel_Member_3_Name__c = null;
+             isDeleteSuccess = true;
+             upsert candPackage;
+             return isDeleteSuccess;
+         }
+         if(!String.isBlank(candPackage.TQB_Panel_Member_4_Name__c) && candPackage.TQB_Panel_Member_4_Name__c == deletePanelMemberId){
+             candPackage.TQB_Panel_Member_4_Name__c = null;
+             isDeleteSuccess = true;
+             upsert candPackage;
+             return isDeleteSuccess;
+         }
+         if(!String.isBlank(candPackage.TQB_Panel_Member_5_Name__c) && candPackage.TQB_Panel_Member_5_Name__c == deletePanelMemberId){
+             candPackage.TQB_Panel_Member_5_Name__c = null;
+             isDeleteSuccess = true;
+             upsert candPackage;
+             return isDeleteSuccess;
+         }
+      
+      return isDeleteSuccess;
+  }
+
+  @AuraEnabled
+  public static String sendNotifyEmailCoordinator(Id candPkgId,  User[] panelMemberList, String coordinatorEmail) {
+     String message,  subject, body;
+
+    subject = 'Notify Email to Coordinator about selected Panel Members';
+
+    body = 'Notification Email';
+
+    message = sendMail('Coordinator', coordinatorEmail, subject, body);
+
+    return message;
+  }
+
   public static User getUserFromUserId(String userId) {
     User user = [select Id,Name,Title,Email from User where id = : userId];
     return user;
@@ -572,12 +630,21 @@ public with sharing class TQBCPWizardController {
   // with their candidate package
   @AuraEnabled
   public static List<Attachment> getCPAttachmentsServer(Id candPkgId, String role) {
+          System.debug('TQBCPWizardController : getCPAttachmentsServer START');
+          System.debug('TQBCPWizardController : getCPAttachmentsServer candPkgId =' + candPkgId);
+          System.debug('TQBCPWizardController : getCPAttachmentsServer role =' + role);
+
     List<Attachment> cpAttachments = new List<Attachment>();
     if (role == 'candidate') {
       cpAttachments = [SELECT Id, Name, Description FROM Attachment WHERE Parentid = :candPkgId and Description != 'Position Description' and Description != 'Recommendation Memo'];
     } else if (role == 'reviewer') {
       cpAttachments = [SELECT Id, Name, Description FROM Attachment WHERE Parentid = :candPkgId and (Description = 'Position Description' or Description = 'Recommendation Memo')];
+     } else if (role == 'supervisor') {
+      cpAttachments = [SELECT Id, Name, Description FROM Attachment WHERE Parentid = :candPkgId and (Description = 'Position Description' or Description = 'Recommendation Memo')];
     }
+
+  System.debug('TQBCPWizardController : getCPAttachmentsServer return cpAttachments =' + cpAttachments);
+
     return cpAttachments;
   }
 

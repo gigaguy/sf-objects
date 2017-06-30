@@ -48,6 +48,10 @@
                 <div class="slds-form-element__control">
                   <ui:outputText value="{!v.candPackage.Name}" />
                 </div>
+                <label class="slds-form-element__label" for="combobox-unique-id">Package Status</label>
+                <div class="slds-form-element__control">
+                  <ui:outputText value="{!v.candPackage.Status__c}" />
+                </div>
                 <label class="slds-form-element__label" for="combobox-unique-id">Current Lab Work Location</label>
                 <div class="slds-form-element__control">
                   <ui:outputDate value="{!v.candLOI.Current_Lab_Work_Location_Assignment__c}" />
@@ -215,7 +219,7 @@
       </aura:if>
     </aura:if>
     <aura:if isTrue="{!v.loggedInUserRole.UserRole.Name != 'TQB Candidate Role'}">
-        <aura:if isTrue="{!v.candPackage.Status__c =='Submitted'}">
+        <aura:if isTrue="{!v.candPackage.Status__c =='Submitted' || v.candPackage.Status__c == 'Approved By 1st Line Supervisor'}">
            <button type="button" class="slds-button slds-button--neutral" onclick="{!c.gotoReviewRecoApprove}">Approve</button>
            <button type="button" class="slds-button slds-button--neutral" onclick="{!c.gotoReviewRecoReject}">Reject</button>
            <button type="button" class="slds-button slds-button--neutral" onclick="{!c.gotoReviewRecoReturn}">Return</button>

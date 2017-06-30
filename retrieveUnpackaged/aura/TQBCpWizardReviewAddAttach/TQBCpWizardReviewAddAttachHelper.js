@@ -178,7 +178,7 @@
                 var state = response.getState();
                 if (component.isValid() && state === "SUCCESS") {
                         var returnVal = response.getReturnValue();
-                        console.log('TQBCPWizarReviewdAddAttachmentHelper:: populatePackageAttachmentTypes: returnVal = ' + returnVal);
+                        console.log('TQBCPWizarReviewdAddAttachHelper:: populatePackageAttachmentTypes: returnVal = ' + returnVal);
                         for(var i = 0; i< returnVal.length; i++){
                                 opts.push({"class": "optionClass", label: returnVal[i], value: returnVal[i]});
                         }

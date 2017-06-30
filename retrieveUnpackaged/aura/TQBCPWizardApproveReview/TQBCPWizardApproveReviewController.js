@@ -7,8 +7,8 @@
 		//helper.populateCandidatePackage(component, event);
 		//helper.populateCandidateLOI(component, event);
 		helper.populateAttachments(component, event);
-    helper.getloggedInUserRole(component, event);
-    component.set("v.messages", []);
+    	helper.getloggedInUserRole(component, event);
+    	component.set("v.messages", []);
 		document.body.scrollTop = document.documentElement.scrollTop = 0;
 	},
     cancelApproveReview : function(component, event, helper) {
