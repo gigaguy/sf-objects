@@ -21,7 +21,7 @@
 
 		console.log('TQBCPWizardChairPersonHelper:updatePanelMemberTable' + component.get("v.selectedRecord"));
        
-       var action = component.get("c.getTQBPanelMembersList");
+       var action = component.get("c.setTQBPanelMembersList");
 	    action.setParams({
 	      "candPkgId": component.get("v.candPackage.Id") ,
 	      "user" : component.get("v.selectedRecord")

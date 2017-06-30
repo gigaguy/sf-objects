@@ -38,6 +38,9 @@
 
   getTQBPanelMembersList : function(component, event) {
        var action = component.get("c.getTQBPanelMembersList"); // method in the apex class
+       action.setParams({
+	      "candPkgId": component.get("v.candPackage.Id")
+	    });
 	    action.setCallback(this, function(a) {
 	      console.log('TQBWizardMeetPrepHelper:getPanelMembersList'+a.getReturnValue());
 	      component.set("v.listOfTQBPanelMembers", a.getReturnValue()); // variable in the component
