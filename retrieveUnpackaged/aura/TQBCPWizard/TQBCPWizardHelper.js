@@ -2,7 +2,7 @@
 	populatePackage : function(component, event) {
 		 //var action = component.get("c.getCandidatePackage");
 		 var packageId = component.get("v.packageId");
-		 console.log('TQBCPWizardHelper:populatePackage:packageId'+ packageId);
+		 console.log('TQBCPWizardHelper : populatePackage : cand packageId = '+ packageId);
 		var action = component.get("c.getOrCreateCandidatePackage");
 		action.setParams({
 			"candPkgId": packageId
@@ -11,7 +11,7 @@
 			var state = response.getState();
 			if (component.isValid() && state === "SUCCESS") {
 				component.set("v.newPackage", response.getReturnValue());
-				console.log('TQBCPWizardHelper:populatePackage:inside setcallback'+ response.getReturnValue());
+				console.log('TQBCPWizardHelper : populatePackage : inside setcallback'+ response.getReturnValue());
 				var evt = $A.get("e.c:TQBCPQuestionNavigator");
 				evt.setParams({ "candpkg": response.getReturnValue() });
 				evt.fire();

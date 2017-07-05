@@ -46,5 +46,44 @@
 	      component.set("v.listOfTQBPanelMembers", a.getReturnValue()); // variable in the component
 	    });
 	    $A.enqueueAction(action);
+  },
+
+  getTQBCoordinatorEmailNotification : function(component, event) {
+       var action = component.get("c.getTQBCoordinatorEmailNotification"); // method in the apex class
+       action.setParams({
+	      "candPkgId": component.get("v.candPackage.Id")
+	    });
+	    action.setCallback(this, function(a) {
+	      console.log('TQBWizardMeetPrepHelper:getTQBCoordinatorEmailNotification'+a.getReturnValue());
+	      component.set("v.IsChairPersonEmailreceived", a.getReturnValue()); // variable in the component
+	    });
+	    $A.enqueueAction(action);
+  },
+
+  getTQBChairPerson : function(component, event) {
+      var action = component.get("c.getTQBChairPersonName"); // method in the apex class
+       action.setParams({
+	      "candPkgId": component.get("v.candPackage.Id")
+	    });
+	    action.setCallback(this, function(a) {
+	      console.log('TQBWizardMeetPrepHelper:getTQBChairPerson'+a.getReturnValue());
+	      component.set("v.tqbChairPersonName", a.getReturnValue()); // variable in the component
+	    });
+	 
+	 $A.enqueueAction(action);
+  },
+
+  getTQBAdhocMembersList : function(component, event){
+     
+     var action = component.get("c.getCandidateAdHocEntries"); // method in the apex class
+       action.setParams({
+	      "candPkgId": component.get("v.candPackage.Id")
+	    });
+	    action.setCallback(this, function(a) {
+	      console.log('TQBWizardMeetPrepHelper:getTQBAdhocMembersList'+a.getReturnValue());
+	      component.set("v.listOfAdhocSelectedMembers", a.getReturnValue()); // variable in the component
+	    });
+	 
+	 $A.enqueueAction(action);
   }
 })

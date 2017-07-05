@@ -5,6 +5,9 @@
   <aura:attribute name="loggedInUserRole" type="User" />
   <aura:attribute name="listOfTQBChairPersons" type="User[]" />
   <aura:attribute name="listOfTQBPanelMembers" type="User[]" />
+  <aura:attribute name="IsChairPersonEmailreceived" type="Boolean" default="false" />
+  <aura:attribute name="tqbChairPersonName" type="String" />
+  <aura:attribute name="listOfAdhocSelectedMembers" type="TQB_Ad_Hoc_Entry__c[]" />
 
   <aura:handler event="c:TQBCPMeetPrepNavigator" action="{!c.populateMeetPrep}"/>
 
@@ -66,13 +69,13 @@
 
   <aura:if isTrue="{!(v.loggedInUserRole.UserRole.Name == 'TQB COORDINATOR')}">
     <div class="slds-panel__section" aura:id="tqbChairPersonList">
-      <c:TQBCPWizardCoordinator candPackage="{!v.candPackage}" listOfTQBChairPersons="{!v.listOfTQBChairPersons}" />
+      <c:TQBCPWizardCoordinator candPackage="{!v.candPackage}" listOfTQBChairPersons="{!v.listOfTQBChairPersons}" listOfTQBPanelMembers="{!v.listOfTQBPanelMembers}" IsChairPersonEmailreceived="{!v.IsChairPersonEmailreceived}" tqbChairPersonName="{!v.tqbChairPersonName}" listOfAdhocSelectedMembers="{!v.listOfAdhocSelectedMembers}" />
     </div>
   </aura:if>
 
   <aura:if isTrue="{!(v.loggedInUserRole.UserRole.Name == 'TQB CHAIR')}">
     <div class="slds-panel__section" aura:id="tqbPanelMembersList">
-      <c:TQBCPWizardChairPerson candPackage="{!v.candPackage}" listOfTQBPanelMembers="{!v.listOfTQBPanelMembers}" />
+      <c:TQBCPWizardChairPerson candPackage="{!v.candPackage}" listOfTQBPanelMembers="{!v.listOfTQBPanelMembers}" /> 
     </div>
   </aura:if>
 

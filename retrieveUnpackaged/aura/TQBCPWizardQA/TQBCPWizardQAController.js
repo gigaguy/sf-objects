@@ -3,13 +3,14 @@
 		var pkg = component.get("v.candPackage");
 		var quest = component.get("v.question");
 		var questionIndex = component.get("v.questionIndex");
-		console.log('questionindex value in TQBCPWizardQAController=' + questionIndex);
+		console.log('INFO - questionindex value in TQBCPWizardQAController : selectQuestion =' + questionIndex);
 		var evt = $A.get("e.c:TQBCPViewQA");
 		evt.setParams({ "candpkg": pkg, "question": quest, "questionIndex":questionIndex});
 		evt.fire();
 	},
 
 	doInit : function(component, event, helper) {
+      console.log('INFO - TQBCPWizardQAController : doInit START');
       var questAnswerHtmlComment = component.get("v.question.Answer__c");
 	    var div = document.createElement("div");
 			div.innerHTML = questAnswerHtmlComment;

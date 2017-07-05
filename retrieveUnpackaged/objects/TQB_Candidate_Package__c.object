@@ -293,27 +293,30 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>TQB_Chair_Person_Name__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>TQB Chair Person Name</description>
+        <fullName>TQB_Adhoc_Entry_Name__c</fullName>
+        <description>Name of the Adhoc Entry selected</description>
         <externalId>false</externalId>
-        <label>TQB Chair Person Name</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>User.UserRole.DeveloperName</field>
-                <operation>equals</operation>
-                <value>TQB_CHAIR</value>
-            </filterItems>
-            <isOptional>true</isOptional>
-        </lookupFilter>
-        <referenceTo>User</referenceTo>
-        <relationshipName>TQB_Candidate_Packages2</relationshipName>
+        <label>TQB Adhoc Entry Name</label>
+        <length>30</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TQB_Chair_Person_Name__c</fullName>
+        <description>Name of the TQB Chair person</description>
+        <externalId>false</externalId>
+        <label>TQB Chair Person Name</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>TQB_Panel_Member_1_Name__c</fullName>
@@ -379,6 +382,17 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>isEmailReceivedByCoordinator__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This fields gives an info whether coordinator received email or not from Selected TQB Chair person</description>
+        <externalId>false</externalId>
+        <label>isEmailReceivedByCoordinator</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <label>TQB Candidate Package</label>
     <listViews>

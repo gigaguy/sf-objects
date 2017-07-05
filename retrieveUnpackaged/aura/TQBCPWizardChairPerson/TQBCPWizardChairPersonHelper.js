@@ -20,22 +20,63 @@
 	updatePanelMemberTable : function(component, event) {
 
 		console.log('TQBCPWizardChairPersonHelper:updatePanelMemberTable' + component.get("v.selectedRecord"));
-       
-       var action = component.get("c.setTQBPanelMembersList");
-	    action.setParams({
-	      "candPkgId": component.get("v.candPackage.Id") ,
-	      "user" : component.get("v.selectedRecord")
-	    });
-	    action.setCallback(this, function(response) {
-	    	var state = response.getState();
-	       if (component.isValid() && state === "SUCCESS") {
-				console.log("value of response from server in TQBCPWizardChairPersonHelper", response.getReturnValue());
-				component.set("v.listOfTQBPanelMembers", response.getReturnValue());
-			} else if (state === "ERROR") {
-				console.log('Error from server');
-			}
-		});
-	  $A.enqueueAction(action);
+
+	  console.log('checking the duplicate of panel members');
+	  var panelMemberList = component.get("v.listOfTQBPanelMembers");
+	  console.log('Displaying the panel members list =' + panelMemberList);
+
+	  var newPanelEntryId = component.get("v.selectedRecord.Id");
+      console.log('selected panel member entry = '+ newPanelEntryId);
+      
+      var isDuplicatePanelEntry = false;
+       for (var i = 0; i < panelMemberList.length; i++) { 
+       	  if(newPanelEntryId === panelMemberList[i].Id) {
+            console.log('Duplicate Entry added');
+            isDuplicatePanelEntry = true;
+       	  }
+       }
+       if(isDuplicatePanelEntry) {
+          $A.createComponents([
+                ["ui:message",{
+                  "title" : "Error :",
+                  "severity" : "error",
+                  "class" : "slds-size--1-of-2"
+                }],
+                ["ui:outputText",{
+                  "value" : "Panel Member already exists."
+                }]
+              ],
+              function(components) {
+                var message = components[0];
+                var outputText = components[1];
+                // set the body of the ui:message to be the ui:outputText
+                message.set("v.body", outputText);
+                component.set("v.messages", message);
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
+                window.setTimeout(
+                  $A.getCallback(function() {
+                    component.set("v.messages", []);
+                  }), 5000
+                );
+              } );
+       }
+       else{
+       	  var action = component.get("c.setTQBPanelMembersList");
+		    action.setParams({
+		      "candPkgId": component.get("v.candPackage.Id") ,
+		      "user" : component.get("v.selectedRecord")
+		    });
+		    action.setCallback(this, function(response) {
+		    	var state = response.getState();
+		       if (component.isValid() && state === "SUCCESS") {
+					console.log("value of response from server in TQBCPWizardChairPersonHelper", response.getReturnValue());
+					component.set("v.listOfTQBPanelMembers", response.getReturnValue());
+				} else if (state === "ERROR") {
+					console.log('Error from server');
+				}
+			});
+	      $A.enqueueAction(action);
+        }
 	},
 
 	deletePanelMemberHelper : function(component, event, panelMemberSelectedId) {
@@ -50,6 +91,9 @@
 	    	var state = response.getState();
 	       if (component.isValid() && state === "SUCCESS") {
 				console.log("value of response from server in TQBCPWizardChairPersonHelper:deletePanelMemberHelper", response.getReturnValue());
+				var evt = $A.get("e.c:TQBCPMeetPrepNavigator");
+		        evt.setParams({ "candpkg": component.get("v.candPackage") });
+		        evt.fire();
 			} else if (state === "ERROR") {
 				console.log('Error from server');
 			}

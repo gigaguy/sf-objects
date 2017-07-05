@@ -105,6 +105,7 @@
 
     save : function(component, event, helper) {
         helper.save(component, event);
+        component.find("file").getElement().value='';
     },
 
     waiting: function(component, event, helper) {

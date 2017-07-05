@@ -1,9 +1,11 @@
 ({
-	sendNotifyEmail : function(component, event, chairPersonSelectedId){
+	sendNotifyEmail : function(component, event, personSelectedId, personType){
 
 	   var action = component.get("c.sendNotifyEmail");
 	   action.setParams({
-	      "tqbChairPersonId": chairPersonSelectedId
+	   	  "candPkgId": component.get("v.candPackage.Id"),
+	      "tqbPersonId": personSelectedId,
+	      "personType": personType
 	    });
 	   action.setCallback(this, function(response) {
 	      var state = response.getState();
@@ -79,5 +81,25 @@
 	             }
 	    });
 	    $A.enqueueAction(action);
-	}
+	},
+	
+	deletePanelMemberHelper : function(component, event, panelMemberSelectedId) {
+
+	  console.log('Panel Member selected Id in deletePanelMemberHelper = '+ panelMemberSelectedId);
+      var action = component.get("c.deleteSelectedPanelMember");
+	    action.setParams({
+	      "candPkgId": component.get("v.candPackage.Id") ,
+	      "deletePanelMemberId" : panelMemberSelectedId
+	    });
+	    action.setCallback(this, function(response) {
+	    	var state = response.getState();
+	       if (component.isValid() && state === "SUCCESS") {
+				console.log("value of response from server in TQBCPWizardChairPersonHelper:deletePanelMemberHelper", response.getReturnValue());
+			} else if (state === "ERROR") {
+				console.log('Error from server');
+			}
+		});
+	  $A.enqueueAction(action);
+   
+	},
 })

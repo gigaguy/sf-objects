@@ -1,8 +1,14 @@
 ({
 	doInit : function(component, event, helper) {
-		//var toggleText = component.find("adHocEditView"); //hide ad hoc new entry
-		//$A.util.addClass(toggleText,'toggle');
+		var toggleText = component.find("adHocEditView"); //hide ad hoc new entry
+		$A.util.addClass(toggleText,'toggle');
+
+		//display list of ad hoc entries stored in the event attributes
+		var listOfAdHocEntries = event.getParam("listOfAdHocEntries");
+		component.set("v.listOfAdHocEntries",listOfAdHocEntries);
+
 		helper.showHideAddAttachment(component, event);
+		
 		//helper.hideSupComments(component, event);
 		//helper.populateCandidatePackage(component, event);
 		//helper.populateCandidateLOI(component, event);
@@ -125,7 +131,12 @@
 	},
 
 	addNewAttachment : function(component, event, helper) {
-
+		//hide comment box from supervisors when adding an attachment to the recommendation review.
+		var toggleText = component.find("comment"); //hide comment box on add new attachment screen
+		$A.util.addClass(toggleText,'toggle');		
+		var toggleText = component.find("showHideCancelSubmitApprovalButtons"); //hide cancel/submit approval buttons on add new attach screen
+		$A.util.addClass(toggleText,'toggle');
+		
 		var pkg = component.get("v.candPackage");
 		var evt = $A.get("e.c:TQBCPNewAttachment");
 		evt.setParams({ "candpkg": pkg });
@@ -165,6 +176,9 @@
 
 	populateAllAttachment : function(component, event, helper) {
 		helper.populateAttachments(component, event);
+		//display list of ad hoc entries stored in the event attributes
+		var listOfAdHocEntries = event.getParam("listOfAdHocEntries");
+		component.set("v.listOfAdHocEntries",listOfAdHocEntries);
         component.set("v.messages", []);
 	},
 

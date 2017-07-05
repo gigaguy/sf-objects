@@ -125,7 +125,7 @@
 	showQuestionsHideOther : function(component, event, helper) {
 		var toggleText = component.find("addpackageView");
 		$A.util.addClass(toggleText,'toggle');
-		var toggleText = component.find("questionsView");
+		var toggleText = component.find("questionsView");  //show questions
 		$A.util.removeClass(toggleText,'toggle');
 		var toggleText = component.find("attachView");
 		$A.util.addClass(toggleText,'toggle');

@@ -2,6 +2,7 @@
 
   <aura:attribute name="candPackage" type="TQB_Candidate_Package__c"/>
   <aura:attribute name="loggedInUserRole" type="User" />
+  <aura:attribute name="listOfAdHocEntries" type="TQB_Ad_Hoc_Entry__c[]"/>
 
   <!--<aura:attribute name="newComment" type="TQB_Comment__c"/>-->
   <aura:attribute name="newComment" type="TQB_Comment__c" default="{'sobjectType' : 'TQB_Comment__c', 'Comment__c':'', 'Comment_Type__c':'Review', 'Comment_Type_ID__c':'', TQB_Candidate_Package_ID__c : ''}"/>
@@ -70,25 +71,103 @@
 </div>
 </aura:if>
 
-  <h1 class="panel-title"><b>*Comments</b></h1><br/>
-  <div class="slds-form-element slds-size--1-of-2" >
-    <div class="slds-form-element__control">
-      <!--<ui:inputText label="Answer" class="slds-input" disabled="true" labelClass="slds-form-element__label" value="{!v.question.Answer__c}" />-->
-      <ui:inputTextArea rows="5" class="slds-textarea slds-size-1-of-2" aura:id="comment" placeholder="Enter your comments here" value="{!v.newComment.Comment__c}"/>
+
+  <div class="slds-panel__section slds-nowrap"  aura:id="adHocListSelectionView">
+    <div class="slds-form slds-form_stacked slds-grow slds-scrollable_y slds-is-sortable">
+      <div class="slds-panel__section">
+        <div class="slds-col--padded slds-size--1-of-2">
+
+          <aura:if isTrue="{!or(v.loggedInUserRole.UserRole.Name == 'EPA Enterprise', v.loggedInUserRole.UserRole.Name == 'TQB 2nd Line Supervisor Role')}">
+            <h3 class="slds-text-heading_small slds-m-bottom_medium">*Ad Hoc Selection (Approval requires selection of a minimum of 3 ad hoc entries.)</h3>
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_striped">
+              <thead>
+                <tr class="slds-text-title_caps ">
+                  <th scope="col">
+                    <div class="slds-truncate" title="First Name">Name</div>
+                  </th>
+                  <th scope="col">
+                    <div class="slds-truncate" title="Mailing Address">Mailing Address</div>
+                  </th>
+                  <th scope="col">
+                    <div class="slds-truncate" title="Research Area">Research Area</div>
+                  </th>
+                  <th scope="col">
+                    <div class="slds-truncate" title="Select">Selected?</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <aura:iteration items="{!v.listOfAdHocEntries}" var="adHocEntry">
+                  <tr>
+                    <th scope="row" data-label="Name">
+                      <div class="slds-truncate" title="Name">
+                        <a  onclick="{!c.linkAdhocPage}">{!adHocEntry.First_Name__c + ' ' + adHocEntry.Last_Name__c}</a>
+                      </div>
+                    </th>
+                    <td data-label="Mailing Address">
+                      <div  class="slds-truncate" title="Mailing Address">{!adHocEntry.Mailing_Address__c + ', ' + adHocEntry.City__c + ' ' + adHocEntry.State__c + ' ' + adHocEntry.Postal_Code__c}</div>
+                    </td>
+                    <td data-label="Research Area">
+                      <div  class="slds-truncate" title="Research Area">{!adHocEntry.Research_Area__c}</div>
+                    </td>
+                    <td>
+                      <div class="slds-truncate" align="center">
+                        <ui:inputCheckbox text="{!adHocEntry.Name}" value="{!adHocEntry.Selected__c}" aura:id="checkBox"/>
+                      </div>
+                    </td>
+                  </tr>
+                </aura:iteration>
+              </tbody>
+            </table>
+            <div align = "right">
+              <br/>
+              <ui:button aura:id="button" buttonTitle="save" class="button" label="Save Selections" press="{!c.getSelectedAdhocEntries}"/>
+            </div>
+          </aura:if>
+
+        </div>
+      </div>
     </div>
   </div>
 
-  <div>
+
+  <!-- display the new entry button for 2nd line sup only. -->
+  <aura:if isTrue="{!or(v.loggedInUserRole.UserRole.Name == 'EPA Enterprise', v.loggedInUserRole.UserRole.Name == 'TQB 2nd Line Supervisor Role')}">
+   
+      <h3 class="slds-text-heading_small slds-m-bottom_medium">Enter a new Ad Hoc Reference.</h3>
+      <button type="button" class="slds-button slds-button--neutral" onclick="{!c.createAdHocEntry}">New Entry</button>
+    
+  </aura:if>
+  <!-- do not display until after the user clicks the New Entry button -->
+  <div class="slds-panel__section" aura:id="adHocEditView">
+    <c:TQBCPWizardAdHocEdit candPackage="{!v.candPackage}" onRecoReviewScreen="true" listOfAdHocEntries="{!v.listOfAdHocEntries}"/>
+  </div>
+
+
+
+
+
+  <div class="slds-form-element slds-size--1-of-2" aura:id="comment">
+      <h1 class="panel-title"><b>*Comments</b></h1>
+    <div class="slds-form-element__control">
+      <!--<ui:inputText label="Answer" class="slds-input" disabled="true" labelClass="slds-form-element__label" value="{!v.question.Answer__c}" />-->
+      <ui:inputTextArea rows="5" class="slds-textarea slds-size-1-of-2"  placeholder="Enter your comments here" value="{!v.newComment.Comment__c}"/>
+    </div>
+ </div>
+
+
+  <div aura:id="showHideCancelSubmitApprovalButtons">
     <button type="button" class="slds-button slds-button--neutral" onclick="{!c.cancelApproveReview}">Cancel</button>
     <button type="button" class="slds-button slds-button--neutral" onclick="{!c.submitApproveReview}">Submit Approval</button>
   </div>
 
+ 
 
 
 <div class="slds-panel__section" aura:id="addAttachmentView">
   <c:TQBCpWizardReviewAddAttach candPackage="{!v.candPackage}"/>
 </div>
 
-<br/>
+
 
 </aura:component>

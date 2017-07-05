@@ -365,6 +365,23 @@ public with sharing class TQBCPWizardController {
   }
   
   @AuraEnabled
+  public static Boolean getTQBCoordinatorEmailNotification(Id candPkgId) {
+
+    TQB_Candidate_Package__c candPackage = [Select Id , Name, isEmailReceivedByCoordinator__c  from TQB_Candidate_Package__c where id =:candPkgId ];
+    return candPackage.isEmailReceivedByCoordinator__c;
+  }
+
+  @AuraEnabled
+  public static String getTQBChairPersonName(Id candPkgId) {
+
+    TQB_Candidate_Package__c candPackage = [Select Id , Name, isEmailReceivedByCoordinator__c,TQB_Chair_Person_Name__c  from TQB_Candidate_Package__c where id =:candPkgId ];
+    return candPackage.TQB_Chair_Person_Name__c;
+  }
+
+  
+
+  
+  @AuraEnabled
   public static List<User> setTQBPanelMembersList(Id candPkgId, User user) {
 
     List<User> listofPanelMembers;
@@ -517,13 +534,25 @@ public with sharing class TQBCPWizardController {
   @AuraEnabled
   public static String sendNotifyEmailCoordinator(Id candPkgId,  User[] panelMemberList, String coordinatorEmail) {
      String message,  subject, body;
+     Boolean sendEmailResult;
+     subject = 'Notify Email to Coordinator about selected Panel Members'; 
+     body = 'Notification Email';
 
-    subject = 'Notify Email to Coordinator about selected Panel Members';
+     TQB_Candidate_Package__c candPackage = [Select Id , Name , isEmailReceivedByCoordinator__c from TQB_Candidate_Package__c where id =:candPkgId ];
 
-    body = 'Notification Email';
+    sendEmailResult = sendMail('Coordinator', coordinatorEmail, subject, body);
 
-    message = sendMail('Coordinator', coordinatorEmail, subject, body);
+     if(sendEmailResult){
+          candPackage.isEmailReceivedByCoordinator__c = true;
+          message = 'Email to Coordinator'+ ' ' +'Sent Successfully';
+        }
+        else{
+          candPackage.isEmailReceivedByCoordinator__c = false;
+          message = 'Email to Coordinator'+ ' ' + 'Failed';
+        }
 
+    upsert candPackage;
+    
     return message;
   }
 
@@ -754,21 +783,29 @@ public with sharing class TQBCPWizardController {
     User loggedInUser = TQBCPWizardController.getUserRole();
 
     List<TQB_Candidate_Package__c> candidatePackages;
+     System.debug('TQBCPWizardController : getOrCreateCandidatePackage : CandidatePackageId = ' + candPkgId);
 
     //Changed the order of if else here to avoid adding conditions for tqb 1st and 2nd line and coordinator
     if(loggedInUser.UserRole.Name == 'TQB Candidate Role' || loggedInUser.UserRole.Name == 'EPA Enterprise') {
       candidatePackages = [select Id, Name, Status__c, Status_Date__c, Candidates_1st_Line_Supervisor_Name__c,
       Candidates_2nd_Line_Supervisor_Name__c, File_Type__c, Reject_Reason__c, Candidates_1st_Line_Supervisor_Name__r.Name,
       Candidates_2nd_Line_Supervisor_Name__r.Name from TQB_Candidate_Package__c where CreatedById = :UserInfo.getUserId() LIMIT 1];
+      System.debug('TQBCPWizardController : getOrCreateCandidatePackage : Getting CP for : loggedInUser.UserRole.Name = ' + loggedInUser.UserRole.Name);
+
     }
     else {
       candidatePackages = [select Id, Name, Status__c, Status_Date__c, Candidates_1st_Line_Supervisor_Name__c,
       Candidates_2nd_Line_Supervisor_Name__c, File_Type__c, Reject_Reason__c, Candidates_1st_Line_Supervisor_Name__r.Name,
       Candidates_2nd_Line_Supervisor_Name__r.Name from TQB_Candidate_Package__c where Id = :candPkgId];
+      System.debug('TQBCPWizardController : getOrCreateCandidatePackage : Getting CP for : CandidatePackageId = ' + candPkgId);
+
     }
     if (candidatePackages.size() == 0) {
+            System.debug('TQBCPWizardController : getOrCreateCandidatePackage : no CP found calling createCandidatePackage()');
       return createCandidatePackage();
     }
+
+            System.debug('TQBCPWizardController : getOrCreateCandidatePackage : returning CandidatePackages = ' + candidatePackages[0]);
 
     return candidatePackages[0];
   }
@@ -776,6 +813,8 @@ public with sharing class TQBCPWizardController {
   @AuraEnabled
   public static TQB_Candidate_Package__c  createCandidatePackage() {
     TQB_Letter_of_Intent__c candidateLOI = new TQB_Letter_of_Intent__c();
+    System.debug('TQBCPWizardController : createCandidatePackage : START creating candidate package');
+
     candidateLOI = [select Id, Candidates_1st_Line_Supervisor_Name__c, Candidates_2nd_Line_Supervisor_Name__c from TQB_Letter_of_Intent__c where CreatedById = :UserInfo.getUserId() LIMIT 1];
     TQB_Candidate_Package__c cp = new TQB_Candidate_Package__c();
     cp.Status__c = 'In Progress';
@@ -812,7 +851,7 @@ public with sharing class TQBCPWizardController {
   public static TQB_Letter_of_Intent__c getCandidateLOI(Id candPkgId) {
 
     TQB_Letter_of_Intent__c candidateLOI;
-     System.debug('TQBCPWizardController:getCandidateLOI:CandidatePackageId = ' + candPkgId);
+     System.debug('TQBCPWizardController : getCandidateLOI : CandidatePackageId = ' + candPkgId);
 
      if(String.isNotBlank(candPkgId)) {
 
@@ -912,7 +951,8 @@ public with sharing class TQBCPWizardController {
 
   @AuraEnabled
   public static List<TQB_Candidate_Questionnaire__c>  getCandidateQuestions(Id candPkgId) {
-    System.debug('candPkgId = ' + candPkgId);
+    System.debug('TQBCPWizardController : getCandidateQuestions : candPkgId = ' + candPkgId);
+    System.debug('TQBCPWizardController : getCandidateQuestions : UserInfo.getUserId() = ' + UserInfo.getUserId());
     List<TQB_Candidate_Questionnaire__c> ListOfQuestions;
 
     ListOfQuestions = [Select Id, Name, Question__c, Answer__c, Category__c, TQB_Candidate_Package__c FROM TQB_Candidate_Questionnaire__c where TQB_Candidate_Package__c = :candPkgId];
@@ -928,9 +968,11 @@ public with sharing class TQBCPWizardController {
         questionnaire.Category__c = cq.Category__c;
         ListOfQuestions.add(questionnaire);
       }
+      System.debug('INSERT - TQBCPWizardController : getCandidateQuestions : inserting ListOfQuestions = ' + ListOfQuestions);
+
       insert ListOfQuestions;
     }
-    System.debug('ListOfQuestions = ' + ListOfQuestions);
+    System.debug('RETURN TQBCPWizardController : getCandidateQuestions : returning ListOfQuestions = ' + ListOfQuestions);
     return ListOfQuestions;
   }
 
@@ -1184,24 +1226,57 @@ public with sharing class TQBCPWizardController {
   }
 
   @AuraEnabled
-  public static String sendNotifyEmail(Id tqbChairPersonId) {
-    String message, chairPersonEmail, subject, body, chairPersonFullName;
+  public static String sendNotifyEmail(Id candPkgId, Id tqbPersonId, String personType) {
+    String message, personEmail, subject, body, personFullName;
+    Boolean sendEmailResult;
 
-    User chairPerson = [SELECT Name,Title,Phone,Email FROM User WHERE Id = :tqbChairPersonId];
+    TQB_Candidate_Package__c candPackage = [Select Id , Name , isEmailReceivedByCoordinator__c,TQB_Chair_Person_Name__c,TQB_Adhoc_Entry_Name__c  from TQB_Candidate_Package__c where id =:candPkgId ];
+    if(personType == 'adhoc') {
+       TQB_Ad_Hoc_Entry__c adhocEntry =  [Select Name,Email__c,Id,First_Name__c,Last_Name__c from TQB_Ad_Hoc_Entry__c WHERE Id = :tqbPersonId];
+       personEmail = adhocEntry.Email__c;
+       personFullName = adhocEntry.First_Name__c + ' ' + adhocEntry.Last_Name__c;
+    }
+    else{
+       User person = [SELECT Name,Title,Phone,Email FROM User WHERE Id = :tqbPersonId];
+       personEmail = person.Email;
+       personFullName = person.Name;
+    }
 
-    chairPersonEmail = chairPerson.Email;
-    chairPersonFullName = chairPerson.Name;
-    subject = 'Notify Email to get your approval to be as TQBChair person';
-    body = 'Notification Email';
-    message = sendMail(chairPersonFullName, chairPersonEmail, subject, body);
+     if(personType == 'chair') {
+        subject = 'Notify Email to get your approval to be as TQBChair person';
+        body = 'Notification Email';
+      }
+      else if(personType == 'adhoc'){
+        subject = 'Notify Email to get your approval to be as TQB selected Adhoc Panel Member';
+        body = 'Notification Email';
+      }
+      else{
+        subject = 'Notify Email to Selected Panel members';
+        body = 'Notification Email';
+      }
+    
+    sendEmailResult = sendMail(personFullName, personEmail, subject, body);
 
+     if(sendEmailResult && (personType == 'chair' || personType == 'panel')){
+          candPackage.TQB_Chair_Person_Name__c = personFullName;
+          upsert candPackage;
+          message = 'Email to'+ ' ' +personFullName + ' ' +'Sent Successfully';
+        }
+      else if (sendEmailResult && personType == 'adhoc'){
+          candPackage.TQB_Adhoc_Entry_Name__c = personFullName;
+          upsert candPackage;
+          message = 'Email to'+ ' ' +personFullName + ' ' +'Sent Successfully';
+      }
+      else{
+         message = 'Email to '+ ' ' +personFullName + ' '  + 'Failed';
+      }
     return message;
   }
 
   //Email code got from Trailhead
-  private static String sendMail(String fullName, String address, String subject, String body) {
+  private static Boolean sendMail(String fullName, String address, String subject, String body) {
         // Create an email message object
-        String result;
+        Boolean result;
         Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
         String[] toAddresses = new String[] {address};
         mail.setToAddresses(toAddresses);
@@ -1213,13 +1288,8 @@ public with sharing class TQBCPWizardController {
                                  new Messaging.SingleEmailMessage[] { mail });
 
         // Call a helper method to inspect the returned results
-        Boolean sendResult = inspectResults(results);
-        if(sendResult){
-          result = 'Email to'+ ' ' +fullName + ' ' +'Sent Successfully';
-        }
-        else{
-          result = 'Email to '+ ' ' +fullName + ' '  + 'Failed';
-        }
+        result = inspectResults(results);
+
         return result;
     }
 

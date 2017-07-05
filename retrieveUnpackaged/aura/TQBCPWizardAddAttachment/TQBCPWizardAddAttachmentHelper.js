@@ -98,6 +98,7 @@
         });
 
        $A.enqueueAction(action);
+       component.find("file").getElement().value='';
 		//document.location.reload();
     },
 

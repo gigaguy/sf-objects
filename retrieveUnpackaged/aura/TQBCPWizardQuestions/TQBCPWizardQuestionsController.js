@@ -125,7 +125,7 @@
 
 		var selected = event.getParam("candpkg");
 		component.set("v.candPackage",selected);
-		console.log('TQBCPWizardQuestionsController : populateQA : ');
+		console.log('INFO TQBCPWizardQuestionsController : populateQA : ');
 		console.log(component.get("v.candPackage"));
 		console.log(component.get("v.candPackage.Id"));
 
@@ -143,8 +143,10 @@
 			var state = response.getState();
 			if (component.isValid() && state === "SUCCESS") {
 				component.set("v.listOfQuestions", response.getReturnValue());
+				console.log('SUCCESS - TQBCPWizardQuestionsController : populateQA : list of questions = ' + response.getReturnValue());
+
 			} else if (state === "ERROR") {
-				/*var errors = response.getError();
+				var errors = response.getError();
 				if (errors) {
 					$A.log("Errors", errors);
 					if (errors[0] && errors[0].message) {
@@ -152,7 +154,7 @@
 					}
 				} else {
 					$A.error("Unknown error");
-				}*/
+				}
 			}
 		});
 		$A.enqueueAction(action);
