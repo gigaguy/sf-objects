@@ -8,6 +8,8 @@
     <aura:attribute name="tqbChairPersonName" type="String" />
     <aura:attribute name="isOpen" type="boolean" default="false"/>
     <aura:attribute name="listOfAdhocSelectedMembers" type="TQB_Ad_Hoc_Entry__c[]" />
+    <aura:attribute name="selectedCheckBoxCount" type="integer" default="0" />
+    
     
     <div aura:id="messages">
       {!v.messages}
@@ -24,7 +26,7 @@
         <br/>
         <h3 class="slds-text-heading_small slds-m-bottom_medium">TQB Panel Members</h3>
          <form role="form" class="slds-form slds-form--stacked slds-grid slds-wrap">
-          <div class="slds-col--padded slds-size--2-of-4">
+          <div class="slds-col--padded slds-size--2-of-3">
             <div class="slds-form-element">
                  <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_striped">
                     <thead>
@@ -78,59 +80,7 @@
                    </table>
               </div>
             </div>
-            <div class="slds-col--padded slds-size--2-of-4">
-              <div class="slds-form-element">
-                 <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_striped">
-                    <thead>
-                      <tr class="slds-text-title_caps">
-                        <th scope="col">
-                         <div class="slds-truncate" title="Select">Select</div>
-                        </th>
-                        <th scope="col">
-                         <div class="slds-truncate" title="Name">Name</div>
-                        </th>
-                        <th scope="col">
-                          <div class="slds-truncate" title="Mailing Address">Mailing Address</div>
-                        </th>
-                        <th scope="col">
-                          <div class="slds-truncate" title="Research Area">Research Area</div>
-                        </th>
-                        <th scope="col">
-                          <div class="slds-truncate" title="Action">Action</div>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                       <aura:iteration items="{!v.listOfAdhocSelectedMembers}" var="tqbAdhocMember">
-                         <tr>
-                           <td scope="row" data-label="Select">
-                             <div class="slds-truncate" title="Select">
-                              <ui:inputCheckbox text="{!tqbAdhocMember.Id}" aura:id="checkBox"/>
-                             </div>
-                           </td>
-                           <td scope="row" data-label="Name">
-                             <div class="slds-truncate" title="Name">
-                               {!tqbAdhocMember.First_Name__c + '' + tqbAdhocMember.Last_Name__c}
-                             </div>
-                           </td>
-                           <td data-label="Mailing Address">
-                             <div class="slds-truncate" title="Mailing Address">
-                              {!tqbAdhocMember.Mailing_Address__c}
-                             </div>
-                            </td>
-                            <td data-label="Research Area">
-                              <div class="slds-truncate" title="Research Area">{!tqbAdhocMember.Research_Area__c}</div>
-                            </td>
-                           <td data-label="Delete">
-                              <div class="slds-truncate" title="Notify">
-                                <button type="button" aura:id="tqbAdhocMemberNotifyButton" class="slds-button slds-button--neutral" data-record="{!tqbAdhocMember.Id}" onclick="{!c.sendNotificationToAdhocMember}">Notify</button>
-                              </div>
-                           </td>
-                         </tr>
-                       </aura:iteration>
-                   </tbody>
-               </table>
-              </div>
+            <div class="slds-col--padded slds-size--1-of-3">
             </div>
           </form>
       </div>
@@ -202,4 +152,64 @@
   </div> 
  </aura:set>
 </aura:if>
+ <div class="slds-panel slds-grid slds-grid_vertical slds-nowrap">
+      <div class="slds-form slds-form_stacked slds-grow slds-scrollable_y">
+       <div class="slds-panel__section">
+        <h3 class="slds-text-heading_small slds-m-bottom_medium">TQB Adhoc Members:(select only one)</h3>
+         <form role="form" class="slds-form slds-form--stacked slds-grid slds-wrap">
+          <div class="slds-col--padded slds-size--3-of-5">
+            <div class="slds-form-element">
+                  <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_striped">
+                    <thead>
+                      <tr class="slds-text-title_caps">
+                        <th scope="col">
+                         <div class="slds-truncate" title="Select">Select</div>
+                        </th>
+                        <th scope="col">
+                         <div class="slds-truncate" title="Name">Name</div>
+                        </th>
+                        <th scope="col">
+                          <div class="slds-truncate" title="Mailing Address">Mailing Address</div>
+                        </th>
+                        <th scope="col">
+                          <div class="slds-truncate" title="Research Area">Research Area</div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                       <aura:iteration items="{!v.listOfAdhocSelectedMembers}" var="tqbAdhocMember">
+                         <tr>
+                           <td scope="row" data-label="Select">
+                             <div class="slds-truncate" title="Select">
+                              <ui:inputCheckbox aura:id="checkBox" text="{!tqbAdhocMember.Id}" click="{!c.countCheckBoxSelected}" />
+                             </div>
+                           </td>
+                           <td scope="row" data-label="Name">
+                             <div class="slds-truncate" title="Name">
+                               {!tqbAdhocMember.First_Name__c + '' + tqbAdhocMember.Last_Name__c}
+                             </div>
+                           </td>
+                           <td data-label="Mailing Address">
+                             <div class="slds-truncate" title="Mailing Address">
+                              {!tqbAdhocMember.Mailing_Address__c}
+                             </div>
+                            </td>
+                            <td data-label="Research Area">
+                              <div class="slds-truncate" title="Research Area">{!tqbAdhocMember.Research_Area__c}</div>
+                            </td>
+                         </tr>
+                       </aura:iteration>
+                   </tbody>
+               </table>
+            </div>
+            <br/>
+          <button type="button" aura:id="tqbAdhocMemberNotifyButton" class="slds-button slds-button--neutral" 
+               onclick="{!c.sendNotificationToAdhocMember}">Notify Adhoc Member</button>
+          </div>
+          <div class="slds-col--padded slds-size--2-of-5">
+          </div>
+        </form>
+      </div>
+     </div>
+ </div>
 </aura:component>

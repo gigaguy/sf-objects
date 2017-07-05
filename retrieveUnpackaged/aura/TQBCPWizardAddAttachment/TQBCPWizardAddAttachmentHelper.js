@@ -11,6 +11,8 @@
     CHUNK_SIZE: 450 000, /* Use a multiple of 4 */
 
     save : function(component, event) {
+        console.log("INFO - TQBCPWizardAddAttachmentController : helper.save : START");
+
         var pkg = component.get("v.candPackage");
         var fileInput = component.find("file").getElement();
     	var file = fileInput.files[0];

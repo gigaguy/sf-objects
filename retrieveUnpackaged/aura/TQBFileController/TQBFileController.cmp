@@ -27,7 +27,7 @@
       </div>
     <!-- Event Handlers used on the attachment section of the CP Wizard -->
   <!--  <aura:handler event="c:TQBCPAttachNavigator" action="{!c.populateAllAttachment}"/>-->
-   <aura:handler event="c:TQBCPNewAttachment" action="{!c.showHideAddAttachment}"/>
+ <!--  <aura:handler event="c:TQBCPNewAttachment" action="{!c.showHideAddAttachment}"/> -->
    <aura:handler event="c:TQBCPFileControllerEvent" action="{!c.populateInitMethods}"/>
    <aura:handler event="c:TQBCPAddAttachmentCommentEvent" action="{!c.showHideAddAttachComment}"/>
 

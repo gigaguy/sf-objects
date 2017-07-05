@@ -19,20 +19,32 @@
         console.log('Panel Member selected Id in deletePanelMemberController = '+ panelMemberSelectedId);
         helper.deletePanelMemberHelper(component, event, panelMemberSelectedId);
 	},
+
+  countCheckBoxSelected: function(component, event, helper) {
+     var selectedRec = event.getSource().get("v.value");
+     var getSelectedNumber = component.get("v.selectedCheckBoxCount");
+     if (selectedRec == true) {
+        getSelectedNumber++;
+      } else {
+        getSelectedNumber--;
+     }
+     component.set("v.selectedCheckBoxCount", getSelectedNumber);
+  },
+
       sendNotificationToAdhocMember : function(component, event, helper) {
-        var getAllCheckboxes = component.find("checkBox");
-        console.log('length of getAllCheckboxes '+ getAllCheckboxes.length);
-        var selectedCheckbox,selectedCheckboxId,selectedCheckBoxCount =0;
-        for (var i = 0; i < getAllCheckboxes.length; i++) {
-           selectedCheckbox = getAllCheckboxes[i].get("v.value");
-              if (selectedCheckbox == true) {
-               selectedCheckBoxCount  = selectedCheckBoxCount+1;             
-              }
-        }
+        var selectedCheckBoxCount = component.get("v.selectedCheckBoxCount");
+        console.log('value of sendNotificationToAdhocMember'+ selectedCheckBoxCount);
         if(selectedCheckBoxCount == 1){
-            selectedCheckboxId = getAllCheckboxes[i].get("v.text");
-            helper.sendNotifyEmail(component, event, selectedCheckboxId, 'adhoc');
-        }
+           var newSelectedValue, adhocPersonSelectedId;
+           var getAllCheckboxes = component.find("checkBox");
+           for (var i = 0; i < getAllCheckboxes.length; i++) {
+              newSelectedValue = getAllCheckboxes[i].get("v.value");
+              if (newSelectedValue == true) {
+                adhocPersonSelectedId = getAllCheckboxes[i].get("v.text");
+              }
+           }
+           helper.sendNotifyEmail(component, event, adhocPersonSelectedId, 'adhoc');
+         }
         else{
             $A.createComponents([
                 ["ui:message",{

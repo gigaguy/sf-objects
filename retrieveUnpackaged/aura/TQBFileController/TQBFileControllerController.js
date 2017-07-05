@@ -67,6 +67,8 @@
     },
 
     showHideAddAttachComment : function(component, event, helper) {
+                 console.log("INFO - TQBFileController : showHideAddAttachComment : START");
+
         var toggleText = component.find("ListAttachmentView"); //show the attachment list
         $A.util.removeClass(toggleText,'toggle');
         var toggleText = component.find("addAttachmentView"); //hide add attachment view
@@ -77,6 +79,8 @@
     },
 
     showHideAddAttachment : function(component, event, helper) {
+         console.log("INFO - TQBFileController : showHideAddAttachment : START");
+
         var toggleText = component.find("ListAttachmentView"); //hide the attachment list
 		$A.util.addClass(toggleText,'toggle');
         var toggleText = component.find("addAttachmentView"); //display add attachment view
@@ -89,6 +93,8 @@
 
 
     populateCandidatePackage : function(component, event) {
+                 console.log("INFO - TQBFileController : populateCandidatePackage : START");
+
         var action = component.get("c.getCandidatePackage");
         action.setCallback(this, function(response) {
             var state = response.getState();
@@ -100,12 +106,15 @@
     },
 
     populateAllAttachment : function(component, event, helper) {
+        console.log("INFO - TQBFileController : populateAllAttachment : START");
+
         helper.populateAttachments(component, event);
     },
 
     save : function(component, event, helper) {
+        console.log("INFO - TQBFileController : save : START");
         helper.save(component, event);
-        component.find("file").getElement().value='';
+
     },
 
     waiting: function(component, event, helper) {

@@ -18,9 +18,22 @@
     },
     
     save : function(component, event, helper) {
+        console.log("INFO - TQBCPWizardAddAttachmentController : save : START");
         helper.save(component, event);
     },
     
+    showHideAddAttachment : function(component, event, helper) {
+         console.log("INFO - TQBCPWizardAddAttachmentController : showHideAddAttachment : START");
+
+        var toggleText = component.find("ListAttachmentView"); //hide the attachment list
+        $A.util.addClass(toggleText,'toggle');
+        var toggleText = component.find("addAttachmentView"); //display add attachment view
+        $A.util.removeClass(toggleText,'toggle');
+        var toggleText = component.find("addAttachCommentView"); //hide add attach commment view
+        $A.util.addClass(toggleText,'toggle');
+
+    },
+
     goToAttach : function(component, event, helper) {
          var evt = $A.get("e.c:TQBCPAttachNavigator");
 		 evt.setParams({ "candpkg": component.get("v.candPackage")});

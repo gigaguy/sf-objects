@@ -152,6 +152,8 @@
 	// Deletes the attachment.
 	deleteAttachment : function(component, event, helper) {
 		helper.deleteAttachment(component, event);
+
+		
 	},
 
 	showHideAddAttachment : function(component, event, helper) {
