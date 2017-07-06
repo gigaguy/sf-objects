@@ -17,6 +17,7 @@
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:handler name="change" value="{!v.newForm}" action="{!c.openModal2}" />
     <aura:handler name="onSaveSuccess" event="force:recordSaveSuccess" action="{!c.handleSaveSuccess}" />
+    <aura:handler name="recordSave" event="force:recordSave" action="{!c.handleSave}" />
 
     <!-- Header-->
     <p style="margin-bottom: 35px; font-size: 125%;">
@@ -154,12 +155,17 @@
             <span class="slds-assistive-text">Close</span>
             </button>
             <h2 id="header99" class="slds-text-heading--medium">
-                Status: Not Saved
+                Status: Not Saved {!v.message}
             </h2>
+            <div aura:id="div1"></div>
           </div>
           <!--BOX BODY-->
           <div class="slds-modal__content slds-p-around--medium">
-                <force:recordedit aura:id="edit" recordId="{!v.newForm.Id}" />
+              <force:recordedit aura:id="edit" recordId="{!v.newForm.Id}" />
+              <!--<force:recordData aura:id="recordHandler"
+                                mode="edit"
+                                targetRecord="{!v.newForm}"
+                                recordId="{!v.newForm.Id}"/>-->
           </div>
           <!--BOX FOOTER-->
           <div class="slds-modal__footer">

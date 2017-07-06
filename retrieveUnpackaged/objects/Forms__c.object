@@ -814,6 +814,12 @@
         <customTabListAdditionalFields>Form_Status__c</customTabListAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Test</fullName>
+        <active>false</active>
+        <errorConditionFormula>AWL_Phone_Number__c = &apos;123456&apos;</errorConditionFormula>
+        <errorMessage>Phone Number can&apos;t be 123456</errorMessage>
+    </validationRules>
     <webLinks>
         <fullName>Printable_View</fullName>
         <availability>online</availability>

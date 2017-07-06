@@ -30,23 +30,23 @@
                 <apex:pageBlockSection title="Approver Fields" columns="1">
                     <apex:pageBlockSectionItem >
                         <apex:outputLabel value="Supervisor"/>
-                        <c:Autocomplete sobject="User" labelfield="Name" valuefield="Id" targetfield="{!u.Supervisor__c}" />
+                        <c:Autocomplete sobject="User" whereClause="IsActive = true" labelfield="Name" valuefield="Id" targetfield="{!u.Supervisor__c}" syncManualEntry="false" />
                     </apex:pageBlockSectionItem>
                     <apex:pageblocksectionitem >
                         <apex:outputlabel value="Time Keeper" />
-                        <c:Autocomplete sobject="User" labelfield="Name" valuefield="Id" targetfield="{!u.Time_Keeper__c}" />
+                        <c:Autocomplete sobject="User" whereClause="IsActive = true" labelfield="Name" valuefield="Id" targetfield="{!u.Time_Keeper__c}" syncManualEntry="false" />
                     </apex:pageblocksectionitem>
                     <apex:pageblocksectionitem >
                         <apex:outputlabel value="Supervisor 2" />
-                        <c:Autocomplete sobject="User" labelfield="Name" valuefield="Id" targetfield="{!u.Supervisor_2__c}" />
+                        <c:Autocomplete sobject="User" whereClause="IsActive = true" labelfield="Name" valuefield="Id" targetfield="{!u.Supervisor_2__c}" syncManualEntry="false" />
                     </apex:pageblocksectionitem>
                     <apex:pageblocksectionitem >
                         <apex:outputlabel value="Finding Official" />
-                        <c:Autocomplete sobject="User" labelfield="Name" valuefield="Id" targetfield="{!u.Funding_Official__c}" />
+                        <c:Autocomplete sobject="User" whereClause="IsActive = true" labelfield="Name" valuefield="Id" targetfield="{!u.Funding_Official__c}" syncManualEntry="false" />
                     </apex:pageblocksectionitem>
                     <apex:pageblocksectionitem >
                         <apex:outputlabel value="Training Officer" />
-                        <c:Autocomplete sobject="User" labelfield="Name" valuefield="Id" targetfield="{!u.Training_Officer__c}" />
+                        <c:Autocomplete sobject="User" whereClause="IsActive = true" labelfield="Name" valuefield="Id" targetfield="{!u.Training_Officer__c}" syncManualEntry="false" />
                     </apex:pageblocksectionitem>
                 </apex:pageBlockSection>
                 

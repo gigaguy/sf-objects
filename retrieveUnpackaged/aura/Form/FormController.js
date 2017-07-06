@@ -89,8 +89,38 @@
         });
         $A.enqueueAction(action);
     },
+    handleSave : function(component, event, helper){
+		//component.set("v.isOpen", false);
+        //component.set("v.modalName", "");
+		//component.set("v.message", "THIS FIRED");
+		
+	},
     saveOnly : function(component, event, helper){
-		component.find("edit").get("e.recordSave").fire();
+        console.log('in c.saveOnly');
+          try {
+            component.find("edit").get("e.recordSave").fire();
+              console.log('no error');
+          }
+          catch (e) {
+            console.log(e);
+          }
+        
+        /*component.find("edit").recordSave($A.getCallback(function(saveResult) {
+            // NOTE: If you want a specific behavior(an action or UI behavior) when this action is successful 
+            // then handle that in a callback (generic logic when record is changed should be handled in recordUpdated event handler)
+            if (saveResult.state === "SUCCESS" || saveResult.state === "DRAFT") {
+                // handle component related logic in event handler
+                console.log("Save Successful");
+            } else if (saveResult.state === "INCOMPLETE") {
+                console.log("User is offline, device doesn't support drafts.");
+            } else if (saveResult.state === "ERROR") {
+                console.log('Problem saving record, error: ' + JSON.stringify(saveResult.error));
+            } else {
+                console.log('Unknown problem, state: ' + saveResult.state + ', error: ' + JSON.stringify(saveResult.error));
+            }
+        }));*/
+        
+
         // Needed to update display of forms, sets display to "viewMyForms" for feedback to user that it was saved
         var action = component.get("c.findExistingForms");
         action.setParams({
@@ -181,9 +211,6 @@
 		component.set("v.isOpen", false);
         component.set("v.modalName", "");
 		component.set("v.message", "Your Form was saved");
-	},
-    gotoURL : function (component, event, helper) {
-    	window.open("/auth/ProfilePage?sID="+component.get("v.sessionID")+"&fID="+component.get("v.newForm.Id"), "_blank")
 	},
     cancelCreationModal : function(component, event, helper){
     	component.set("v.message", null);

@@ -79,6 +79,19 @@ public class FormPageController {
     }
     
     @AuraEnabled
+    public static string saveForm(Forms__c sentForm, string sID){
+        String message = 'Saved';
+        try{
+            upsert sentForm;
+            return message;
+        }
+        catch(exception ex){
+            message = ex.getMessage();
+            return message;
+        }
+    }
+    
+    @AuraEnabled
     public static string submitForApproval(ID formID, string sID){
         String message = 'Not Submitted - Please check that all your approvers are set and try again';
         try{
