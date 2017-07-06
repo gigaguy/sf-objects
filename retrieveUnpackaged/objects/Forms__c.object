@@ -52,42 +52,6 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
-        <fullName>DateFrom1__c</fullName>
-        <externalId>false</externalId>
-        <label>From Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>DateFrom2__c</fullName>
-        <externalId>false</externalId>
-        <label>From Date 2</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>DateTo1__c</fullName>
-        <externalId>false</externalId>
-        <label>To Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>DateTo2__c</fullName>
-        <externalId>false</externalId>
-        <label>To Date 2</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Description__c</fullName>
         <externalId>false</externalId>
         <label>Description</label>
@@ -237,78 +201,6 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Hours1__c</fullName>
-        <externalId>false</externalId>
-        <label>Total Work Hours</label>
-        <precision>6</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Hours2__c</fullName>
-        <externalId>false</externalId>
-        <label>A/L Hours</label>
-        <precision>6</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Hours3__c</fullName>
-        <externalId>false</externalId>
-        <label>S/L Hours</label>
-        <precision>6</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Hours4__c</fullName>
-        <externalId>false</externalId>
-        <label>Total Work Hours 2</label>
-        <precision>6</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Hours5__c</fullName>
-        <externalId>false</externalId>
-        <label>A/L Hours 2</label>
-        <precision>6</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Hours6__c</fullName>
-        <externalId>false</externalId>
-        <label>S/L Hours 2</label>
-        <precision>6</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Name__c</fullName>
         <externalId>false</externalId>
         <label>Name</label>
@@ -320,21 +212,12 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Phone__c</fullName>
-        <externalId>false</externalId>
-        <label>Phone</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Phone</type>
-    </fields>
-    <fields>
         <fullName>Quantity__c</fullName>
         <defaultValue>1</defaultValue>
         <externalId>false</externalId>
         <label>Quantity</label>
         <precision>6</precision>
-        <required>false</required>
+        <required>true</required>
         <scale>0</scale>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -364,55 +247,11 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-    <fields>
-        <fullName>TimeEnd1__c</fullName>
-        <externalId>false</externalId>
-        <label>End Time</label>
-        <length>16</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>TimeEnd2__c</fullName>
-        <externalId>false</externalId>
-        <label>End Time 2</label>
-        <length>16</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>TimeStart1__c</fullName>
-        <externalId>false</externalId>
-        <label>Start Time</label>
-        <length>16</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>TimeStart2__c</fullName>
-        <externalId>false</externalId>
-        <label>Start Time 2</label>
-        <length>16</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
     <label>Form</label>
     <listViews>
         <fullName>All</fullName>
-        <columns>Name__c</columns>
         <columns>NAME</columns>
+        <columns>Name__c</columns>
         <columns>RECORDTYPE</columns>
         <columns>Form_Type__c</columns>
         <columns>Form_Status__c</columns>
@@ -421,6 +260,7 @@
     </listViews>
     <listViews>
         <fullName>Developer_Sandbox</fullName>
+        <columns>NAME</columns>
         <columns>Name__c</columns>
         <columns>HR_Organization__c</columns>
         <columns>Description__c</columns>
@@ -504,58 +344,6 @@
         <active>true</active>
         <description>EPA-100 Form</description>
         <label>EPA-100</label>
-        <picklistValues>
-            <picklist>Form_Status__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Recalled</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted for Approval</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Form_Type__c</picklist>
-            <values>
-                <fullName>Custom Object</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Developer Pro Sandbox</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Developer Sandbox</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Full Sandbox</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>SF_100</fullName>
-        <active>true</active>
-        <description>SF-100 Form</description>
-        <label>SF-100</label>
         <picklistValues>
             <picklist>Form_Status__c</picklist>
             <values>

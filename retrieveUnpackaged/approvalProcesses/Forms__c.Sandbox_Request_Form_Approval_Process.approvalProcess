@@ -19,7 +19,7 @@
         <allowDelegate>false</allowDelegate>
         <assignedApprover>
             <approver>
-                <name>twinkle.malhotra2@csra.com</name>
+                <name>hinds.timothy2@epa.gov</name>
                 <type>user</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
