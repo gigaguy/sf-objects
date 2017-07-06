@@ -17,6 +17,8 @@
 	    helper.populateAttachments(component, event);
 
 	    if (recoType == 'approve') {
+   		  	console.log('INFO - TQBCPWizardRecoController : populateReco : approve screen');
+
 			var toggleText = component.find("adHocEditView"); //hide ad hoc new entry
 			$A.util.addClass(toggleText,'toggle');
 			var toggleText = component.find("approveReviewView"); //show
@@ -30,6 +32,8 @@
 		}
 
 	    if (recoType == 'return') {
+   		  	console.log('INFO - TQBCPWizardRecoController : populateReco : return screen');
+
 			var toggleText = component.find("adHocEditView"); //hide
 			$A.util.addClass(toggleText,'toggle');
 			var toggleText = component.find("approveReviewView"); //hide
@@ -43,6 +47,8 @@
 		}
 
 	    if (recoType == 'reject') {
+   		  	console.log('INFO - TQBCPWizardRecoController : populateReco : reject screen');
+
 			var toggleText = component.find("adHocEditView"); //hide
 			$A.util.addClass(toggleText,'toggle');
 			var toggleText = component.find("approveReviewView"); //hide

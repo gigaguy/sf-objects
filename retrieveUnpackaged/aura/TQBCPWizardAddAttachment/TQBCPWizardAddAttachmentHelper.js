@@ -100,7 +100,14 @@
         });
 
        $A.enqueueAction(action);
+       //clear the file name after upload completes
        component.find("file").getElement().value='';
+
+             console.log("INFO - TQBCPWizardAddAttachmentController : helper.save : firing TQBCPAttachNavigator event");
+
+         var evt = $A.get("e.c:TQBCPAttachNavigator");
+         evt.setParams({ "candpkg": component.get("v.candPackage")});
+         evt.fire();
 		//document.location.reload();
     },
 

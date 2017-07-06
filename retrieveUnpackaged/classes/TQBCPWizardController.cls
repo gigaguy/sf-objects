@@ -1263,7 +1263,7 @@ public with sharing class TQBCPWizardController {
           message = 'Email to'+ ' ' +personFullName + ' ' +'Sent Successfully';
         }
       else if (sendEmailResult && personType == 'adhoc'){
-          candPackage.TQB_Adhoc_Entry_Name__c = personFullName;
+          candPackage.TQB_Adhoc_Entry_Name__c = tqbPersonId;
           upsert candPackage;
           message = 'Email to'+ ' ' +personFullName + ' ' +'Sent Successfully';
       }
@@ -1271,6 +1271,16 @@ public with sharing class TQBCPWizardController {
          message = 'Email to '+ ' ' +personFullName + ' '  + 'Failed';
       }
     return message;
+  }
+  
+  @AuraEnabled
+  public static String getSelectedAdHocEntry(Id candPkgId) {
+      String adhocEntry;
+      TQB_Candidate_Package__c candPackage = [Select Id , Name, TQB_Adhoc_Entry_Name__c  from TQB_Candidate_Package__c where id =:candPkgId ];
+      if(String.isNotEmpty(candPackage.TQB_Adhoc_Entry_Name__c)){
+         adhocEntry= candPackage.TQB_Adhoc_Entry_Name__c;
+      }
+      return adhocEntry;
   }
 
   //Email code got from Trailhead

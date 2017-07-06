@@ -17,9 +17,24 @@
 
     save : function(component, event, helper) {
         helper.save(component, event);
+        // restore user screen controls after save
+        var toggleText = component.find("comment"); //display add attachment view
+        $A.util.removeClass(toggleText,'toggle');
+        var toggleText = component.find("showHideCancelSubmitApprovalButtons"); //show buttons
+        $A.util.removeClass(toggleText,'toggle');
+
+        
     },
 
     goToReco : function(component, event, helper) {
+        //restore user controls 
+        var toggleText = component.find("comment"); //display add attachment view
+        $A.util.removeClass(toggleText,'toggle');
+        var toggleText = component.find("showHideCancelSubmitApprovalButtons"); //show buttons
+        $A.util.removeClass(toggleText,'toggle');
+
+        
+
          var evt = $A.get("e.c:TQBCPRecoNavigator");
 		 evt.setParams({ "candpkg": component.get("v.candPackage")});
 		 evt.fire();

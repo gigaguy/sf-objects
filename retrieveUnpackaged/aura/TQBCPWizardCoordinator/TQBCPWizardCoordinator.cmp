@@ -8,9 +8,8 @@
     <aura:attribute name="tqbChairPersonName" type="String" />
     <aura:attribute name="isOpen" type="boolean" default="false"/>
     <aura:attribute name="listOfAdhocSelectedMembers" type="TQB_Ad_Hoc_Entry__c[]" />
-    <aura:attribute name="selectedCheckBoxCount" type="integer" default="0" />
-    
-    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
     <div aura:id="messages">
       {!v.messages}
     </div>
@@ -181,7 +180,7 @@
                          <tr>
                            <td scope="row" data-label="Select">
                              <div class="slds-truncate" title="Select">
-                              <ui:inputCheckbox aura:id="checkBox" text="{!tqbAdhocMember.Id}" click="{!c.countCheckBoxSelected}" />
+                              <ui:inputCheckbox aura:id="checkBox" text="{!tqbAdhocMember.Id}" />
                              </div>
                            </td>
                            <td scope="row" data-label="Name">

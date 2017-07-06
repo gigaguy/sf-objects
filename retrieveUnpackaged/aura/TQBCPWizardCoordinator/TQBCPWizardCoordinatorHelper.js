@@ -102,4 +102,25 @@
 	  $A.enqueueAction(action);
    
 	},
+
+	getSelectedAdhocMember : function(component, event){
+  	var action = component.get("c.getSelectedAdHocEntry"); // method in the apex class
+       action.setParams({
+	      "candPkgId": component.get("v.candPackage.Id")
+	    });
+	    action.setCallback(this, function(a) {
+	      console.log('TQBWizardMeetPrepHelper:getSelectedAdhocMember'+a.getReturnValue());
+	      var retrievedAdhocEntryId = a.getReturnValue();
+	      var getAllCheckboxes = component.find("checkBox");
+	         for (var i = 0; i < getAllCheckboxes.length; i++) {
+	             var newSelectedIdValue = getAllCheckboxes[i].get("v.text");
+	            if (newSelectedIdValue && retrievedAdhocEntryId == newSelectedIdValue) {
+	              getAllCheckboxes[i].set("v.value", true);
+	            }
+	         }
+	    });
+	 
+	 $A.enqueueAction(action);
+  }
+
 })
