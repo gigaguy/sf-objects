@@ -8,6 +8,7 @@
 		component.set("v.adHocEntry",selected);
 		helper.populateStateValues(component);
 	},
+
 	gotoAdHocNew: function(component, event, helper) {
     console.log("==============================================");
     console.log("INFO - TQBCPWizardAdHocEditController : gotoAdHocNew : START");
@@ -36,6 +37,7 @@
     		console.log("INFO - TQBCPWizardAdHocEditController : fire event: TQBCPRecoNavigator onRecoReviewScreen = " + onRecoReviewScreen);
 			var pkg = component.get("v.candPackage");   
 			var adHocEntries = component.get("v.listOfAdHocEntries");
+
 			var evt = $A.get("e.c:TQBCPRecoNavigator");
 			evt.setParams({ "candpkg": pkg, "recoType": "approve", "listOfAdHocEntries" : adHocEntries });
 			evt.fire();
@@ -51,12 +53,24 @@
 	validateAndSaveAdHoc : function(component, event, helper) {
     console.log("==============================================");
     console.log("INFO - TQBCPWizardAdHocEditController : validateAndSaveAdHoc : START");
-    console.log("==============================================");			
+    console.log("==============================================");	
+    		var onRecoReviewScreen = component.get("v.onRecoReviewScreen");
+  		console.log("INFO - TQBCPWizardAdHocEditController :  onRecoReviewScreen after component.get = " + onRecoReviewScreen);
+		component.set("v.onRecoReviewScreen",onRecoReviewScreen);
+   		console.log("INFO - TQBCPWizardAdHocEditController :  onRecoReviewScreen after component.set = " + onRecoReviewScreen);		
 		var errorsExist = helper.validateAdHocFields(component, event);
 
     if (errorsExist == false) {
 			helper.saveAdHoc(component, event);
     	    console.log("SUCCESS - TQBCPWizardAdHocEditController : validateAndSaveAdHoc : saving ad hoc entry");		
 	  }
+
+/*
+	 if (onRecoReviewScreen == 'true'){
+		var evt = $A.get("e.c:TQBCPRecoNavigator");
+		evt.setParams({ "candpkg": pkg, "recoType": "approve", "listOfAdHocEntries" : adHocEntries });
+		evt.fire();
+	}
+*/
 	}
 })

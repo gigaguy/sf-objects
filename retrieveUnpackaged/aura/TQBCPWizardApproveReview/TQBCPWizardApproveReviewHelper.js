@@ -6,6 +6,27 @@
 		});
 		$A.enqueueAction(action);
 	},
+
+
+  setAdhocEntriesSelected : function(component, event, candPkgId, adHocEntryName, newSelectedValue){
+      console.log("==============================================");
+      console.log("INFO - TQBCPWizardRecoHelper : setAdhocEntriesSelected : START");
+     console.log("==============================================");
+     console.log("INFO - TQBCPWizardRecoHelper : setAdhocEntriesSelected : candPkgId = " + candPkgId);
+     console.log("INFO - TQBCPWizardRecoHelper : setAdhocEntriesSelected : adHocEntryName = " + adHocEntryName);
+     console.log("INFO - TQBCPWizardRecoHelper : setAdhocEntriesSelected : newSelectedValue = " + newSelectedValue);
+     console.log("==============================================");
+      console.log("INFO - TQBCPWizardRecoHelper : setAdhocEntriesSelected : END");
+
+  
+    var action = component.get("c.markAdhocReferenceSelected");
+    action.setParams({
+      "candPkgId": candPkgId,
+      "adHocEntryName" : adHocEntryName,
+      "newSelectedValue"     : newSelectedValue
+    });
+},
+
 	// Chris Alley delete candidate attachment
 	deleteAttachment: function(component, event) {
 		var Id = event.target.id;

@@ -3,6 +3,7 @@
   <aura:attribute name="candPackage" type="TQB_Candidate_Package__c"/>
   <aura:attribute name="loggedInUserRole" type="User" />
   <aura:attribute name="listOfAdHocEntries" type="TQB_Ad_Hoc_Entry__c[]"/>
+  <aura:attribute name="adHocEntryName" type="String"/>
 
   <!--<aura:attribute name="newComment" type="TQB_Comment__c"/>-->
   <aura:attribute name="newComment" type="TQB_Comment__c" default="{'sobjectType' : 'TQB_Comment__c', 'Comment__c':'', 'Comment_Type__c':'Review', 'Comment_Type_ID__c':'', TQB_Candidate_Package_ID__c : ''}"/>

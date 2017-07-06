@@ -218,7 +218,7 @@
         <button type="button" class="slds-button slds-button--neutral" onclick="{!c.submitPackage}">Submit</button>
       </aura:if>
     </aura:if>
-    <aura:if isTrue="{!v.loggedInUserRole.UserRole.Name != 'TQB Candidate Role'}">
+    <aura:if isTrue="{!or(v.loggedInUserRole.UserRole.Name != 'TQB Candidate Role', v.loggedInUserRole.UserRole.Name != 'TQB CHAIR', v.loggedInUserRole.UserRole.Name != 'TQB COORDINATOR')}">
         <!--<aura:if isTrue="{!v.candPackage.Status__c =='Submitted' || v.candPackage.Status__c == 'Approved By 1st Line Supervisor'}">-->
            <button type="button" class="slds-button slds-button--neutral" onclick="{!c.gotoReviewRecoApprove}">Approve</button>
            <button type="button" class="slds-button slds-button--neutral" onclick="{!c.gotoReviewRecoReject}">Reject</button>
