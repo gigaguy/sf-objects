@@ -112,12 +112,14 @@
 	      console.log('TQBWizardMeetPrepHelper:getSelectedAdhocMember'+a.getReturnValue());
 	      var retrievedAdhocEntryId = a.getReturnValue();
 	      var getAllCheckboxes = component.find("checkBox");
-	         for (var i = 0; i < getAllCheckboxes.length; i++) {
+	       if(getAllCheckboxes) {
+              for (var i = 0; i < getAllCheckboxes.length; i++) {
 	             var newSelectedIdValue = getAllCheckboxes[i].get("v.text");
-	            if (newSelectedIdValue && retrievedAdhocEntryId == newSelectedIdValue) {
+	            if (newSelectedIdValue && newSelectedIdValue == retrievedAdhocEntryId) {
 	              getAllCheckboxes[i].set("v.value", true);
 	            }
 	         }
+	       }
 	    });
 	 
 	 $A.enqueueAction(action);

@@ -36,7 +36,7 @@
             }
       }
 
-      if(selectedCheckBoxCount == 1){
+      if(selectedCheckBoxCount == 2){
          var newSelectedValue, adhocPersonSelectedId;
          for (var i = 0; i < getAllCheckboxes.length; i++) {
             newSelectedValue = getAllCheckboxes[i].get("v.value");
@@ -54,7 +54,7 @@
                 "class" : "slds-size--1-of-2"
               }],
               ["ui:outputText",{
-                "value" : "Please select only 1 Adhoc Member from the approved list for this package."
+                "value" : "Please select any two Adhoc Members from the approved list for this package."
               }]
             ],
             function(components) {
