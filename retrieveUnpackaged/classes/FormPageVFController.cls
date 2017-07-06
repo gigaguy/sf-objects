@@ -5,13 +5,13 @@ public class FormPageVFController {
     public string userName {get;set;}
 
     public FormPageVFController() {
-        valid = true;
+        valid = false;
         sID = UtilityMethods.getSessionID();
         uID = UtilityMethods.getUserID(sID);
         
         // Validate Session
-        //valid = UtilityMethods.validateSession(sID, uID);
-        
+        valid = UtilityMethods.validateSession(sID, uID);
+
         if (uID != null && valid) {
             valid = true;
             userName = UtilityMethods.getUserName(uID);
@@ -20,6 +20,9 @@ public class FormPageVFController {
     }
     
     public PageReference validateOrRedirect() {
+        // Log Header & Parameters
+        UtilityMethods.logHeaders();
+        // End Log Header & Parameters
         if (!valid) {
             PageReference retURL = new PageReference('/');
      		return retURL;

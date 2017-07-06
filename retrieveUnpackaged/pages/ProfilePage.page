@@ -6,7 +6,7 @@
     
     <!--Header-->
     <apex:form rendered="{!valid == true}">    
-    <div class="WebFormsNav" style="padding: 25px; width: 100%; height: 150px;">
+    <div class="WebFormsNav" style="padding: 25px; height: 150px;">
         <div style="width: 190px; float: left; position: relative;">
             <img src="{!$Resource.EPALogo}"/>
         </div>
