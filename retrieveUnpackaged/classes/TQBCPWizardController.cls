@@ -1270,6 +1270,7 @@ public with sharing class TQBCPWizardController {
       if(personType == 'chair') {
         subject = 'Notify Email to get your approval to be as TQBChair person';
         body = 'Notification Email';
+        candPackage.TQB_Chair_Person_Name__c = personFullName;
       }
       else{
         subject = 'Notify Email to Selected Panel members';
@@ -1279,7 +1280,6 @@ public with sharing class TQBCPWizardController {
     sendEmailResult = sendMail(personFullName, personEmail, subject, body);
 
      if(sendEmailResult){
-          candPackage.TQB_Chair_Person_Name__c = personFullName;
           upsert candPackage;
           message = 'Email to'+ ' ' +personFullName + ' ' +'Sent Successfully';
         }
@@ -1339,74 +1339,7 @@ public with sharing class TQBCPWizardController {
 
         return sendResult;
     }
-
-  @AuraEnabled
-  public static String[] setSelectedPanelMembers(Id candPkgId, Integer checkedPanelMembersCount, String[] checkedPanelMembersName) {
-
-   System.debug('TQBCPWizardController:setSelectedPanelMembers for Candidate Package'+ candPkgId);
-   System.debug('TQBCPWizardController:setSelectedPanelMembers for checkedPanelMembersCount'+ checkedPanelMembersCount);
-   System.debug('TQBCPWizardController:setSelectedPanelMembers for checkedPanelMembersName'+ checkedPanelMembersName);
-
-       
-           /*System.debug('TQBCPWizardController:checkedPanelMembersName0 for Candidate Package'+ checkedPanelMembersName[0]);
-
-           System.debug('TQBCPWizardController:checkedPanelMembersName1 for Candidate Package'+ checkedPanelMembersName[1]);
-           System.debug('TQBCPWizardController:checkedPanelMembersName2 for Candidate Package'+ checkedPanelMembersName[2]);
-            TQB_Candidate_Package__c candPackage = [Select Id , Name, TQB_Panel_Member_1_Name__c,TQB_Panel_Member_2_Name__c,TQB_Panel_Member_3_Name__c from TQB_Candidate_Package__c where id =:candPkgId ];
-           candPackage.TQB_Panel_Member_1_Name__c = checkedPanelMembersName[0];
-           candPackage.TQB_Panel_Member_2_Name__c = checkedPanelMembersName[1];
-           candPackage.TQB_Panel_Member_3_Name__c = checkedPanelMembersName[2];
-           System.debug('TQBCPWizardController:checkedPanelMembersName0 for Candidate Package'+ candPackage.TQB_Panel_Member_1_Name__c);
-           System.debug('TQBCPWizardController:checkedPanelMembersName1 for Candidate Package'+ candPackage.TQB_Panel_Member_2_Name__c);
-           System.debug('TQBCPWizardController:checkedPanelMembersName2 for Candidate Package'+ candPackage.TQB_Panel_Member_3_Name__c );
-           try {
-              update candPackage;
-                  System.debug('TQBCPWizardController setSelectedPanelMembers apex server: SUCCESSFULLY UPDATED SELECTED Panel members to true');
-            } catch(DmlEXception e) {
-                  System.debug('TQBCPWizardController setSelectedPanelMembers apex server: FAILED TO UPDATE SELECTED Panel members to true');
-        
-      /*
-       if(checkedPanelMembersCount == 4){
-            try {
-            TQB_Candidate_Package__c candPackage = [Select Id , Name from TQB_Candidate_Package__c where id =:candPkgId ];
-           candPackage.TQB_Panel_Member_1_Name__c = checkedPanelMembersName[0];
-           candPackage.TQB_Panel_Member_2_Name__c = checkedPanelMembersName[1];
-           candPackage.TQB_Panel_Member_3_Name__c = checkedPanelMembersName[2];
-           candPackage.TQB_Panel_Member_3_Name__c = checkedPanelMembersName[3];
-              update candPackage;
-                  System.debug('TQBCPWizardController setSelectedPanelMembers apex server: SUCCESSFULLY UPDATED SELECTED Panel members to true');
-            } catch(DmlEXception e) {
-                  System.debug('TQBCPWizardController setSelectedPanelMembers apex server: FAILED TO UPDATE SELECTED Panel members to true');
-            }
-       }
-       if(checkedPanelMembersCount == 5){
-            try {
-            TQB_Candidate_Package__c candPackage = [Select Id , Name from TQB_Candidate_Package__c where id =:candPkgId ];
-           candPackage.TQB_Panel_Member_1_Name__c = checkedPanelMembersName[0];
-           candPackage.TQB_Panel_Member_2_Name__c = checkedPanelMembersName[1];
-           candPackage.TQB_Panel_Member_3_Name__c = checkedPanelMembersName[2];
-           candPackage.TQB_Panel_Member_4_Name__c = checkedPanelMembersName[3];
-           candPackage.TQB_Panel_Member_5_Name__c = checkedPanelMembersName[4];
-              update candPackage;
-                  System.debug('TQBCPWizardController setSelectedPanelMembers apex server: SUCCESSFULLY UPDATED SELECTED Panel members to true');
-            } catch(DmlEXception e) {
-                  System.debug('TQBCPWizardController setSelectedPanelMembers apex server: FAILED TO UPDATE SELECTED Panel members to true');
-            }
-       }*/
-        System.debug('TQBCPWizardController setSelectedPanelMembers apex server: Returning  Panel members Selected  =' +  checkedPanelMembersName);
-        return checkedPanelMembersName;
-  }
-
   
-  @AuraEnabled
-  public static void setSelectedAdhocEntries(Id candPkgId, String[] selectedAdhocEntries) {
-
-   System.debug('TQBCPWizardController:setSelectedPanelMembers for Candidate Package'+ candPkgId);
-   System.debug('TQBCPWizardController:setSelectedPanelMembers for selectedAdhocEntries'+ selectedAdhocEntries);
-
-  }
-
-
   @AuraEnabled
   public Integer pageSize { get;set; }
 
@@ -1418,6 +1351,5 @@ public with sharing class TQBCPWizardController {
 
   @AuraEnabled
   public List<TQB_Candidate_Questionnaire__c> questions { get;set; }
-
 
 }

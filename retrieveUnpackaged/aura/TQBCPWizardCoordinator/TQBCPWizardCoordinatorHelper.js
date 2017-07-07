@@ -178,6 +178,9 @@
 	    	var state = response.getState();
 	       if (component.isValid() && state === "SUCCESS") {
 				console.log("value of response from server in TQBCPWizardChairPersonHelper:deletePanelMemberHelper", response.getReturnValue());
+				var evt = $A.get("e.c:TQBCPMeetPrepNavigator");
+		        evt.setParams({ "candpkg": component.get("v.candPackage") });
+		        evt.fire();
 			} else if (state === "ERROR") {
 				console.log('Error from server');
 			}
