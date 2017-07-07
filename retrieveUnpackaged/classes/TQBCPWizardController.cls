@@ -1226,28 +1226,49 @@ public with sharing class TQBCPWizardController {
   }
 
   @AuraEnabled
+  public static String sendNotifyEmailToAdhocMembers(Id candPkgId, Id[] tqbAdhocMembers) {
+    String message, subject, body, personFullName, personEmail;
+    
+    Boolean sendEmailResult;
+
+       TQB_Candidate_Package__c candPackage = [Select Id , Name ,TQB_Adhoc_Entry_Name__c,TQB_Adhoc_Entry_Name_2__c  from TQB_Candidate_Package__c where id =:candPkgId ];
+       TQB_Ad_Hoc_Entry__c adhocEntry =  [Select Name,Email__c,Id,First_Name__c,Last_Name__c from TQB_Ad_Hoc_Entry__c WHERE Id = :tqbAdhocMembers[0]];
+       TQB_Ad_Hoc_Entry__c adhocEntry1 =  [Select Name,Email__c,Id,First_Name__c,Last_Name__c from TQB_Ad_Hoc_Entry__c WHERE Id = :tqbAdhocMembers[1]];
+       
+       personEmail = adhocEntry.Email__c + ' ' + adhocEntry1.Email__c;
+      
+       personFullName = adhocEntry.First_Name__c +',' + adhocEntry.Last_Name__c + ' ' + adhocEntry1.First_Name__c + ',' + adhocEntry1.Last_Name__c ;      
+   
+        subject = 'Notify Email to get your approval to be as TQB selected Adhoc Panel Member';
+        body = 'Notification Email';        
+    
+    sendEmailResult = sendMail(personFullName, personEmail, subject, body);
+
+     if (sendEmailResult){
+          candPackage.TQB_Adhoc_Entry_Name__c = adhocEntry.Id;
+          candPackage.TQB_Adhoc_Entry_Name_2__c = adhocEntry1.Id;
+          upsert candPackage;
+          message = 'Email to'+ ' ' +personFullName + ' ' +'Sent Successfully';
+      }
+      else{
+         message = 'Email to '+ ' ' +personFullName + ' '  + 'Failed';
+      }
+    return message;
+  }
+
+  @AuraEnabled
   public static String sendNotifyEmail(Id candPkgId, Id tqbPersonId, String personType) {
     String message, personEmail, subject, body, personFullName;
     Boolean sendEmailResult;
 
-    TQB_Candidate_Package__c candPackage = [Select Id , Name , isEmailReceivedByCoordinator__c,TQB_Chair_Person_Name__c,TQB_Adhoc_Entry_Name__c  from TQB_Candidate_Package__c where id =:candPkgId ];
-    if(personType == 'adhoc') {
-       TQB_Ad_Hoc_Entry__c adhocEntry =  [Select Name,Email__c,Id,First_Name__c,Last_Name__c from TQB_Ad_Hoc_Entry__c WHERE Id = :tqbPersonId];
-       personEmail = adhocEntry.Email__c;
-       personFullName = adhocEntry.First_Name__c + ' ' + adhocEntry.Last_Name__c;
-    }
-    else{
+    TQB_Candidate_Package__c candPackage = [Select Id , Name , isEmailReceivedByCoordinator__c,TQB_Chair_Person_Name__c from TQB_Candidate_Package__c where id =:candPkgId ];
+    
        User person = [SELECT Name,Title,Phone,Email FROM User WHERE Id = :tqbPersonId];
        personEmail = person.Email;
        personFullName = person.Name;
-    }
 
-     if(personType == 'chair') {
+      if(personType == 'chair') {
         subject = 'Notify Email to get your approval to be as TQBChair person';
-        body = 'Notification Email';
-      }
-      else if(personType == 'adhoc'){
-        subject = 'Notify Email to get your approval to be as TQB selected Adhoc Panel Member';
         body = 'Notification Email';
       }
       else{
@@ -1257,16 +1278,11 @@ public with sharing class TQBCPWizardController {
     
     sendEmailResult = sendMail(personFullName, personEmail, subject, body);
 
-     if(sendEmailResult && (personType == 'chair' || personType == 'panel')){
+     if(sendEmailResult){
           candPackage.TQB_Chair_Person_Name__c = personFullName;
           upsert candPackage;
           message = 'Email to'+ ' ' +personFullName + ' ' +'Sent Successfully';
         }
-      else if (sendEmailResult && personType == 'adhoc'){
-          candPackage.TQB_Adhoc_Entry_Name__c = tqbPersonId;
-          upsert candPackage;
-          message = 'Email to'+ ' ' +personFullName + ' ' +'Sent Successfully';
-      }
       else{
          message = 'Email to '+ ' ' +personFullName + ' '  + 'Failed';
       }
@@ -1276,9 +1292,9 @@ public with sharing class TQBCPWizardController {
   @AuraEnabled
   public static String getSelectedAdHocEntry(Id candPkgId) {
       String adhocEntry;
-      TQB_Candidate_Package__c candPackage = [Select Id , Name, TQB_Adhoc_Entry_Name__c  from TQB_Candidate_Package__c where id =:candPkgId ];
-      if(String.isNotEmpty(candPackage.TQB_Adhoc_Entry_Name__c)){
-         adhocEntry= candPackage.TQB_Adhoc_Entry_Name__c;
+      TQB_Candidate_Package__c candPackage = [Select Id , Name, TQB_Adhoc_Entry_Name__c, TQB_Adhoc_Entry_Name_2__c from TQB_Candidate_Package__c where id =:candPkgId ];
+      if(String.isNotEmpty(candPackage.TQB_Adhoc_Entry_Name__c) && String.isNotEmpty(candPackage.TQB_Adhoc_Entry_Name_2__c)){
+         adhocEntry= candPackage.TQB_Adhoc_Entry_Name__c + ';' + candPackage.TQB_Adhoc_Entry_Name_2__c;
       }
       return adhocEntry;
   }
@@ -1288,7 +1304,7 @@ public with sharing class TQBCPWizardController {
         // Create an email message object
         Boolean result;
         Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
-        String[] toAddresses = new String[] {address};
+        String[] toAddresses = address.split(' ');
         mail.setToAddresses(toAddresses);
         mail.setSubject(subject);
         mail.setPlainTextBody(body);

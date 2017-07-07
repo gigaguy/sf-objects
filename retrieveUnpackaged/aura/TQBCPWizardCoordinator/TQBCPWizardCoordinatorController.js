@@ -37,14 +37,15 @@
       }
 
       if(selectedCheckBoxCount == 2){
-         var newSelectedValue, adhocPersonSelectedId;
+         var newSelectedValue;
+         var adhocPersonSelectedIds = [];
          for (var i = 0; i < getAllCheckboxes.length; i++) {
             newSelectedValue = getAllCheckboxes[i].get("v.value");
             if (newSelectedValue == true) {
-              adhocPersonSelectedId = getAllCheckboxes[i].get("v.text");
+              adhocPersonSelectedIds.push(getAllCheckboxes[i].get("v.text"));
             }
          }
-         helper.sendNotifyEmail(component, event, adhocPersonSelectedId, 'adhoc');
+         helper.sendNotifyEmailtoAdhocMember(component, event, adhocPersonSelectedIds);
        }
       else{
           $A.createComponents([

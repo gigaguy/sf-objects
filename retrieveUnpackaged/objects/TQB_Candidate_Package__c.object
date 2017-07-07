@@ -293,6 +293,19 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>TQB_Adhoc_Entry_Name_2__c</fullName>
+        <description>Name of the TQB Adhoc Entry name 2</description>
+        <externalId>false</externalId>
+        <label>TQB Adhoc Entry Name 2</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>TQB_Adhoc_Entry_Name__c</fullName>
         <description>Name of the Adhoc Entry selected</description>
         <externalId>false</externalId>
