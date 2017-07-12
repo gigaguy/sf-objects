@@ -67,17 +67,40 @@ public class TestDataFactory {
         return user;
     }
     
+    public static User createAnotherUser() {
+        
+        Profile p = [SELECT Id FROM Profile WHERE Name='Standard User']; 
+        User user = new User(Alias = 'standt1', Email='standarduser1@testorg.com', 
+            EmailEncodingKey='UTF-8', LastName='Testing1', LanguageLocaleKey='en_US', 
+            LocaleSidKey='en_US', ProfileId = p.Id, 
+            TimeZoneSidKey='America/Los_Angeles', UserName='standarduser17071@testorg.com');
+                                                   
+        insert user;
+        return user;
+    }
+    
     public static List<User> createTQBChairUser() {
         List<User> userList = new List<User>();
         Profile p = [SELECT Id FROM Profile WHERE Name='TQB Chair Profile']; 
         User user = new User(Alias = 'standt', Email='TQBChair@testorg.com', 
-            EmailEncodingKey='UTF-8', LastName='Testing', LanguageLocaleKey='en_US', 
+            EmailEncodingKey='UTF-8', LastName='Chair_Testing', LanguageLocaleKey='en_US', 
             LocaleSidKey='en_US', ProfileId = p.Id, 
             TimeZoneSidKey='America/Los_Angeles', UserName='tqbchairuser1707@testorg.com');
-        //user.UserRole.Name = 'TQB Chair';
         userList.add(user);                             
         insert userList;
         return userList;
-    }   
+    } 
+    
+    public static List<User> createTQBPanelUser() {
+        List<User> userList = new List<User>();
+        Profile p = [SELECT Id FROM Profile WHERE Name='TQB Panel Profile']; 
+        User user = new User(Alias = 'standt', Email='TQBChair@testorg.com', 
+            EmailEncodingKey='UTF-8', LastName='Panel_Testing', LanguageLocaleKey='en_US', 
+            LocaleSidKey='en_US', ProfileId = p.Id, 
+            TimeZoneSidKey='America/Los_Angeles', UserName='tqbpaneluser1707@testorg.com');
+        userList.add(user);                             
+        insert userList;
+        return userList;
+    }
 
 }

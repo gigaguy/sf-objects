@@ -315,9 +315,298 @@ public class TQBCPWizardControllerTest {
     }
     
     @isTest static void testGetUserFromUserId() {
-        
+        User user = TestDataFactory.createUser();
+        Test.startTest(); 
+          User userRetrieved = TQBCPWizardController.getUserFromUserId(user.Id);
+        Test.stopTest();
+        System.assertEquals(userRetrieved.Id, user.Id);
     }
     
+    @isTest static void testSendNotifyEmailCoordinator() {
+        User user = TestDataFactory.createUser();
+        User user1 = TestDataFactory.createAnotherUser();
+        List<User> users = new List<User>();
+        users.add(user);
+        users.add(user1);
+        String coordinatorEmail = 'naveen.sadhu@cgi.com';
+        Test.startTest(); 
+          Id candpkgId  =  TQBCPWizardControllerTest.createCandidatePackage();
+          String message = TQBCPWizardController.sendNotifyEmailCoordinator(candpkgId, users, coordinatorEmail);
+        Test.stopTest();
+        System.debug('Message for sending email is = ' + message);
+        System.assertEquals(message, 'Email to Coordinator Sent Successfully');
+    }
+    
+    /*
+    @isTest static void testGetCPbyCandidateName() {
+          
+       Test.startTest(); 
+         Id candpkgId  =  TQBCPWizardControllerTest.createCandidatePackage();
+         TQB_Candidate_Package__c candPkg = TQBCPWizardController.getCPbyCandidateName(candidateName);
+       Test.stopTest();
+        System.debug('value of candpackage candidate name' + candPkg.Candidate_Name__c);
+    }
+    */
+    
+    @isTest static void testGetCandidateQuestionForPagination() {
+       TestDataFactory.createLOIRecords(1);  
+      Test.startTest();
+         TQB_Candidate_Package__c newCP = TQBCPWizardController.createCandidatePackage();
+         TQB_Candidate_Package__c cp = TQBCPWizardController.getOrCreateCandidatePackage(newCP.Id);  
+         List<TQB_Candidate_Questionnaire__c> questions = TQBCPWizardController.getCandidateQuestions(cp.Id);
+         QuestionWrapper questionwrapper =  TQBCPWizardController.getCandidateQuestionForPagination(cp, cp.Id, false, true, 1);     
+      Test.stopTest();   
+         System.assert(questionwrapper.packageId != null ); 
+         System.assert(questionwrapper.questionNumber != null); 
+         System.assert(questionwrapper.total != null); 
+    }
+    
+    @isTest static void testGetQuestionnaire() {
+        
+        Test.startTest();
+          Id candpkgId  =  TQBCPWizardControllerTest.createCandidatePackage();
+          List<TQB_Candidate_Questionnaire__c> questions = TQBCPWizardController.getCandidateQuestions(candpkgId);
+          List<TQB_Candidate_Questionnaire__c> questionsList = TQBCPWizardController.getQuestionnaire(candpkgId);
+        Test.stopTest();
+         System.assertEquals(questions.size(), questionsList.size());
+    }
+    
+    @isTest static void testSendNotifyEmail() {
+        List<User> chairUsers = TestDataFactory.createTQBChairUser();
+        List<User> panelUsers = TestDataFactory.createTQBPanelUser();
+        Test.startTest();
+           Id candpkgId  =  TQBCPWizardControllerTest.createCandidatePackage();
+           String chairMessage = TQBCPWizardController.sendNotifyEmail(candpkgId, chairUsers[0].Id, 'chair');
+           String panelMessage = TQBCPWizardController.sendNotifyEmail(candpkgId, panelUsers[0].Id, 'panel');
+        Test.stopTest();
+         System.debug('Message from email = ' + chairMessage );
+         System.debug('Message from email = ' + panelMessage );
+        System.assertEquals(chairMessage, 'Email to Chair_Testing Sent Successfully');
+        System.assertEquals(panelMessage, 'Email to Panel_Testing Sent Successfully');
+    }
+        
+    
+    @isTest static void testSendNotifyEmailToAdhocMembers() {
+         User user = TestDataFactory.createUser();
+         User user1 = TestDataFactory.createAnotherUser();
+         List<Id> users = new List<Id>();
+         users.add(user.Id);
+         users.add(user1.Id);
+        Test.startTest();
+          Id candpkgId  =  TQBCPWizardControllerTest.createCandidatePackage();
+          String message = TQBCPWizardController.sendNotifyEmailToAdhocMembers(candpkgId, users);
+        Test.stopTest();
+        System.debug('message for sendnotifyemail' + message);
+        //System.assertEquals(message, 'Email to Coordinator Sent Successfully');
+    }
+    
+    
+    @isTest static void testGetSelectedAdHocEntry() {
+       TestDataFactory.createLOIRecords(1);  
+          TQB_Candidate_Package__c newCP = TQBCPWizardController.createCandidatePackage();
+          TQB_Candidate_Package__c cp = TQBCPWizardController.getOrCreateCandidatePackage(newCP.Id);    
+          cp.TQB_Adhoc_Entry_Name__c = 'Id1';
+          cp.TQB_Adhoc_Entry_Name_2__c = 'Id2';
+          upsert cp;
+        Test.startTest();
+          String adhocEntryIds = TQBCPWizardController.getSelectedAdHocEntry(cp.Id);
+        Test.stopTest();
+        System.debug('value of adhoc entries' + adhocEntryIds);
+        System.assertEquals(adhocEntryIds, 'Id1;Id2');
+    }
+    
+    @isTest static void testPopulateAdHocCommentsServer() {
+        Id candpkgId  =  TQBCPWizardControllerTest.createCandidatePackage();
+        TestDataFactoryCPWizard.createCPAdhocComments(1, candpkgId);
+        Test.startTest();
+            String firstlineComment = TQBCPWizardController.populateAdHocCommentsServer(candpkgId, 'firstLineSupComment');
+            String secondlineComment = TQBCPWizardController.populateAdHocCommentsServer(candpkgId, 'secondLineSupComment');
+        Test.stopTest();
+        System.assertEquals(firstlineComment, 'first line commented');
+        System.assertEquals(secondlineComment, 'second line commented');
+    }
+    
+    @isTest static void testValidateAdHocMinMax() {
+      String errorMessage;
+      Id candpkgId  =  TQBCPWizardControllerTest.createCandidatePackage();
+      List<TQB_Ad_Hoc_Entry__c> adhocEntries = TestDataFactoryCPWizard.createCPAdhocEntries(3, candpkgId);
+      System.debug('size of adhocEntries =' + adhocEntries.size());
+      Test.startTest();
+        try{
+            TQBCPWizardController.validateAdHocMinMax(candpkgId);
+        }
+        catch(AuraHandledException e){
+            System.debug('Exception generated');
+            errorMessage ='Script-thrown exception';
+        }
+      Test.stopTest(); 
+        System.assert(errorMessage == null);
+    }
+    
+    @isTest static void testValidateAdHocMax() {
+      String errorMessage;
+      Id candpkgId  =  TQBCPWizardControllerTest.createCandidatePackage();
+      List<TQB_Ad_Hoc_Entry__c> adhocEntries = TestDataFactoryCPWizard.createCPAdhocEntries(4, candpkgId);
+      System.debug('size of adhocEntries =' + adhocEntries.size());
+      Test.startTest();
+        try{
+            TQBCPWizardController.validateAdHocMax(candpkgId);
+        }
+        catch(AuraHandledException e){
+            System.debug('Exception generated');
+            errorMessage ='Script-thrown exception';
+        }
+      Test.stopTest(); 
+        System.assert(errorMessage == null);
+    }
+        
+    @isTest static void testSaveTheFile() {
+      String fileName='test.txt', base64Data= 'testing purpose', contentType='Position Description';
+      Id candpkgId  =  TQBCPWizardControllerTest.createCandidatePackage();
+       Test.startTest();
+         Id attachmentId = TQBCPWizardController.saveTheFile(candpkgId, fileName, base64Data, contentType);
+       Test.stopTest(); 
+         System.debug('attachmentId generated =' + attachmentId);
+         System.assert(attachmentId != null);
+     }
+    
+    @isTest static void testSaveTheChunk() {
+     
+       Test.startTest();
+         Id attachmentId =  TQBCPWizardControllerTest.createAttachmentData();
+       Test.stopTest(); 
+         System.debug('attachmentId generated =' + attachmentId);
+         System.assert(attachmentId != null);
+     }
+    
+    @isTest static void testGetCPAttachmentById() { 
+       String fileName='test.txt', base64Data= 'testing purpose', contentType='Position Description', fileId='';
+       Id candpkgId  =  TQBCPWizardControllerTest.createCandidatePackage();
+       Test.startTest();
+         Id attachmentId = TQBCPWizardController.saveTheChunk(candpkgId, fileName, base64Data, contentType, fileId);
+         Attachment attachment = TQBCPWizardController.getCPAttachmentById(attachmentId);
+       Test.stopTest(); 
+        System.assertEquals(attachment.Name, fileName);
+    }
+    
+    @isTest static void testDeleteCPAttachment() { 
+       Test.startTest();
+         Id attachmentId = TQBCPWizardControllerTest.createAttachmentData();
+        Boolean result = TQBCPWizardController.deleteCPAttachment(attachmentId);
+        Test.stopTest(); 
+        System.assert(result);
+    }
+    
+    @isTest static void testGetCPAttachmentsServerReviewer() { 
+      String fileName='test.txt', base64Data= 'testing purpose', contentType='Position Description', fileId='';
+      Id candpkgId  =  TQBCPWizardControllerTest.createCandidatePackage();
+      TQBCPWizardController.saveTheChunk(candpkgId, fileName, base64Data, contentType, fileId);
+        Test.startTest();
+          List<Attachment> attachments = TQBCPWizardController.getCPAttachmentsServer(candpkgId, 'reviewer');
+        Test.stopTest();
+      System.assertEquals(attachments.size(), 1);
+    }
+    
+    @isTest static void testGetCPAttachmentsServerCandidate() { 
+      String fileName='test.txt', base64Data= 'testing purpose', contentType='Presentation', fileId='';
+      Id candpkgId  =  TQBCPWizardControllerTest.createCandidatePackage();
+      TQBCPWizardController.saveTheChunk(candpkgId, fileName, base64Data, contentType, fileId);
+        Test.startTest();
+          List<Attachment> attachments = TQBCPWizardController.getCPAttachmentsServer(candpkgId, 'candidate');
+        Test.stopTest();
+      System.assertEquals(attachments.size(), 1);
+    }
+    
+     @isTest static void testSaveRetrieveAttachCommentServer() { 
+        String commentValue = 'testing', Comment_Type = 'firstLineSupComment';
+        String fileName='test.txt', base64Data= 'testing purpose', contentType='Position Description', fileId='';
+        Id candpkgId  =  TQBCPWizardControllerTest.createCandidatePackage();
+        Id attachmentId = TQBCPWizardController.saveTheChunk(candpkgId, fileName, base64Data, contentType, fileId);
+         Test.startTest();
+            TQBCPWizardController.saveAttachCommentServer(commentValue, Comment_Type, candpkgId, attachmentId);
+            String commentValueRetrieved = TQBCPWizardController.populateAttachCommentsServer(candpkgId, Comment_Type, attachmentId);
+         Test.stopTest();
+         System.assertEquals(commentValueRetrieved, commentValue);
+     }
+    
+    @isTest static void testValidateCandidateAttachments() { 
+        String fileName='test.txt',fileName1='test1.txt',fileName2='test2.txt', fileName3='test3.txt', base64Data= 'testing purpose', contentType='Curriculum Vitae', contentType1='Work Product', fileId='';        
+        String errorMessage;
+        Id candpkgId  =  TQBCPWizardControllerTest.createCandidatePackage();
+          TQBCPWizardController.saveTheChunk(candpkgId, fileName, base64Data, contentType, fileId); 
+          TQBCPWizardController.saveTheChunk(candpkgId, fileName1, base64Data, contentType1, fileId); 
+          TQBCPWizardController.saveTheChunk(candpkgId, fileName2, base64Data, contentType1, fileId); 
+          TQBCPWizardController.saveTheChunk(candpkgId, fileName3, base64Data, contentType1, fileId);
+        Test.startTest();
+        try{
+            TQBCPWizardController.validateCandidateAttachments(candpkgId);
+        }
+        catch(AuraHandledException e){
+            System.debug(e);
+            errorMessage = 'Script-thrown exception';
+        }
+        Test.stopTest();
+        System.debug('Error Message is =' + errorMessage);
+        System.assertNotEquals(errorMessage, 'Script-thrown exception');
+    }
+    
+    @isTest static void testValidateCandidateQuestionnaire() {
+        String errorMessage;
+        Test.startTest();
+        Id candpkgId  =  TQBCPWizardControllerTest.createCandidatePackage();
+          List<TQB_Candidate_Questionnaire__c> questions = TQBCPWizardController.getCandidateQuestions(candpkgId);
+        try{
+            TQBCPWizardController.validateCandidateQuestionnaire(candpkgId);
+        }
+        catch(AuraHandledException e){
+            System.debug(e);
+            errorMessage='Script-thrown exception';
+        }
+        Test.stopTest();
+        System.assertEquals(errorMessage, 'Script-thrown exception');
+    }
+    
+    /*    
+     @isTest static void testSubmitCandidatePackage() {
+        String errorMessageQuestionnaire, errorMessageAttachments, errorMessageAdhocMinMax;
+        Test.startTest();
+         try{
+            TQBCPWizardControllerTest.testValidateCandidateQuestionnaire();
+            TQBCPWizardControllerTest.testValidateCandidateAttachments();
+            TQBCPWizardControllerTest.testValidateAdHocMinMax();
+        }
+        catch(AuraHandledException e){
+            System.debug(e);
+            errorMessageQuestionnaire='Script-thrown exception';
+        }
+         try{
+            TQBCPWizardControllerTest.testValidateCandidateAttachments();
+        }
+        catch(AuraHandledException e){
+            System.debug(e);
+            errorMessageAttachments='Script-thrown exception';
+        }
+         try{
+            TQBCPWizardControllerTest.testValidateAdHocMinMax();
+        }
+        catch(AuraHandledException e){
+            System.debug(e);
+            errorMessageAdhocMinMax='Script-thrown exception';
+        }
+        Test.stopTest();
+        System.assertEquals(errorMessageQuestionnaire, 'Script-thrown exception');
+        System.assertNotEquals(errorMessageAttachments, 'Script-thrown exception');
+        System.assertNotEquals(errorMessageAdhocMinMax, 'Script-thrown exception');
+     }*/
+    
+       
+    public static Id createAttachmentData(){
+        String fileName='test.txt', base64Data= 'testing purpose', contentType='Position Description', fileId='';
+        Id candpkgId  =  TQBCPWizardControllerTest.createCandidatePackage();
+        Id attachmentId = TQBCPWizardController.saveTheChunk(candpkgId, fileName, base64Data, contentType, fileId); 
+        return attachmentId;
+    }
+                 
     public static Id createCandidatePackage() {
         
         TestDataFactory.createLOIRecords(1);
