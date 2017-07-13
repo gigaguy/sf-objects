@@ -87,6 +87,7 @@ public class TestDataFactory {
            );
            panelUser.add(u);
         }
+       insert panelUser;
        return panelUser;
     }
     
