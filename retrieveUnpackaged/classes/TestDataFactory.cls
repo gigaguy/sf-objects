@@ -74,7 +74,7 @@ public class TestDataFactory {
         for(Integer i=0; i< panelCount; i++) {     
             User u = new User(
              ProfileId = [SELECT Id FROM Profile WHERE Name = 'TQB Panel Profile'].Id,
-             LastName = 'last',
+             LastName = 'last'+ System.currentTimeMillis(),
              Email = 'puser000@amamama.com',
              Username = 'puser000@amamama.com' + System.currentTimeMillis(),
              CompanyName = 'TEST',

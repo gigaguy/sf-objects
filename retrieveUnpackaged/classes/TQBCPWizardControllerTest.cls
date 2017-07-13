@@ -292,9 +292,15 @@ public class TQBCPWizardControllerTest {
           Id candpkgId  =  TQBCPWizardControllerTest.createCandidatePackage();
           List<User> panelMembers = TQBCPWizardController.setTQBPanelMembersList(candpkgId, panelUsers[0]);
           List<User> panelMembers1 = TQBCPWizardController.setTQBPanelMembersList(candpkgId, panelUsers[1]);
+          List<User> panelMembers2 = TQBCPWizardController.setTQBPanelMembersList(candpkgId, panelUsers[2]);
+          List<User> panelMembers3 = TQBCPWizardController.setTQBPanelMembersList(candpkgId, panelUsers[3]);
+          List<User> panelMembers4 = TQBCPWizardController.setTQBPanelMembersList(candpkgId, panelUsers[4]);
        Test.stopTest();
        System.assertEquals(1, panelMembers.size());
        System.assertEquals(2, panelMembers1.size());
+       System.assertEquals(3, panelMembers2.size());
+       System.assertEquals(4, panelMembers3.size());
+       System.assertEquals(5, panelMembers4.size());
     }
     
    @isTest static void testGetTQBPanelMembersList() {
