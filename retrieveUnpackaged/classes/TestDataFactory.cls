@@ -67,6 +67,31 @@ public class TestDataFactory {
         return user;
     }
     
+    public static List<User> createPanelUser() {
+       Integer panelCount = 5;
+       List<User> panelUser = new List<User>();
+       
+        for(Integer i=0; i< panelCount; i++) {     
+            User u = new User(
+             ProfileId = [SELECT Id FROM Profile WHERE Name = 'TQB Panel Profile'].Id,
+             LastName = 'last',
+             Email = 'puser000@amamama.com',
+             Username = 'puser000@amamama.com' + System.currentTimeMillis(),
+             CompanyName = 'TEST',
+             Title = 'title',
+             Alias = 'alias',
+             TimeZoneSidKey = 'America/Los_Angeles',
+             EmailEncodingKey = 'UTF-8',
+             LanguageLocaleKey = 'en_US',
+             LocaleSidKey = 'en_US'
+           );
+           panelUser.add(u);
+        }
+       return panelUser;
+    }
+    
+    
+    
     public static User createAnotherUser() {
         
         Profile p = [SELECT Id FROM Profile WHERE Name='Standard User']; 
