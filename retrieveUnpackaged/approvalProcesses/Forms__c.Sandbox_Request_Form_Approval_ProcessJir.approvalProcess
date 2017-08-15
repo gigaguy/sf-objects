@@ -25,9 +25,8 @@
         </approvalActions>
         <assignedApprover>
             <approver>
-                <type>PreviousApprover</type>
+                <type>adhoc</type>
             </approver>
-            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
         </assignedApprover>
         <label>Step 1</label>
         <name>Step_1</name>
@@ -49,7 +48,7 @@
         <label>Sandbox_Complete_Step</label>
         <name>Sandbox_Complete_Step</name>
         <rejectBehavior>
-            <type>BackToPrevious</type>
+            <type>RejectRequest</type>
         </rejectBehavior>
     </approvalStep>
     <description>Adds extra approval step to &apos;finalize&apos; the approval</description>

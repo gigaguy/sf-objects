@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
-    <active>false</active>
+    <active>true</active>
     <allowRecall>false</allowRecall>
     <allowedSubmitters>
         <type>owner</type>
@@ -20,6 +20,67 @@
         </assignedApprover>
         <label>Business Approval</label>
         <name>Business_Approval</name>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <assignedApprover>
+            <approver>
+                <name>Functional_Business_Sponsor2__c</name>
+                <type>relatedUserField</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <description>send to second Functional/Business Sponsor (if applicable)</description>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Functional_Business_Sponsor2__c</field>
+                <operation>notEqual</operation>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Business Approval 2</label>
+        <name>Business_Approval_2</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>false</allowDelegate>
+        <assignedApprover>
+            <approver>
+                <name>Functional_Business_Sponsor__c</name>
+                <type>relatedUserField</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <description>sends to 3rd Functional/Business Sponsor (if applicable)</description>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Functional_Business_Sponsor__c</field>
+                <operation>notEqual</operation>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Business Approval 3</label>
+        <name>Business_Approval_3</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <assignedApprover>
+            <approver>
+                <name>Office_IMO_Name__c</name>
+                <type>relatedUserField</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <label>IMO Approval</label>
+        <name>IMO_Approval</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
     </approvalStep>
     <emailTemplate>unfiled$public/API_Request_Approver_Notification</emailTemplate>
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
@@ -59,7 +120,7 @@
             <type>FieldUpdate</type>
         </action>
     </initialSubmissionActions>
-    <label>API Request Approval</label>
+    <label>API Request Approval2</label>
     <recallActions>
         <action>
             <name>Status_Updated_to_Recalled</name>
