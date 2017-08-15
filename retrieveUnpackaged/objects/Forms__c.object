@@ -215,6 +215,30 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Functional_Business_Sponsor1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Functional/Business Sponsor</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Forms2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Functional_Business_Sponsor2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Functional/Business Sponsor</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Forms3</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Functional_Business_Sponsor_Email__c</fullName>
         <externalId>false</externalId>
         <formula>Functional_Business_Sponsor__r.Email</formula>
@@ -370,6 +394,15 @@
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SandboxURL__c</fullName>
+        <externalId>false</externalId>
+        <label>SandboxURL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
     </fields>
     <fields>
         <fullName>Submitted_on_Behalf_Of__c</fullName>
