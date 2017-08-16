@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
-    <active>true</active>
+    <active>false</active>
     <allowRecall>false</allowRecall>
     <allowedSubmitters>
         <type>owner</type>
@@ -18,23 +18,8 @@
             </approver>
             <whenMultipleApprovers>Unanimous</whenMultipleApprovers>
         </assignedApprover>
-        <label>Supervisor Approval</label>
-        <name>Supervisor_Approval</name>
-    </approvalStep>
-    <approvalStep>
-        <allowDelegate>false</allowDelegate>
-        <assignedApprover>
-            <approver>
-                <name>Office_IMO_Name__c</name>
-                <type>relatedUserField</type>
-            </approver>
-            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
-        </assignedApprover>
-        <label>IMO Approval</label>
-        <name>IMO_Approval</name>
-        <rejectBehavior>
-            <type>RejectRequest</type>
-        </rejectBehavior>
+        <label>Business Approval</label>
+        <name>Business_Approval</name>
     </approvalStep>
     <emailTemplate>unfiled$public/API_Request_Approver_Notification</emailTemplate>
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
@@ -74,7 +59,7 @@
             <type>FieldUpdate</type>
         </action>
     </initialSubmissionActions>
-    <label>API Request Approval</label>
+    <label>API Request Approval3</label>
     <recallActions>
         <action>
             <name>Status_Updated_to_Recalled</name>

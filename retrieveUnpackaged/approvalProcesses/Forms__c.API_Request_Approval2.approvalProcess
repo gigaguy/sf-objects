@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
-    <active>true</active>
+    <active>false</active>
     <allowRecall>false</allowRecall>
     <allowedSubmitters>
         <type>owner</type>
@@ -13,7 +13,7 @@
         <allowDelegate>false</allowDelegate>
         <assignedApprover>
             <approver>
-                <name>Functional_Business_Sponsor__c</name>
+                <name>Direct_Supervisor__c</name>
                 <type>relatedUserField</type>
             </approver>
             <whenMultipleApprovers>Unanimous</whenMultipleApprovers>
@@ -25,7 +25,7 @@
         <allowDelegate>true</allowDelegate>
         <assignedApprover>
             <approver>
-                <name>Functional_Business_Sponsor2__c</name>
+                <name>Office_IMO_Name__c</name>
                 <type>relatedUserField</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -33,7 +33,7 @@
         <description>send to second Functional/Business Sponsor (if applicable)</description>
         <entryCriteria>
             <criteriaItems>
-                <field>Forms__c.Functional_Business_Sponsor2__c</field>
+                <field>Forms__c.Office_IMO_Name__c</field>
                 <operation>notEqual</operation>
             </criteriaItems>
         </entryCriteria>
@@ -48,7 +48,7 @@
         <allowDelegate>false</allowDelegate>
         <assignedApprover>
             <approver>
-                <name>Functional_Business_Sponsor__c</name>
+                <name>Office_IMO_Name__c</name>
                 <type>relatedUserField</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -56,7 +56,7 @@
         <description>sends to 3rd Functional/Business Sponsor (if applicable)</description>
         <entryCriteria>
             <criteriaItems>
-                <field>Forms__c.Functional_Business_Sponsor__c</field>
+                <field>Forms__c.Office_IMO_Name__c</field>
                 <operation>notEqual</operation>
             </criteriaItems>
         </entryCriteria>
