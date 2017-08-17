@@ -53,7 +53,9 @@
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
         <fullName>Addition_of_Workflow_Requirement__c</fullName>
+        <description>Additional workflow requirement, i.e., addition of workflow to a heretofore fill and print form.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Additional workflow requirement, i.e., addition of workflow to a heretofore fill and print form.</inlineHelpText>
         <label>Addition of Workflow Requirement</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -109,7 +111,9 @@
     </fields>
     <fields>
         <fullName>Electronic_Signature_Requirement__c</fullName>
+        <description>Electronic signature requirement.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Electronic signature requirement.</inlineHelpText>
         <label>Electronic Signature Requirement</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -171,7 +175,9 @@
     </fields>
     <fields>
         <fullName>Highly_Formatted_Input_Requirement__c</fullName>
+        <description>Highly formatted data entry requirement.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Highly formatted data entry requirement.</inlineHelpText>
         <label>Highly Formatted Input Requirement</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
