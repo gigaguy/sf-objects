@@ -68,6 +68,10 @@
     </entryCriteria>
     <finalApprovalActions>
         <action>
+            <name>Attach_Sandbox_Approval_to_Record</name>
+            <type>Alert</type>
+        </action>
+        <action>
             <name>Sandbox_Approved_Notification_Alert</name>
             <type>Alert</type>
         </action>
