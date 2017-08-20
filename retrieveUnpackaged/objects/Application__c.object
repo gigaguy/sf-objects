@@ -484,61 +484,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Office</picklist>
-            <values>
-                <fullName>AO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OAR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OARM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OCFO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OCSPP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OECA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OEI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OGC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OIG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OITA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OLEM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ORD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OW</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Type__c</picklist>
             <values>
                 <fullName>Fill and Print</fullName>
@@ -672,61 +617,6 @@
             </values>
             <values>
                 <fullName>Unknown</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Office</picklist>
-            <values>
-                <fullName>AO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OAR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OARM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OCFO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OCSPP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OECA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OEI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OGC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OIG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OITA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OLEM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ORD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OW</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
