@@ -1,3 +1,4 @@
-*.props
+ORD.props sfdata.props
+sfdata.props
 build.xml
 package.xml
