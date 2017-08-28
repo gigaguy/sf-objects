@@ -1,0 +1,58 @@
+<apex:page applyHtmlTag="true" showHeader="true" contentType="application/msword#Snippet.doc" controller="SnippetDownloader">
+   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <div>  
+   <h3>Applicant Refree FeedBack From </h3>  
+   </div>  
+    <head>  
+        
+     <style>   
+       body { font-family: 'Arial'; }  
+       .caption {  
+          background: #cfeef8;  
+          height:30px;  
+          font-size:12px;  
+          margin-left: -1px; /* Fix FF 1px issue */  
+         }  
+       .Question  
+       {  
+        height:30px;   
+        background-color:#efefef;   
+        border:1px solid #ccc;   
+        padding:2px 2px; width:50%;  
+       }  
+       .Answere  
+       {  
+         height:30px;    
+         border:1px solid #ccc;   
+         padding:3px 2px 3px 4px;  
+       }    
+       .rowstyle {  
+        height:50px;  
+       }  
+       .rowstyle td{width:30%;}  
+     </style>  
+   </head>  
+   <apex:outputPanel > 
+
+       <apex:repeat value="{!snippets}" var="snippet">
+           
+           <h2>
+               {!snippet.Topic__r.Name}<hr/>
+               <!-- - {!snippet.Submission__c} - {!snippet.Name} -->
+           </h2>			           
+           <p>
+              <apex:outputText value="{!TRIM(snippet.Extracted_Text__c)}" escape="false" /> <br/>
+           </p>
+       </apex:repeat>
+       <!--
+       <apex:repeat var="key" value="{!requests}">
+	       <apex:repeat value="{!requests[key]}" var="keyvalue" >                
+                     <p>
+                         {!keyvalue}
+                     </p>                   
+           </apex:repeat>
+        </apex:repeat>
+  		-->
+   </apex:outputPanel>  
+      
+ </apex:page>
