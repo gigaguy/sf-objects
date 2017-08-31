@@ -2,6 +2,8 @@
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <brand>
         <headerColor>#0070D2</headerColor>
+        <logo>dcr</logo>
+        <logoVersion>1</logoVersion>
     </brand>
     <description>Create and Manage Documents</description>
     <formFactors>Large</formFactors>
@@ -9,6 +11,7 @@
     <navType>Standard</navType>
     <tab>Document__c</tab>
     <tab>Reports</tab>
+    <tab>standard-Case</tab>
     <uiType>Lightning</uiType>
     <utilityBar>Document_Control_Register_UtilityBar</utilityBar>
 </CustomApplication>
