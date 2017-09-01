@@ -10,6 +10,7 @@
     <tab>standard-Chatter</tab>
     <tab>standard-home</tab>
     <tab>Reports</tab>
+    <tab>Help</tab>
     <uiType>Lightning</uiType>
     <utilityBar>LightningService_UtilityBar</utilityBar>
 </CustomApplication>

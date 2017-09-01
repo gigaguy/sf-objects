@@ -25,5 +25,6 @@
     <tab>standard-Case</tab>
     <tab>standard-Product2</tab>
     <tab>Reports</tab>
+    <tab>Help</tab>
     <uiType>Lightning</uiType>
 </CustomApplication>

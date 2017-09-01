@@ -12,4 +12,5 @@
     <tab>standard-File</tab>
     <tab>standard-Quote</tab>
     <tab>Reports</tab>
+    <tab>Help</tab>
 </CustomApplication>

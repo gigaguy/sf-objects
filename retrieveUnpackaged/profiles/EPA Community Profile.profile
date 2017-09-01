@@ -373,11 +373,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Document__c.Travel_Registration_Fees__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Document__c.Travel_Start_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -451,6 +446,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ChangePassword</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>DCR_Help</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>

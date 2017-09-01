@@ -4,4 +4,5 @@
     <formFactors>Large</formFactors>
     <tab>standard-DataAssessmentLightning</tab>
     <tab>Reports</tab>
+    <tab>Help</tab>
 </CustomApplication>

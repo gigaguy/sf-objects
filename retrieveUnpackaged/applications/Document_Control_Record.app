@@ -11,7 +11,7 @@
     <navType>Standard</navType>
     <tab>Document__c</tab>
     <tab>Reports</tab>
-    <tab>standard-Case</tab>
+    <tab>Help</tab>
     <uiType>Lightning</uiType>
     <utilityBar>Document_Control_Register_UtilityBar</utilityBar>
 </CustomApplication>

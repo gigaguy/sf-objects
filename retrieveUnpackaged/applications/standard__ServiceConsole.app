@@ -176,7 +176,11 @@
     <tab>standard-Knowledge</tab>
     <tab>standard-LiveAgent</tab>
     <tab>Reports</tab>
+    <tab>Help</tab>
     <workspaceMappings>
+        <mapping>
+            <tab>Help</tab>
+        </mapping>
         <mapping>
             <tab>Reports</tab>
         </mapping>

@@ -5,4 +5,5 @@
     <tab>standard-Chatter</tab>
     <tab>standard-File</tab>
     <tab>Reports</tab>
+    <tab>Help</tab>
 </CustomApplication>
