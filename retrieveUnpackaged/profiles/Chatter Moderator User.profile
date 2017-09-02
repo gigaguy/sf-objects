@@ -223,6 +223,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Document__c.Dollar_Amount__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Document__c.EAS_PR_Number__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -273,17 +278,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Document__c.Funds_Type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Document__c.Group__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Document__c.Objective__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -328,7 +323,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Document__c.Sub_Task_Description__c</field>
+        <field>Document__c.Sub_Task__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -338,7 +333,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Document__c.Task_Description__c</field>
+        <field>Document__c.Task__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -1,18 +1,7 @@
 <apex:page >
 
-<script>
-  function iframeLoaded() {
-      var iFrameID = document.getElementById('qView');
-      if(iFrameID) {
-            // here you can make the height, I delete it first, then I make it again
-            iFrameID.height = "";
-            iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + "px";
-      }   
-  }
-</script>
-
 <apex:pageBlock > 
-<iframe id="qView" height="1000" onload="iframeLoaded()" width="100%" name="AppName" src="https://qlikviz.epa.gov/sense/app/f9c91c8b-0381-4a88-9f43-dc0e5bb919ff" frameborder="0"></iframe>
+<iframe id="qView" height="730px" width="100%" name="AppName" src="https://qlikviz.epa.gov/sense/app/f9c91c8b-0381-4a88-9f43-dc0e5bb919ff" frameborder="0"></iframe>
 </apex:pageBlock> 
 
 
