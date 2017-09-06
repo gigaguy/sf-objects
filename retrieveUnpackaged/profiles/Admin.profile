@@ -803,11 +803,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Submission__c.Campaign_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Submission__c.Commenter_Category__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -824,6 +819,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Submission__c.Geographic_Origin__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Submission__c.Have_Snippets__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -869,11 +869,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Submission__c.Submission_Status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Submission__c.Substantive__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

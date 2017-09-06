@@ -74,17 +74,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Campaign_Name__c</fullName>
-        <externalId>false</externalId>
-        <label>Campaign Name</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Commenter_Category__c</fullName>
         <externalId>false</externalId>
         <label>Commenter Category</label>
@@ -443,6 +432,33 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Have_Snippets__c</fullName>
+        <externalId>false</externalId>
+        <label>Snippets?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Maybe</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Letter_Type__c</fullName>
         <externalId>false</externalId>
         <label>Letter Type</label>
@@ -605,33 +621,6 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Substantive__c</fullName>
-        <externalId>false</externalId>
-        <label>Substantive</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Maybe</fullName>
-                    <default>true</default>
-                </value>
-                <value>
-                    <fullName>Yes</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>No</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Topic__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -652,7 +641,7 @@
         <columns>Agency_Name__c</columns>
         <columns>Commenter_Name__c</columns>
         <columns>Submission_Status__c</columns>
-        <columns>Substantive__c</columns>
+        <columns>Have_Snippets__c</columns>
         <columns>Positive_Negative_Feedback__c</columns>
         <columns>Submission_Link__c</columns>
         <filterScope>Everything</filterScope>
@@ -710,7 +699,7 @@
         <customTabListAdditionalFields>Agency_Name__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Letter_Type__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Submission_Status__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Substantive__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Have_Snippets__c</customTabListAdditionalFields>
         <listViewButtons>Accept</listViewButtons>
         <lookupDialogsAdditionalFields>Submission_Number__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Commenter_Category__c</lookupDialogsAdditionalFields>
@@ -718,7 +707,7 @@
         <lookupDialogsAdditionalFields>Agency_Name__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Letter_Type__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Submission_Status__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Substantive__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Have_Snippets__c</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Submission_Number__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Commenter_Category__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Commenter_Name__c</lookupPhoneDialogsAdditionalFields>
@@ -726,14 +715,14 @@
         <searchFilterFields>Submission_Number__c</searchFilterFields>
         <searchFilterFields>Commenter_Category__c</searchFilterFields>
         <searchFilterFields>Agency_Name__c</searchFilterFields>
-        <searchFilterFields>Substantive__c</searchFilterFields>
+        <searchFilterFields>Have_Snippets__c</searchFilterFields>
         <searchResultsAdditionalFields>Submission_Number__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Commenter_Category__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Commenter_Name__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Agency_Name__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Letter_Type__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Submission_Status__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Substantive__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Have_Snippets__c</searchResultsAdditionalFields>
         <searchResultsCustomButtons>Accept</searchResultsCustomButtons>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
