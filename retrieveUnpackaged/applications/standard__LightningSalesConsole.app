@@ -16,8 +16,9 @@
     <tab>standard-Feed</tab>
     <tab>standard-CollaborationGroup</tab>
     <tab>standard-File</tab>
-    <tab>Reports</tab>
+    <tab>Qlik_Reports</tab>
     <tab>Help</tab>
+    <tab>Project__c</tab>
     <uiType>Lightning</uiType>
     <utilityBar>LightningSalesConsole_UtilityBar</utilityBar>
 </CustomApplication>

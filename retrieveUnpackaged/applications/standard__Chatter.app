@@ -4,6 +4,7 @@
     <formFactors>Large</formFactors>
     <tab>standard-Chatter</tab>
     <tab>standard-File</tab>
-    <tab>Reports</tab>
+    <tab>Qlik_Reports</tab>
     <tab>Help</tab>
+    <tab>Project__c</tab>
 </CustomApplication>

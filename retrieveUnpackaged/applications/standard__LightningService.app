@@ -9,8 +9,9 @@
     <tab>standard-Dashboard</tab>
     <tab>standard-Chatter</tab>
     <tab>standard-home</tab>
-    <tab>Reports</tab>
+    <tab>Qlik_Reports</tab>
     <tab>Help</tab>
+    <tab>Project__c</tab>
     <uiType>Lightning</uiType>
     <utilityBar>LightningService_UtilityBar</utilityBar>
 </CustomApplication>

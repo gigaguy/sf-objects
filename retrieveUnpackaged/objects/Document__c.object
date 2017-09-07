@@ -13315,6 +13315,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Grant_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Grant Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Group__c</fullName>
         <externalId>false</externalId>
         <label>Group</label>
@@ -13604,6 +13615,18 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>IAA_Number__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Inter-Agency Agreement Number</inlineHelpText>
+        <label>IAA Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Op_Plan__c</fullName>
         <externalId>false</externalId>
         <label>Op Plan</label>
@@ -13687,6 +13710,34 @@
                 </value>
                 <value>
                     <fullName>56H8X04</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>POD__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Procurement Operation Division</inlineHelpText>
+        <label>POD</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CPOD - Cincinnati Procurement Operations Division</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HPOD - Headquarters</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>RTPPOD - Research Triangle Park</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
@@ -15219,12 +15270,45 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Project_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project__r.Project__c</formula>
+        <label>Project Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Project_Officer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Project Officer</label>
         <referenceTo>Contact</referenceTo>
         <relationshipLabel>Documents (Project Officer)</relationshipLabel>
+        <relationshipName>Documents</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Project__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Project &amp; Task</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.AHRC__c</field>
+                <operation>equals</operation>
+                <valueField>Project__c.AHRC__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Project__c</referenceTo>
+        <relationshipLabel>Documents</relationshipLabel>
         <relationshipName>Documents</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -15705,6 +15789,17 @@
         <externalId>false</externalId>
         <label>TA Number</label>
         <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Task_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Project__r.Task_Name__c</formula>
+        <label>Task Name</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -19024,6 +19119,10 @@
     <label>Document</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>DCN__c</columns>
+        <columns>AHRC__c</columns>
+        <columns>Total_Dollar_Amont__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
@@ -25909,6 +26008,21 @@
             </values>
             <values>
                 <fullName>56H8X04</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>POD__c</picklist>
+            <values>
+                <fullName>CPOD - Cincinnati Procurement Operations Division</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HPOD - Headquarters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RTPPOD - Research Triangle Park</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -36794,6 +36908,21 @@
             </values>
             <values>
                 <fullName>56H8X04</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>POD__c</picklist>
+            <values>
+                <fullName>CPOD - Cincinnati Procurement Operations Division</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HPOD - Headquarters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RTPPOD - Research Triangle Park</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -47763,6 +47892,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>POD__c</picklist>
+            <values>
+                <fullName>CPOD - Cincinnati Procurement Operations Division</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HPOD - Headquarters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RTPPOD - Research Triangle Park</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>PRC__c</picklist>
             <values>
                 <fullName>101A46</fullName>
@@ -58724,6 +58868,21 @@
             </values>
             <values>
                 <fullName>56H8X04</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>POD__c</picklist>
+            <values>
+                <fullName>CPOD - Cincinnati Procurement Operations Division</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HPOD - Headquarters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RTPPOD - Research Triangle Park</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

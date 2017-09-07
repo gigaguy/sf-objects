@@ -175,14 +175,18 @@
     <tab>standard-Lead</tab>
     <tab>standard-Knowledge</tab>
     <tab>standard-LiveAgent</tab>
-    <tab>Reports</tab>
+    <tab>Qlik_Reports</tab>
     <tab>Help</tab>
+    <tab>Project__c</tab>
     <workspaceMappings>
         <mapping>
             <tab>Help</tab>
         </mapping>
         <mapping>
-            <tab>Reports</tab>
+            <tab>Project__c</tab>
+        </mapping>
+        <mapping>
+            <tab>Qlik_Reports</tab>
         </mapping>
         <mapping>
             <tab>standard-Account</tab>

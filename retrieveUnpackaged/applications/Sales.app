@@ -12,7 +12,6 @@
     <tab>standard-Account</tab>
     <tab>standard-Contact</tab>
     <tab>standard-Campaign</tab>
-    <tab>Forms__c</tab>
     <tab>standard-Task</tab>
     <tab>standard-ContentNote</tab>
     <tab>standard-Event</tab>
@@ -24,7 +23,8 @@
     <tab>standard-OtherUserProfile</tab>
     <tab>standard-Case</tab>
     <tab>standard-Product2</tab>
-    <tab>Reports</tab>
+    <tab>Qlik_Reports</tab>
     <tab>Help</tab>
+    <tab>Project__c</tab>
     <uiType>Lightning</uiType>
 </CustomApplication>
