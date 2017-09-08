@@ -202,6 +202,11 @@
         <columns>Project__c</columns>
         <columns>Task_Name__c</columns>
         <filterScope>Everything</filterScope>
+        <filters>
+            <field>AHRC__c</field>
+            <operation>equals</operation>
+            <value>56C</value>
+        </filters>
         <label>All</label>
     </listViews>
     <nameField>
@@ -215,11 +220,11 @@
         <lookupDialogsAdditionalFields>Project__c</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Task_code__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Project__c</lookupPhoneDialogsAdditionalFields>
-        <searchFilterFields>Project__c</searchFilterFields>
-        <searchFilterFields>Task_code__c</searchFilterFields>
         <searchFilterFields>NAME</searchFilterFields>
-        <searchResultsAdditionalFields>Project__c</searchResultsAdditionalFields>
+        <searchFilterFields>Task_code__c</searchFilterFields>
+        <searchFilterFields>Project__c</searchFilterFields>
         <searchResultsAdditionalFields>Task_code__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Project__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>
