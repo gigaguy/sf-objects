@@ -16,11 +16,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__DataAssessment</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__LightningSales</application>
         <default>false</default>
         <visible>false</visible>
@@ -368,6 +363,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.SandboxURL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Submission_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
