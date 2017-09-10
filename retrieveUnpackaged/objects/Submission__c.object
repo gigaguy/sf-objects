@@ -685,7 +685,6 @@
         <fullName>Waters_of_the_US_Comment</fullName>
         <filterScope>Queue</filterScope>
         <label>Waters of the US</label>
-        <queue>Waters_of_the_US</queue>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
         </sharedTo>
