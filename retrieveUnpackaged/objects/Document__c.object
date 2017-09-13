@@ -17193,6 +17193,19 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Test_Document__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Test Document Self Lookup</label>
+        <referenceTo>Document__c</referenceTo>
+        <relationshipLabel>Documents</relationshipLabel>
+        <relationshipName>Documents</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Total_Dollar_Amont__c</fullName>
         <externalId>false</externalId>
         <formula>Dollar_Amount_1__c + Dollar_Amount_2__c + Dollar_Amount_3__c + Dollar_Amount_4__c + Dollar_Amount_5__c</formula>

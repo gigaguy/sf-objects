@@ -12,8 +12,6 @@
     <tab>Document__c</tab>
     <tab>Project__c</tab>
     <tab>Qlik_Reports</tab>
-    <tab>standard-report</tab>
-    <tab>standard-Dashboard</tab>
     <tab>Help</tab>
     <uiType>Lightning</uiType>
     <utilityBar>Document_Control_Register_UtilityBar</utilityBar>
