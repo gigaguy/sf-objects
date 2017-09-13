@@ -63,7 +63,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
+        <type>Html</type>
         <visibleLines>25</visibleLines>
     </fields>
     <fields>
@@ -102,7 +102,7 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
+        <type>Html</type>
         <visibleLines>25</visibleLines>
     </fields>
     <fields>
