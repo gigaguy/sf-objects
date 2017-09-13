@@ -56,5 +56,9 @@
         <members>*</members>
         <name>Profile</name>
     </types>
+    <types>
+        <members>*</members>
+        <name>Report</name>
+    </types>
     <version>38.0</version>
 </Package>
