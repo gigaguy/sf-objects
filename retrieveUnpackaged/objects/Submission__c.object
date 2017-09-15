@@ -645,11 +645,6 @@
         <columns>Positive_Negative_Feedback__c</columns>
         <columns>Submission_Link__c</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>Letter_Type__c</field>
-            <operation>equals</operation>
-            <value>Modified Mass Mailer</value>
-        </filters>
         <label>All</label>
     </listViews>
     <listViews>
