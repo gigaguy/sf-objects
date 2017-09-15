@@ -209,6 +209,16 @@
     <custom>false</custom>
     <fieldPermissions>
         <editable>false</editable>
+        <field>BAP_Fill_and_Print_List__mdt.Description__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>BAP_Fill_and_Print_List__mdt.File_Url__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>ContactUserRelation__c.Related_Contact__c</field>
         <readable>false</readable>
     </fieldPermissions>
