@@ -3,6 +3,7 @@
     <formFactors>Large</formFactors>
     <navType>Console</navType>
     <tab>standard-Case</tab>
+    <tab>Non_Standard_Software_Request_Page</tab>
     <tab>standard-Contact</tab>
     <tab>standard-Account</tab>
     <tab>standard-report</tab>

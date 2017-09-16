@@ -57,13 +57,44 @@
         <externalId>false</externalId>
         <label>Asset</label>
         <referenceTo>Asset</referenceTo>
+        <relationshipLabel>NonStandardSoftwareRequests</relationshipLabel>
         <relationshipName>NonStandardSoftwareRequests</relationshipName>
         <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Division__c</fullName>
+        <externalId>false</externalId>
+        <label>Division</label>
+        <length>100</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NameOfUser__c</fullName>
+        <externalId>false</externalId>
+        <label>Name of User</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Office_Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>Office Phone</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
     </fields>
     <fields>
         <fullName>Product_Name__c</fullName>
@@ -88,7 +119,52 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Software_Hardware__c</fullName>
+        <description>SELECT ONE</description>
+        <externalId>false</externalId>
+        <label>Software/Hardware</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>EPA-Owned Hardware/Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Privately-Owned Commercial Hardware or Software</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Shareware, Freeware or Public Domain Sotware</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Workstation__c</fullName>
+        <externalId>false</externalId>
+        <label>Workstation</label>
+        <length>8</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>Non Standard Software Request</label>
+    <listViews>
+        <fullName>Adobe_Cloud</fullName>
+        <columns>NAME</columns>
+        <filterScope>Mine</filterScope>
+        <label>Adobe Cloud</label>
+    </listViews>
     <listViews>
         <fullName>All</fullName>
         <filterScope>Everything</filterScope>
@@ -96,11 +172,11 @@
     </listViews>
     <nameField>
         <displayFormat>{YYYY}{MM}-{00000}</displayFormat>
-        <label>Software Request Name</label>
+        <label>Request Registratoin Number</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>NonStandardSoftwareRequests</pluralLabel>
+    <pluralLabel>Non Standard Software Requests</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

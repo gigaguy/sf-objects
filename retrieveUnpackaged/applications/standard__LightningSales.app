@@ -5,6 +5,7 @@
     <formFactors>Large</formFactors>
     <navType>Standard</navType>
     <tab>standard-home</tab>
+    <tab>Non_Standard_Software_Request_Page</tab>
     <tab>standard-Feed</tab>
     <tab>standard-Opportunity</tab>
     <tab>standard-Lead</tab>
@@ -16,7 +17,6 @@
     <tab>standard-Campaign</tab>
     <tab>standard-Dashboard</tab>
     <tab>standard-report</tab>
-    <tab>standard-Feed</tab>
     <tab>standard-CollaborationGroup</tab>
     <tab>standard-Event</tab>
     <tab>standard-OtherUserProfile</tab>
