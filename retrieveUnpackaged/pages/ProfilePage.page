@@ -1,7 +1,32 @@
 <apex:page controller="ProfilePageController" showheader="false" sidebar="false" title="BAP Agency Forms - Edit Approvers" cache="false" action="{!validateOrRedirect}">
-    
+
     <style>
         body { background-color: #E0F1FF; }
+        
+        .msg {
+            font-size: .75rem;
+            line-height: 1.25;
+            color: rgb(84, 105, 141);
+            text-transform: uppercase;
+            letter-spacing: .0625rem;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: block;
+            -webkit-margin-before: 1em;
+            -webkit-margin-after: 1em;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+            margin-left: 305px;
+            margin-bottom: 20px;
+            margin-top: -20px;
+            width: 45%;
+            text-align: center;
+            font-family: 'Salesforce Sans',Arial,sans-serif;
+            background: rgb(253, 253, 253);
+            -webkit-tap-highlight-color: transparent;
+            }
+        
     </style>
     
     <!--Header-->
@@ -16,7 +41,7 @@
                 Editing Approvers for: {!userName}
             </p>
             <p style="margin-top: 35px; font-size: 16.25px">
-                <apex:commandlink action="{!cancel}">Back to Form Types</apex:commandlink>
+                <apex:commandlink value="{!canMsg}" action="{!cancel}"></apex:commandlink>
             </p>
         </div>
     </div>
@@ -24,6 +49,16 @@
     <!--End Header-->
     
     <!--Body-->
+    <div style="width: 50%; padding-left: 200px;">
+    <apex:pageMessage rendered="{!lanError}" severity="error" escape="false" summary="Your User record does not have a valid 'Lan ID'.<br/>Please contact your administrator.<br/<br/>Changes on this page will not be saved." />
+    <apex:pageMessage rendered="{!noContact}" severity="error" escape="false" summary="You do not have a Contact record in the system with a valid 'Lan ID'.<br/>Please contact your administrator.<br/<br/>Changes on this page will not be saved." />
+    <apex:pageMessages />
+    </div>  
+    
+    <apex:outputPanel rendered="{!profSaved}" styleClass="msg" >
+     <br/>Approvers saved successfully!<br/><br/>
+    </apex:outputPanel>
+        
     <div style="width: 75%; padding-left: 200px;">
         <apex:form rendered="{!valid == true}">
             <apex:pageblock >

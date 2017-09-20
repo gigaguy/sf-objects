@@ -1,5 +1,13 @@
 public class UtilityMethods { 
 
+    public static string getLicName(id uID) {
+    	string licName;
+    	if (uid != null) {
+    	licName = [select id, Profile.UserLicense.Name from user where ID = :uID limit 1].Profile.UserLicense.Name;
+    	}
+     return licName;
+    }
+    
     public static string getSessionID() {
         string sessionID;
         sessionID = ApexPages.currentPage().getParameters().get('sID');
