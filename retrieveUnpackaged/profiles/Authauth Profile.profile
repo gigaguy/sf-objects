@@ -239,6 +239,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Forms__c.A_Description__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Forms__c.Action_Information__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -249,7 +254,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Forms__c.Amount__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Forms__c.Applicant_Name_Last_First_MI__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Apply_Membership__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -275,6 +290,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Award_Documentation_before_or_after__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Billing_Address__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -459,7 +479,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Forms__c.Donate_Hours__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Forms__c.EHRI_Employee_Number__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.EPA_LEAVE_BANK_APPLICATION__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -471,6 +501,11 @@
         <editable>true</editable>
         <field>Forms__c.Employee_Digital_Signature__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Employee_ID_No__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -509,17 +544,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Forms__c.Extra_Hours__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Forms__c.Fee_Category__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Form_Owner__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Forms__c.Form_Record_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -800,6 +835,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Organization_Mailing_Address__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Organization_and_Address__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1194,6 +1234,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Forms__c.Work_Phone__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Forms__c.X75_Day_Letter_sent__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1363,6 +1408,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Forms__c.BAP_Provisioning</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Forms__c.EPA3160_6v5</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
