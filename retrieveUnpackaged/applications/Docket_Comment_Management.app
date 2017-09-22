@@ -19,7 +19,6 @@
     <tab>standard-home</tab>
     <tab>Submission__c</tab>
     <tab>Snippet__c</tab>
-    <tab>Snippet_Review</tab>
     <tab>Topic__c</tab>
     <tab>Mass_Mailing_Campaign__c</tab>
     <tab>standard-report</tab>

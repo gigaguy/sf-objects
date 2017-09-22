@@ -64,6 +64,17 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Topic_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Topic__r.Topic_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Topic Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Topic__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>

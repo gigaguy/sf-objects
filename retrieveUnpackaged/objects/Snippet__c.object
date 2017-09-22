@@ -48,12 +48,9 @@
     <compactLayoutAssignment>Snippet</compactLayoutAssignment>
     <compactLayouts>
         <fullName>Snippet</fullName>
-        <fields>Name</fields>
-        <fields>Submission__c</fields>
         <fields>Submission_Number__c</fields>
-        <fields>Document_Number__c</fields>
-        <fields>Topic__c</fields>
-        <fields>Comment_Status__c</fields>
+        <fields>Commenter_Name__c</fields>
+        <fields>Agency_Name__c</fields>
         <label>Snippet</label>
     </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
@@ -65,6 +62,18 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Agency_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Submission__r.Agency_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Agency Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Comment_Status__c</fullName>
         <externalId>false</externalId>
@@ -101,6 +110,30 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Commenter_Category__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Submission__r.Commenter_Category__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Commenter Category</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Commenter_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Submission__r.Commenter_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Commenter Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Date_Added__c</fullName>
         <externalId>false</externalId>
         <label>Date Added</label>
@@ -133,7 +166,7 @@
         <fullName>Extracted_Text__c</fullName>
         <externalId>false</externalId>
         <label>Extracted Text</label>
-        <length>32768</length>
+        <length>131072</length>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Html</type>
@@ -164,12 +197,11 @@
         <fullName>Related_Reference__c</fullName>
         <externalId>false</externalId>
         <label>Related Reference</label>
-        <length>255</length>
-        <required>false</required>
+        <length>10000</length>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>LongTextArea</type>
+        <visibleLines>25</visibleLines>
     </fields>
     <fields>
         <fullName>Relevant_Essays__c</fullName>
@@ -219,11 +251,46 @@
         <fullName>Response__c</fullName>
         <externalId>false</externalId>
         <label>Response</label>
-        <length>32768</length>
+        <length>131072</length>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Html</type>
         <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Snippet_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Snippet Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Snippet Entered</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Snippet Entry Verified</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ready for Agency Review</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Comment Added</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Addressed in Essay</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Submission_Number__c</fullName>
@@ -251,6 +318,28 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>Substantive__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Submission__r.Have_Snippets__c)</formula>
+        <label>Substantive?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Topic_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Topic__r.Topic_Name__c</formula>
+        <label>Topic Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Topic__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -265,13 +354,13 @@
     <label>Snippet</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
         <columns>Submission_Number__c</columns>
+        <columns>Topic_Name__c</columns>
+        <columns>Commenter_Category__c</columns>
+        <columns>Snippet_Status__c</columns>
         <columns>Extracted_Text__c</columns>
         <columns>Response__c</columns>
-        <columns>Comment_Status__c</columns>
-        <columns>Topic__c</columns>
-        <columns>NAME</columns>
-        <columns>Notes__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
@@ -283,18 +372,21 @@
     </nameField>
     <pluralLabel>Snippets</pluralLabel>
     <searchLayouts>
-        <customTabListAdditionalFields>Submission__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Topic__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Submission_Number__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Comment_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Topic__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Extracted_Text__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Response__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Snippet_Status__c</customTabListAdditionalFields>
         <searchFilterFields>Submission_Number__c</searchFilterFields>
         <searchFilterFields>Topic__c</searchFilterFields>
         <searchFilterFields>Document_Number__c</searchFilterFields>
-        <searchFilterFields>Comment_Status__c</searchFilterFields>
-        <searchResultsAdditionalFields>Submission__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Document_Number__c</searchResultsAdditionalFields>
+        <searchFilterFields>Snippet_Status__c</searchFilterFields>
+        <searchResultsAdditionalFields>Submission_Number__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Topic__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Comment_Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Topic_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Extracted_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Response__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Snippet_Status__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <webLinks>

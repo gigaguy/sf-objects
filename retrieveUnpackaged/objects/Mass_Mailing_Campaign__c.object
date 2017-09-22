@@ -38,7 +38,11 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Mass_Mailing_Campaign_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>true</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
@@ -118,19 +122,28 @@
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>Pro_Cons__c</columns>
         <columns>Sponsoring_Entity__c</columns>
+        <columns>Pro_Cons__c</columns>
         <columns>Docket_Count__c</columns>
+        <columns>Mass_Mailing_Campaign_Content__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
     <nameField>
-        <displayFormat>MM-{000000}</displayFormat>
-        <label>Mass Mailing Campaign ID</label>
+        <label>Mass Mailing Campaign Name</label>
         <trackHistory>false</trackHistory>
-        <type>AutoNumber</type>
+        <type>Text</type>
     </nameField>
     <pluralLabel>Mass Mailing Campaigns</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <customTabListAdditionalFields>Sponsoring_Entity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Docket_Count__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Pro_Cons__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Mass_Mailing_Campaign_Content__c</customTabListAdditionalFields>
+        <searchFilterFields>Sponsoring_Entity__c</searchFilterFields>
+        <searchResultsAdditionalFields>Sponsoring_Entity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Docket_Count__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Pro_Cons__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>
