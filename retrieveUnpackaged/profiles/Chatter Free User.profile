@@ -61,51 +61,10 @@
         <visible>false</visible>
     </applicationVisibilities>
     <custom>false</custom>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Action__c.Action_Requested__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Action__c.Created_On__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Action__c.Employee_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Action__c.FPL__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Action__c.OAP__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Action__c.OTHER__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Action__c.SME_Tel__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Action__c.SME__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Action__c.Series__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+    <pageAccesses>
+        <apexPage>NewUI</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
     <userLicense>Chatter Free</userLicense>
     <userPermissions>
         <enabled>true</enabled>
