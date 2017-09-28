@@ -119,11 +119,11 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>FormPrintableUnlicensed</apexClass>
+        <apexClass>FormPrintableTypeOne</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>FormPrintableUnlicensed_Test</apexClass>
+        <apexClass>FormPrintableTypeOne_Test</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1728,6 +1728,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.SF_182_Prepare_For_checker__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.SON__c</field>
         <readable>true</readable>
@@ -2236,7 +2241,7 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>FormPrintableUnlicensed</apexPage>
+        <apexPage>FormPrintableTypeOne</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
