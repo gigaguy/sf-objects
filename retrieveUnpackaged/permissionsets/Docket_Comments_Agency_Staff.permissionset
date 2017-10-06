@@ -56,6 +56,10 @@
         <apexClass>SnippetDownloaderTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>TopicDownloadController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <description>used by other agency staff including EPA and affiliates such as Army Corps of Engineers</description>
     <fieldPermissions>
         <editable>false</editable>

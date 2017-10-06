@@ -56,6 +56,10 @@
         <apexClass>SnippetDownloaderTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>TopicDownloadController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <description>access for Horsley Witten Group</description>
     <fieldPermissions>
         <editable>false</editable>
