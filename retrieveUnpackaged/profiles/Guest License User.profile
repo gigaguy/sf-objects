@@ -811,12 +811,12 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Application__c.Forms</recordType>
+        <recordType>Application__c.Candidate_Application</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Application__c.Prospect_Application</recordType>
+        <recordType>Application__c.Forms</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
