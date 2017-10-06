@@ -504,11 +504,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Forms__c.Contractor_3110_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Forms__c.Contractor__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -704,6 +699,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Forms__c.Delivery_Address__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Forms__c.Delivery_Phone_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Forms__c.Describe_Interactions_with_Company__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -745,11 +750,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.EHRI_Employee_Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Forms__c.EPA_Employee_3110_1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -895,11 +895,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Grade__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Forms__c.Grantee_3110_1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1109,6 +1104,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Forms__c.Justification__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Forms__c.Last_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1178,11 +1178,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Forms__c.Move_Within_EPA_HQ_Region_Lab_3110_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.NOTICE_TO_EMPLOYEE__c</field>
         <readable>true</readable>
@@ -1228,6 +1223,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Note__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Notified_this_is_the_last_negotiation__c</field>
         <readable>true</readable>
@@ -1264,11 +1264,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Forms__c.Other_3110_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Forms__c.Other_Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1280,11 +1275,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Other_Part_C__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Forms__c.Other_Student_Volunteer_etc_3110_1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1574,6 +1564,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Forms__c.Personnel_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Forms__c.Petition__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1694,6 +1689,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Forms__c.Reason_For_Leaving__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Forms__c.Recipient_Employee_ID_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1754,11 +1754,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Forms__c.Resignation_Termination_3110_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Forms__c.Response_1__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1770,11 +1765,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Response_3__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Forms__c.Retirement_3110_1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2085,16 +2075,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Training_Type_Code__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Forms__c.Transfer_Within_Agency__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Forms__c.Transfer_to_Another_Federal_Agency_3110__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
