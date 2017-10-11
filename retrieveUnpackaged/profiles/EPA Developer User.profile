@@ -888,7 +888,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Forms__c.Grade__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1538,7 +1538,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Forms__c.Pay_Plan__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1788,7 +1788,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Forms__c.Series__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1898,7 +1898,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Forms__c.Step__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2040,11 +2040,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Transit_Parking_Printed_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Forms__c.Travel__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
