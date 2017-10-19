@@ -25,10 +25,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__DataAssessment</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__LightningSales</application>
         <visible>false</visible>
     </applicationVisibilities>
@@ -610,11 +606,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Snippet__c.Date_Added__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Snippet__c.Document_Link__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -661,11 +652,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Snippet__c.Submission_Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Snippet__c.Substantive__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1026,6 +1012,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>EditMyReports</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EditPublicFilters</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
