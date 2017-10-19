@@ -26,11 +26,6 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__DataAssessment</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__LightningSales</application>
         <default>false</default>
         <visible>true</visible>
@@ -92,10 +87,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ChangePasswordControllerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>FileUploadController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -210,6 +201,10 @@
         <apexClass>logoutPageController_Test</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>sendCincinnatiEmail</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <custom>false</custom>
     <fieldPermissions>
         <editable>false</editable>
@@ -298,6 +293,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Forms__c.Approving_Official__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Forms__c.Award_Documentation_before_or_after__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -349,6 +349,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.C__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Forms__c.Card_Holder__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -464,6 +469,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Cleared_Other__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Forms__c.Cleared_Part_A_SF52__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -708,6 +718,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Forms__c.Deputy_Director__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Forms__c.Describe_Interactions_with_Company__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -732,8 +747,23 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Forms__c.Director__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Disposition_of_EPA_Form_3110_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Forms__c.Division_Director_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Forms__c.Division_Director_2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -843,6 +873,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Forms__c.FCO__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Forms__c.Facilities_Management_Printed_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -879,6 +914,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Form_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Form_emailed_to_Cincinnati__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -934,6 +974,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.ITO_IMO_Telecom_Printed_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Forms__c.IT_Reviewer__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1443,6 +1488,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Forms__c.Part_B_Cleared_RLO__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Part_B_Cleared_Supervisor__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Forms__c.Part_B_Completed_By__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1779,6 +1834,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Project_Type_s__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Forms__c.Property__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2342,6 +2402,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Forms__c.X508_Compliance_Approver__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.X5_Part_B__c</field>
         <readable>true</readable>
@@ -2682,6 +2747,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ListEmailSend</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>MassInlineEdit</name>
     </userPermissions>
     <userPermissions>
@@ -2707,6 +2776,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>SubscribeToLightningReports</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>UseWebLink</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

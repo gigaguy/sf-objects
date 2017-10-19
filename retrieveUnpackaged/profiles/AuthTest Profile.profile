@@ -26,11 +26,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>standard__DataAssessment</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>standard__LightningSales</application>
         <default>false</default>
         <visible>false</visible>
@@ -93,10 +88,6 @@
     <classAccesses>
         <apexClass>ChangePasswordControllerTest</apexClass>
         <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>FileUploadController</apexClass>
-        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>ForgotPasswordController</apexClass>
@@ -210,6 +201,10 @@
         <apexClass>logoutPageController_Test</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>sendCincinnatiEmail</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <custom>true</custom>
     <fieldPermissions>
         <editable>false</editable>
@@ -297,6 +292,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Approving_Official__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Award_Documentation_before_or_after__c</field>
         <readable>true</readable>
@@ -350,6 +350,11 @@
         <editable>true</editable>
         <field>Forms__c.C__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Card_Holder__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -464,6 +469,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Cleared_Other__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Forms__c.Cleared_Part_A_SF52__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -707,6 +717,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Deputy_Director__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Describe_Interactions_with_Company__c</field>
         <readable>true</readable>
@@ -732,9 +747,24 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Director__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Disposition_of_EPA_Form_3110_1__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Division_Director_1__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Division_Director_2__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -842,6 +872,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.FCO__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Facilities_Management_Printed_Name__c</field>
         <readable>true</readable>
@@ -880,6 +915,11 @@
         <editable>true</editable>
         <field>Forms__c.Form_Type__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Form_emailed_to_Cincinnati__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -938,6 +978,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Forms__c.IT_Reviewer__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Forms__c.I_Agree_1__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -992,9 +1037,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Item_Description_10__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1022,29 +1067,29 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Item_Description_6__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Item_Description_7__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Item_Description_8__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Item_Description_9__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Item_Number_10__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1072,29 +1117,29 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Item_Number_6__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Item_Number_7__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Item_Number_8__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Item_Number_9__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Item_Price_10__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1122,29 +1167,29 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Item_Price_6__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Item_Price_7__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Item_Price_8__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Item_Price_9__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Item_Quantity_10__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1172,24 +1217,24 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Item_Quantity_6__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Item_Quantity_7__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Item_Quantity_8__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Item_Quantity_9__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1229,7 +1274,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Line_Total_Price_10__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -1259,22 +1304,22 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Line_Total_Price_6__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Line_Total_Price_7__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Line_Total_Price_8__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Line_Total_Price_9__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1439,6 +1484,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Part_B_8__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Forms__c.Part_B_Cleared_RLO__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Forms__c.Part_B_Cleared_Supervisor__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1632,9 +1687,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Part_Number_10__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1662,24 +1717,24 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Part_Number_6__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Part_Number_7__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Part_Number_8__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Part_Number_9__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1697,9 +1752,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Personnel_Type__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1782,6 +1837,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Property__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Proposed_New_PRIA_Due_Date__c</field>
         <readable>true</readable>
@@ -1822,9 +1882,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Reason_For_Leaving__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -2342,6 +2402,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.X508_Compliance_Approver__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.X5_Part_B__c</field>
         <readable>true</readable>
@@ -2589,6 +2654,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ShowCompanyNameAsUserBadge</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>UseWebLink</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
