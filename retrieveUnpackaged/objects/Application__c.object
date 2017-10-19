@@ -38,11 +38,15 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Application_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>true</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
-    <deploymentStatus>InDevelopment</deploymentStatus>
+    <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
@@ -51,6 +55,7 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
         <fullName>Addition_of_Workflow_Requirement__c</fullName>
         <description>Additional workflow requirement, i.e., addition of workflow to a heretofore fill and print form.</description>
@@ -79,6 +84,19 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Board_Member__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Board Member</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Applications (Board Member)</relationshipLabel>
+        <relationshipName>Applications1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Data_Availability_Comments__c</fullName>
@@ -177,11 +195,23 @@
         <fullName>Form_Number__c</fullName>
         <externalId>false</externalId>
         <label>Form Number</label>
-        <length>12</length>
+        <length>25</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Full_Users__c</fullName>
+        <externalId>false</externalId>
+        <label>Full Users</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -281,9 +311,24 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
+                <value>
+                    <fullName>BAP Workflow Under Development</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BAP Workflow Planned</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>BAP Downloadable Planned</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FormSmart Downloadable Planned</fullName>
+                    <default>false</default>
+                </value>
                 <value>
                     <fullName>Delete</fullName>
                     <default>false</default>
@@ -373,6 +418,29 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Standard_Form_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Standard Form Number</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Starter_Users__c</fullName>
+        <externalId>false</externalId>
+        <label>Starter Users</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Status_By__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -403,6 +471,63 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Candidate</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>In Development</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>In Production</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Deferred/Cancelled</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Total_Users__c</fullName>
+        <externalId>false</externalId>
+        <formula>Type_1_Users__c + Starter_Users__c + Full_Users__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Users</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type_1_Users__c</fullName>
+        <externalId>false</externalId>
+        <label>Type 1 Users</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Type__c</fullName>
         <externalId>false</externalId>
         <label>Type</label>
@@ -428,11 +553,16 @@
     <label>Application</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Form_Number__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Notes__c</columns>
+        <columns>Primary_Contact__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
     <nameField>
-        <label>Application Name</label>
+        <label>Name</label>
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
@@ -564,6 +694,25 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Candidate</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Deferred%2FCancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Development</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Production</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Type__c</picklist>
             <values>
                 <fullName>Fill and Print</fullName>
@@ -676,6 +825,18 @@
         <picklistValues>
             <picklist>Migration_Status__c</picklist>
             <values>
+                <fullName>BAP Downloadable Planned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BAP Workflow Planned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BAP Workflow Under Development</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Delete</fullName>
                 <default>false</default>
             </values>
@@ -688,6 +849,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>FormSmart Downloadable Planned</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Known</fullName>
                 <default>false</default>
             </values>
@@ -697,6 +862,25 @@
             </values>
             <values>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Candidate</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Deferred%2FCancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Development</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Production</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -718,6 +902,10 @@
         <customTabListAdditionalFields>Migration_Priority__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Migration_Status__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Type__c</customTabListAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>UPDATEDBY_USER</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LAST_UPDATE</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <startsWith>Vowel</startsWith>

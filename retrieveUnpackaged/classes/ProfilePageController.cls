@@ -68,9 +68,12 @@ public class ProfilePageController {
     }
     
     public PageReference validateOrRedirect() {
+        // 9/21/2017 - Larry Spackman - Disabled for deployment to Production because HeaderLogs custom object not being deployed
+        /*
         // Log Header & Parameters
         UtilityMethods.logHeaders();
         // End Log Header & Parameters
+        */
        
         // Valid value from Verify Session call above
         if (!valid) {
@@ -103,7 +106,7 @@ public class ProfilePageController {
     
     public pageReference cancel() {
         string url = '/FormPage';
-        if(!t1User){url = 'https://epaoei--oeiodsta.cs33.my.salesforce.com/a03/o';}     
+        if(!t1User){url = '/one/one.app?source=aloha#/n/Edit_My_Approvers';}     
         PageReference newPR = new PageReference(url);
         newPR.getParameters().clear();
         newPR.getParameters().put('sID', sID);

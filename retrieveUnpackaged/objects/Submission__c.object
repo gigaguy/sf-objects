@@ -62,6 +62,7 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
         <fullName>Agency_Name__c</fullName>
         <externalId>false</externalId>
@@ -115,6 +116,18 @@
                 </value>
                 <value>
                     <fullName>National Environmental NGO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>National NGO</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Non-Regulated Community - General</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Private Citizen - Environmental Justice Community</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -220,6 +233,26 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
+                    <fullName>Unknown</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>National</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Tribe</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Islands/Territories</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>International</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>AK</fullName>
                     <default>false</default>
                 </value>
@@ -284,14 +317,6 @@
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>International</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Islands/Territories</fullName>
-                    <default>false</default>
-                </value>
-                <value>
                     <fullName>KS</fullName>
                     <default>false</default>
                 </value>
@@ -333,14 +358,6 @@
                 </value>
                 <value>
                     <fullName>MT</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>MY</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>National</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -408,15 +425,7 @@
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Tribe</fullName>
-                    <default>false</default>
-                </value>
-                <value>
                     <fullName>TX</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Unknown</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -494,14 +503,6 @@
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Modified Mass Mailer</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Mass Mailing Campaign</fullName>
-                    <default>false</default>
-                </value>
-                <value>
                     <fullName>Duplicate Letter</fullName>
                     <default>false</default>
                 </value>
@@ -511,6 +512,18 @@
                 </value>
                 <value>
                     <fullName>Supporting Document (EPA)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mass Mailing Campaign</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Wrong docket</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Modified Mass Mailer</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
@@ -629,11 +642,19 @@
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Pending Response</fullName>
+                    <fullName>Initially Reviewed</fullName>
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Completed</fullName>
+                    <fullName>Printed for Reading</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Snippets Entered</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Agency Ready</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
@@ -657,47 +678,14 @@
         <columns>NAME</columns>
         <columns>Submission_Number__c</columns>
         <columns>Commenter_Category__c</columns>
-        <columns>Agency_Name__c</columns>
         <columns>Commenter_Name__c</columns>
+        <columns>Agency_Name__c</columns>
+        <columns>Letter_Type__c</columns>
         <columns>Submission_Status__c</columns>
         <columns>Have_Snippets__c</columns>
-        <columns>Positive_Negative_Feedback__c</columns>
         <columns>Submission_Link__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
-    </listViews>
-    <listViews>
-        <fullName>All_Comments_Status_Submission_Entered</fullName>
-        <columns>NAME</columns>
-        <columns>Commenter_Name__c</columns>
-        <columns>Commenter_Category__c</columns>
-        <columns>Agency_Name__c</columns>
-        <columns>Letter_Type__c</columns>
-        <columns>Received_Date__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Submission_Status__c</field>
-            <operation>equals</operation>
-            <value>Submission Entered</value>
-        </filters>
-        <label>All Comments - Status Submission Entered</label>
-    </listViews>
-    <listViews>
-        <fullName>Comments_Pending_Review</fullName>
-        <columns>NAME</columns>
-        <columns>Commenter_Name__c</columns>
-        <columns>Commenter_Category__c</columns>
-        <columns>Agency_Name__c</columns>
-        <columns>Letter_Type__c</columns>
-        <columns>Received_Date__c</columns>
-        <columns>Topic__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Submission_Status__c</field>
-            <operation>equals</operation>
-            <value>Pending Review</value>
-        </filters>
-        <label>Comments Pending Review</label>
     </listViews>
     <nameField>
         <displayFormat>C-{000000}</displayFormat>

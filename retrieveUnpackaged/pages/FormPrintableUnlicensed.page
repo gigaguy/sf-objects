@@ -1,6 +1,5 @@
 <apex:page controller="FormPrintableUnlicensed" showHeader="false" title="EPA - WebForms PDF" cache="false" applyHtmlTag="false" action="{!validateOrRedirect}" renderAs="PDF">
     <head>
-    <!-- Default Salesforce styles -->
     <link class="user" href="/sCSS/40.0/sprites/1498159010000/Theme3/default/gc/zen-componentsCompatible.css" rel="stylesheet" type="text/css" />
     <link class="user" href="/sCSS/40.0/sprites/1498159010000/Theme3/default/gc/elements.css" rel="stylesheet" type="text/css"/>
     <link class="user" href="/sCSS/40.0/sprites/1498159010000/Theme3/default/gc/common.css" rel="stylesheet" type="text/css"/>
@@ -26,7 +25,7 @@
             <img src="{!$Resource.EPALogo}"/>
         </div>
         <div style="float: left; position: relative;">
-            <h1 style="font-size: 300%; padding-bottom: 20px;">WebForms</h1>
+            <h1 style="font-size: 300%; padding-bottom: 20px;">BAP Agency Forms</h1>
         </div>
     </div>
     <!--End Header-->
