@@ -53,18 +53,17 @@
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
         <fullName>Asset__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <description>Requested Non Standard Software</description>
         <externalId>false</externalId>
         <label>Asset</label>
         <referenceTo>Asset</referenceTo>
         <relationshipLabel>NonStandardSoftwareRequests</relationshipLabel>
         <relationshipName>NonStandardSoftwareRequests</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Division__c</fullName>
@@ -167,6 +166,14 @@
     </listViews>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>NameOfUser__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>Asset__c</columns>
+        <columns>Division__c</columns>
+        <columns>Office_Phone__c</columns>
+        <columns>Product_Name__c</columns>
+        <columns>Workstation__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
@@ -178,5 +185,5 @@
     </nameField>
     <pluralLabel>Non Standard Software Requests</pluralLabel>
     <searchLayouts/>
-    <sharingModel>ControlledByParent</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
 </CustomObject>
