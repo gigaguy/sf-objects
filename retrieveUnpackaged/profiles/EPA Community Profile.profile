@@ -358,11 +358,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Forms__c.Card_Holder_s_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Forms__c.Card_Holder_s_Phone_Number__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1989,6 +1984,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Security_Management_Division_SMD__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Select_Card_Holder__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
