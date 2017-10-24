@@ -357,7 +357,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
+        <field>Forms__c.Card_Holder_s_Email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Forms__c.Card_Holder_s_Phone_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -823,6 +828,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Forms__c.Escalate_to_Chief_Learning_Officer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Forms__c.Estimated_Award__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -984,6 +994,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.If_not_date_Fix_expected__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Forms__c.If_yes_please_describe__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1938,11 +1953,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Forms__c.Requires_Escalated_Approval__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Forms__c.Response_1__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1994,11 +2004,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Select_Documentation_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Forms__c.Select_Escalated_Approver_s__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2109,6 +2114,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Signature_of_Local_LeaveBank_Coordinator__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Forms__c.Special_accommodation_needed__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
