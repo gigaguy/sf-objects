@@ -51,6 +51,7 @@
         <fields>Submission_Number__c</fields>
         <fields>Commenter_Name__c</fields>
         <fields>Agency_Name__c</fields>
+        <fields>Commenter_Category__c</fields>
         <label>Snippet</label>
     </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
