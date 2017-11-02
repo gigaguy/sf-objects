@@ -154,6 +154,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>SF_182_SendCincinnatiEmail</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SF_182_SendEmailWithAttachments</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>SiteLoginController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -199,10 +207,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>logoutPageController_Test</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>sendCincinnatiEmail</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
@@ -548,6 +552,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Forms__c.Course_Number_Code__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Forms__c.Course_Title__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -788,6 +797,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Forms__c.Direct_Costs_and_Appropriation__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Forms__c.Director__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -834,11 +848,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.E__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Forms__c.Effective_Date_of_This_Action__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1049,6 +1058,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Indirect_Appropriation_Fund__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Indirect_Costs_and_Appropriation__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1448,7 +1462,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Forms__c.Organization_and_Address__c</field>
+        <field>Forms__c.Organization__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1968,7 +1982,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Forms__c.Recipient_Organization_and_Address__c</field>
+        <field>Forms__c.Recipient_Organization__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2039,11 +2053,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.SF_182_Prepare_For_checker__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Forms__c.SON__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
