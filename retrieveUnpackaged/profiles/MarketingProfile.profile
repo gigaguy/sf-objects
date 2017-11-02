@@ -890,7 +890,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Question_Repsonse__c.Answer__c</field>
+        <field>Question_Response__c.Answer__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
