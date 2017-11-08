@@ -66,6 +66,10 @@
         <visible>false</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>AttachmentUploadController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AuthLanding</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -871,6 +875,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Effective_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Employee_Digital_Signature__c</field>
         <readable>true</readable>
@@ -878,6 +887,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Employee_ID_No__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Employee_Location__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1332,6 +1346,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Forms__c.Leave_Bank_Coordinator_Digital_Signature__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Forms__c.Librarian_Printed_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1403,11 +1422,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Local_Reference_Identifier__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Forms__c.Location__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1913,6 +1927,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Printed_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Processing_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2447,7 +2466,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Forms__c.Waiver_Signature__c</field>
+        <field>Forms__c.Waiver_Authorized_Signature__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Waiver_Digital_Signature__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2610,6 +2634,10 @@
     <pageAccesses>
         <apexPage>FileNotFound</apexPage>
         <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>FileUpload</apexPage>
+        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>Fill_and_Print</apexPage>
