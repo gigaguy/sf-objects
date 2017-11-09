@@ -565,6 +565,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Forms__c.Additional_Co_Authors__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Forms__c.Additional_Comms_Materials_Required__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -750,6 +755,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Forms__c.Disclaimer_YesNo__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Forms__c.Disclaimers__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -781,6 +791,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Expire_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.External_Review_Completed__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -875,6 +890,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Forms__c.Peer_Review_Attached__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Peer_Review_YesNo__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Forms__c.Peer_Review__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -885,7 +910,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Forms__c.Public_Access_YesNo__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Forms__c.Public_Access__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Quality_Assurance_YesNo__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
