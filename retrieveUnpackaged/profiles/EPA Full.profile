@@ -696,7 +696,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Snippet__c.Topic_Name__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -711,7 +711,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Submission_Topic__c.Topic_Name__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

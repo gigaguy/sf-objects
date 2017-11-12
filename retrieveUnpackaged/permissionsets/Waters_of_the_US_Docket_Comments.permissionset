@@ -996,7 +996,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Mass_Mailing_Campaign__c.Waters_of_the_US</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Snippet__c.Bristol_Bay</recordType>
@@ -1004,7 +1004,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Snippet__c.Waters_of_the_US</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Submission__c.Bristol_Bay</recordType>
@@ -1012,7 +1012,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Submission__c.Waters_of_the_US</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Topic__c.Bristol_Bay</recordType>
@@ -1020,6 +1020,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Topic__c.Waters_of_the_US</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
 </PermissionSet>
