@@ -865,12 +865,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Forms__c.E_Description__c</field>
+        <field>Forms__c.E_Hours_Donated__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Forms__c.E_Hours_Donated__c</field>
+        <field>Forms__c.E_Use_or_Lose__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -970,7 +970,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Forms__c.F_Description__c</field>
+        <field>Forms__c.F_Withdraw__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -994,9 +994,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Forms__c.First_Name__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -1014,17 +1014,17 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Forms__c.Form_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Form_emailed_to_Cincinnati__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Forms__c.Furnish_Invoice_to__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1039,7 +1039,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Forms__c.HR_Organization__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1084,7 +1084,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Forms__c.Indirect_Appropriation_Fund__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1099,7 +1099,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Instructions_Continued__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1329,9 +1329,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Forms__c.Justification__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1354,7 +1354,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Forms__c.Librarian_Printed_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1414,14 +1414,14 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Forms__c.Local_Financial_Management_Office__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Local_Leave_Bank_Coordinator_Signature__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -2346,6 +2346,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Training_Objective__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Training_Officer_List_For_Reference__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
