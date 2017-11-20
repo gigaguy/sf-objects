@@ -1,5 +1,5 @@
 public without sharing class FormPageController  {
-    @auraEnabled
+    @AuraEnabled
     public static List<RecordType> getFormRTs(string sID){
         //query for permissionsetassignments for this user
         User u = [select id, Name, Supervisor__c from User where Session_Token__c = :sID];
@@ -207,11 +207,21 @@ public without sharing class FormPageController  {
         update a;
     }
      
-     @AuraEnabled
+    @AuraEnabled
     public static List<ContentDocument> getListOfAttachments2(String formID) {        
    //     return [select id, Name, CreatedDate from Attachment where parentID = :formID order by CreatedDate DESC];  
         ContentDocumentLink x = [SELECT ContentDocumentId FROM ContentDocumentLink WHERE LinkedEntityId = :formID];  
         return [SELECT id, Title, CreatedDate from ContentDocument where Id = :x.ContentDocumentId];    
+    }
+    
+    @AuraEnabled
+    public static string getSiteUserID() {
+        return UtilityMethods.getAnyUserID('Forms', 'Site Guest User');
+    }
+    
+    @AuraEnabled
+    public static string getAPIUserID() {
+        return UtilityMethods.getAnyUserID('EPA Business Automation Platform', 'User');
     }
      
 }
