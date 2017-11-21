@@ -1032,7 +1032,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Furnish_Invoice_to__c</field>
         <readable>true</readable>
     </fieldPermissions>

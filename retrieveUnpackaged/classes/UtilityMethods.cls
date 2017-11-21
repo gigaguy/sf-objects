@@ -115,7 +115,7 @@ public class UtilityMethods {
         if (u.Session_IP__c == ApexPages.currentPage().getHeaders().get('X-Salesforce-SIP') &&
                 u.Session_Environment__c == ApexPages.currentPage().getHeaders().get('User-Agent') &&
                 u.Session_Timestamp__c != null &&
-                u.Session_Timestamp__c.addHours(3) > System.now()) {
+                u.Session_Timestamp__c.addHours(6) > System.now()) {
             system.debug('valid = true');
             return true;
         }

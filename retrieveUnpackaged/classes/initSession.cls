@@ -43,7 +43,7 @@ public class initSession {
                 update u;
                 
                 // LS 2017/11/17: Temporary method to share all records with Forms Site Guest User for this logging in type-1 user
-                shareRecords(u);
+                //shareRecords(u);
                 
                 // Redirect user to the form page with the new session ID set
                 //PageReference newPR = new PageReference('https://oeiodsta-oeiodstadev.cs33.force.com/FormPage');
