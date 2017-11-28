@@ -332,6 +332,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Forms__c.B_Extra_Hour_Donation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Forms__c.B__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -901,7 +906,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Forms__c.Employee_ID_No__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -972,17 +977,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Forms__c.Extra_Hour_Donation__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Forms__c.FCO__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Forms__c.F_Withdraw__c</field>
+        <field>Forms__c.F_Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1003,6 +1003,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Financial_Management_Printed_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.First_Name_3160__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1343,6 +1348,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Forms__c.Justification__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Last_Name_3160__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
