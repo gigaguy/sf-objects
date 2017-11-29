@@ -1084,6 +1084,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Question_Response__c.Question__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Questions__c.Question__c</field>
         <readable>false</readable>
     </fieldPermissions>
