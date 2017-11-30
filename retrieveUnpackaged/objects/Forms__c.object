@@ -74,7 +74,80 @@
         <type>Phone</type>
     </fields>
     <fields>
+        <fullName>Approval_Routing_Options__c</fullName>
+        <description>SF-182</description>
+        <externalId>false</externalId>
+        <label>Select Training Official Routing Options</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Region 1</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Region 2</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Region 3</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Region 4</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Region 5</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Region 6</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Region 7</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Region 8</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Region 9</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Region 10</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ann Arbor</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Research Triangle Park</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Cincinnati</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>HQ Office of Human Resources</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Approval_Step__c</fullName>
+        <description>All</description>
         <externalId>false</externalId>
         <label>Approval Step</label>
         <length>255</length>
@@ -500,6 +573,32 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Originator_ORD111__c</fullName>
+        <description>ORD-111</description>
+        <externalId>false</externalId>
+        <label>Originator</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Prepare_Form_for__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SF-182, ORD-111</description>
+        <externalId>false</externalId>
+        <label>Prepare Form As Person Other Than Self</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Forms (Prepare Form for:)</relationshipLabel>
+        <relationshipName>Formsx1</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Quantity__c</fullName>
         <defaultValue>1</defaultValue>
         <externalId>false</externalId>
@@ -552,6 +651,16 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>SF_182_Prepare_For_checker__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(  CONTAINS(Approval_Step__c, &apos;Form Prepared for&apos;) , true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>SF-182 Prepare For checker</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>SandboxURL__c</fullName>
         <externalId>false</externalId>
         <label>SandboxURL</label>
@@ -591,6 +700,20 @@
         <referenceTo>Contact</referenceTo>
         <relationshipLabel>Forms (Technical Contact)</relationshipLabel>
         <relationshipName>Forms1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Type_1_Owner_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>SF-182</description>
+        <externalId>false</externalId>
+        <label>Type-1 Owner Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Forms (Type-1 Owner Contact)</relationshipLabel>
+        <relationshipName>Forms3</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -941,7 +1064,7 @@
         <fullName>SF_182</fullName>
         <active>true</active>
         <description>SF 182 Form</description>
-        <label>SF 182</label>
+        <label>SF-182</label>
         <picklistValues>
             <picklist>Authorization_Reason__c</picklist>
             <values>
