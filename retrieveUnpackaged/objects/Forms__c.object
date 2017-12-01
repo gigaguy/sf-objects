@@ -481,6 +481,10 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Production Deployment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>File Storage MB</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
@@ -930,6 +934,10 @@
             </values>
             <values>
                 <fullName>Full User Count</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Production Deployment</fullName>
                 <default>false</default>
             </values>
             <values>

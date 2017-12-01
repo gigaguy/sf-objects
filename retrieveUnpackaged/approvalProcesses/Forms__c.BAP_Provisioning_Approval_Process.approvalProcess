@@ -25,13 +25,13 @@
         </approvalActions>
         <assignedApprover>
             <approver>
-                <name>misty.grooms2@csra.com</name>
+                <name>king.roy@epa.gov</name>
                 <type>user</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
         </assignedApprover>
-        <label>Step 1</label>
-        <name>Step_1</name>
+        <label>BAP Request Submitted Step</label>
+        <name>BAP_Request_Submitted_Step</name>
     </approvalStep>
     <approvalStep>
         <allowDelegate>false</allowDelegate>
@@ -57,11 +57,6 @@
             <field>Forms__c.RecordType</field>
             <operation>equals</operation>
             <value>BAP Provisioning</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Forms__c.Form_Type__c</field>
-            <operation>notEqual</operation>
-            <value>Developer Sandbox,Developer Pro Sandbox</value>
         </criteriaItems>
     </entryCriteria>
     <finalApprovalActions>
