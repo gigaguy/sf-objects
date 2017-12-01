@@ -174,14 +174,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>SF_182_SendCincinnatiEmail</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>SF_182_SendEmailWithAttachments</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>SiteLoginController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1033,7 +1025,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Form_Record_Name__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1048,11 +1040,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Form_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Forms__c.Form_emailed_to_Cincinnati__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2051,9 +2038,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Recipient_Name__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -2142,7 +2129,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Forms__c.Select_Card_Holder2__c</field>
+        <field>Forms__c.Select_Card_Holder__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
