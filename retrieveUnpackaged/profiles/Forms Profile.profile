@@ -598,6 +598,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Candidate_Application__c.EAS_Input_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Candidate_Application__c.First_Line_Supervisor__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -659,6 +664,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Candidate_Application__c.Panel_Member_5__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Candidate_Application__c.Panel_Recomendation__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Candidate_Application__c.Promotion_Decision__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
