@@ -58,6 +58,11 @@
             <operation>equals</operation>
             <value>BAP Provisioning</value>
         </criteriaItems>
+        <criteriaItems>
+            <field>Forms__c.Form_Type__c</field>
+            <operation>notEqual</operation>
+            <value>Developer Sandbox,Developer Pro Sandbox,Full Sandbox</value>
+        </criteriaItems>
     </entryCriteria>
     <finalApprovalActions>
         <action>
