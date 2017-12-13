@@ -60,7 +60,9 @@ public class ProfilePageController {
                   timekID = c.Time_Keeper__c;
                   sup2ID = c.Supervisor_2__c;
                   fundID = c.Funding_official__c;
-                  trainID = c.Training_Officer__c; } catch (Exception e) {noContact=true;}
+                  trainID = c.Training_Officer__c;
+               }
+           catch (Exception e) {noContact=true;}
         }
         return;
     }
@@ -104,7 +106,7 @@ public class ProfilePageController {
     
     public pageReference cancel() {
         string url = '/FormPage';
-        if(!t1User){url = 'https://epaoei--oeiodsta.cs33.my.salesforce.com/a03/o';}     
+        if(!t1User){url = '/one/one.app?source=aloha#/n/Edit_My_Approvers';}     
         PageReference newPR = new PageReference(url);
         newPR.getParameters().clear();
         newPR.getParameters().put('sID', sID);

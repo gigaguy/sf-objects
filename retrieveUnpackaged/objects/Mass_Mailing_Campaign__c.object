@@ -129,6 +129,11 @@
         <columns>Mass_Mailing_Campaign_Content__c</columns>
         <columns>OBJECT_ID</columns>
         <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Mass_Mailing_Campaign__c.Waters_of_the_US</value>
+        </filters>
         <label>All</label>
     </listViews>
     <nameField>

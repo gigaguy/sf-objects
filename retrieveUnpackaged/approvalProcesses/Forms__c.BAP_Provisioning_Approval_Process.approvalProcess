@@ -25,8 +25,8 @@
         </approvalActions>
         <assignedApprover>
             <approver>
-                <name>king.roy@epa.gov</name>
-                <type>user</type>
+                <name>BAPM_Approvers</name>
+                <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
         </assignedApprover>
@@ -42,9 +42,9 @@
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
         </assignedApprover>
-        <description>Completion of the request followed by approval</description>
+        <description>Signals that the sandbox has been built</description>
         <label>BAP Request Complete Step</label>
-        <name>Sandbox_Complete_Step</name>
+        <name>BAP_Request_Complete_Step</name>
         <rejectBehavior>
             <type>RejectRequest</type>
         </rejectBehavior>

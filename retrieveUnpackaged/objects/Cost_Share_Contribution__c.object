@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Cost_Share_Contribution_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Cash_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>$ Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Contribution_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Contribution Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Cost_Share_Review__c</fullName>
+        <externalId>false</externalId>
+        <label>Cost-Share Review</label>
+        <referenceTo>Cost_Share_Review__c</referenceTo>
+        <relationshipLabel>Cost-Share Contributions</relationshipLabel>
+        <relationshipName>Cost_Share_Contributions</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>DCN__c</fullName>
+        <externalId>false</externalId>
+        <label>DCN</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>FY_Qtr__c</fullName>
+        <externalId>false</externalId>
+        <label>FY-Qtr</label>
+        <length>6</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fund__c</fullName>
+        <externalId>false</externalId>
+        <label>Fund</label>
+        <length>3</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>In_Kind_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>In Kind Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Master_Project_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Cost_Share_Review__r.Agreement__r.Project__r.Master_Project_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Master Project ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Non_Federal_Sponsor__c</fullName>
+        <externalId>false</externalId>
+        <label>Non-Federal Sponsor</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Non_Federal_Sponsor_Picklist</valueSetName>
+        </valueSet>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Obligated_To__c</fullName>
+        <externalId>false</externalId>
+        <label>Obligated To</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Org__c</fullName>
+        <externalId>false</externalId>
+        <label>Org</label>
+        <length>7</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PRC__c</fullName>
+        <externalId>false</externalId>
+        <label>PRC</label>
+        <length>9</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Site__c</fullName>
+        <externalId>false</externalId>
+        <label>Site</label>
+        <length>8</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Cost-Share Contribution</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{00000}</displayFormat>
+        <label>Cost Share Contribution ID</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Cost-Share Contributions</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Cash_Contribution</fullName>
+        <active>true</active>
+        <label>Cash Contribution</label>
+        <picklistValues>
+            <picklist>Non_Federal_Sponsor_Picklist</picklist>
+            <values>
+                <fullName>State of Illinois</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State of Indiana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State of Michigan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State of Minnesota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State of New York</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State of Ohio</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State of Wisconsin</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>In_Kind_Contribution</fullName>
+        <active>true</active>
+        <label>In Kind Contribution</label>
+        <picklistValues>
+            <picklist>Non_Federal_Sponsor_Picklist</picklist>
+            <values>
+                <fullName>State of Illinois</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State of Indiana</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State of Michigan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State of Minnesota</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State of New York</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State of Ohio</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State of Wisconsin</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

@@ -74,80 +74,7 @@
         <type>Phone</type>
     </fields>
     <fields>
-        <fullName>Approval_Routing_Options__c</fullName>
-        <description>SF-182</description>
-        <externalId>false</externalId>
-        <label>Select Training Official Routing Options</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Region 1</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Region 2</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Region 3</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Region 4</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Region 5</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Region 6</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Region 7</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Region 8</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Region 9</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Region 10</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Ann Arbor</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Research Triangle Park</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Cincinnati</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>HQ Office of Human Resources</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Approval_Step__c</fullName>
-        <description>All</description>
         <externalId>false</externalId>
         <label>Approval Step</label>
         <length>255</length>
@@ -195,6 +122,21 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Candidate_Application_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Associated Candidate Application Name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Associated Candidate Application Name</inlineHelpText>
+        <label>Candidate Application Name</label>
+        <referenceTo>Application__c</referenceTo>
+        <relationshipLabel>Forms</relationshipLabel>
+        <relationshipName>Forms</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Current_Approver__c</fullName>
@@ -315,6 +257,72 @@
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Deployment_Changset_Name__c</fullName>
+        <description>Name of the Changeset to deploy</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the Changeset to deploy</inlineHelpText>
+        <label>Deployment Changset Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Deployment_Destination__c</fullName>
+        <description>Target sandbox for the deployment</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Target sandbox for the deployment</inlineHelpText>
+        <label>Deployment Destination</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>BAPIntegration</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>EPAFull</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Production</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Deployment_Source_Sandbox__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Source sandbox for the deployment</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Source sandbox for the deployment</inlineHelpText>
+        <label>Deployment Source Sandbox</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.Form_Type__c</field>
+                <operation>equals</operation>
+                <value>Developer Sandbox, Developer Pro Sandbox, Full Sandbox</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Forms__c</referenceTo>
+        <relationshipLabel>Forms</relationshipLabel>
+        <relationshipName>Forms</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Description__c</fullName>
@@ -457,6 +465,10 @@
                     <default>false</default>
                 </value>
                 <value>
+                    <fullName>Deployment</fullName>
+                    <default>false</default>
+                </value>
+                <value>
                     <fullName>Custom Object</fullName>
                     <default>false</default>
                 </value>
@@ -478,10 +490,6 @@
                 </value>
                 <value>
                     <fullName>Files Storage MB</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Production Deployment</fullName>
                     <default>false</default>
                 </value>
                 <value>
@@ -577,32 +585,6 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Originator_ORD111__c</fullName>
-        <description>ORD-111</description>
-        <externalId>false</externalId>
-        <label>Originator</label>
-        <length>100</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Prepare_Form_for__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>SF-182, ORD-111</description>
-        <externalId>false</externalId>
-        <label>Prepare Form As Person Other Than Self</label>
-        <referenceTo>Contact</referenceTo>
-        <relationshipLabel>Forms (Prepare Form for:)</relationshipLabel>
-        <relationshipName>Formsx1</relationshipName>
-        <required>false</required>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Quantity__c</fullName>
         <defaultValue>1</defaultValue>
         <externalId>false</externalId>
@@ -655,16 +637,6 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>SF_182_Prepare_For_checker__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(  CONTAINS(Approval_Step__c, &apos;Form Prepared for&apos;) , true, false)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>SF-182 Prepare For checker</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>SandboxURL__c</fullName>
         <externalId>false</externalId>
         <label>SandboxURL</label>
@@ -704,20 +676,6 @@
         <referenceTo>Contact</referenceTo>
         <relationshipLabel>Forms (Technical Contact)</relationshipLabel>
         <relationshipName>Forms1</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Type_1_Owner_Contact__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>SF-182</description>
-        <externalId>false</externalId>
-        <label>Type-1 Owner Contact</label>
-        <referenceTo>Contact</referenceTo>
-        <relationshipLabel>Forms (Type-1 Owner Contact)</relationshipLabel>
-        <relationshipName>Forms3</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -820,11 +778,23 @@
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>RECORDTYPE</columns>
+        <columns>Name__c</columns>
         <columns>Form_Owner__c</columns>
         <columns>LAST_UPDATE</columns>
         <columns>Approval_Step__c</columns>
+        <columns>User_Supervisor__c</columns>
+        <columns>User_Supervisor_2__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>BAPM_Approvers_Forms</fullName>
+        <filterScope>Queue</filterScope>
+        <label>BAPM_Approvers</label>
+        <queue>BAPM_Approvers</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Developer_Sandbox</fullName>
@@ -833,6 +803,7 @@
         <columns>HR_Organization__c</columns>
         <columns>Description__c</columns>
         <columns>Submitted_on_Behalf_Of__c</columns>
+        <columns>Technical_Contact__c</columns>
         <columns>Form_Status__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
@@ -872,6 +843,21 @@
             </values>
             <values>
                 <fullName>Role</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Deployment_Destination__c</picklist>
+            <values>
+                <fullName>BAPIntegration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EPAFull</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Production</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -917,6 +903,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Deployment</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Developer Pro Sandbox</fullName>
                 <default>false</default>
             </values>
@@ -934,10 +924,6 @@
             </values>
             <values>
                 <fullName>Full User Count</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Production Deployment</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -991,6 +977,21 @@
             </values>
             <values>
                 <fullName>Role</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Deployment_Destination__c</picklist>
+            <values>
+                <fullName>BAPIntegration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EPAFull</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Production</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1072,7 +1073,7 @@
         <fullName>SF_182</fullName>
         <active>true</active>
         <description>SF 182 Form</description>
-        <label>SF-182</label>
+        <label>SF 182</label>
         <picklistValues>
             <picklist>Authorization_Reason__c</picklist>
             <values>
@@ -1085,6 +1086,21 @@
             </values>
             <values>
                 <fullName>Role</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Deployment_Destination__c</picklist>
+            <values>
+                <fullName>BAPIntegration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EPAFull</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Production</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1166,6 +1182,8 @@
         <customTabListAdditionalFields>Name__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>Form_Status__c</customTabListAdditionalFields>
+        <searchFilterFields>RECORDTYPE</searchFilterFields>
+        <searchFilterFields>Name__c</searchFilterFields>
         <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Form_Owner__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>LAST_UPDATE</searchResultsAdditionalFields>

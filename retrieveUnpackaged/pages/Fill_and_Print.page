@@ -3,10 +3,12 @@
 
     <script>
           $Lightning.use("c:FillAndPrintForms", function() {
+   //       $Lightning.use("c:Forms", function() {
             $Lightning.createComponent(
                 "c:FillAndPrintForm",
+           //     "c:Form",
                 {},
-                "theForm",
+                "theLead",
                 function(cmp) {
                     console.log("Component created!");
                     console.log(cmp);
@@ -14,6 +16,6 @@
             });
     </script>
     
-    <div id="theForm"></div>
+    <div id="theLead"></div>
 
 </apex:page>

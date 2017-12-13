@@ -558,8 +558,42 @@
         <columns>RECORDTYPE</columns>
         <columns>Notes__c</columns>
         <columns>Primary_Contact__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Applications</fullName>
+        <columns>NAME</columns>
+        <columns>Primary_Contact__c</columns>
+        <columns>Responsible_Org__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Application__c.Candidate_Application</value>
+        </filters>
+        <label>Applications</label>
+    </listViews>
+    <listViews>
+        <fullName>Forms_BAP_Workflow_Under_Development</fullName>
+        <columns>Migration_Status__c</columns>
+        <columns>Form_Number__c</columns>
+        <columns>NAME</columns>
+        <columns>Primary_Contact__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Application__c.Forms</value>
+        </filters>
+        <filters>
+            <field>Migration_Status__c</field>
+            <operation>equals</operation>
+            <value>BAP Workflow Under Development,BAP Workflow Planned</value>
+        </filters>
+        <label>Forms - BAP Workflow</label>
     </listViews>
     <nameField>
         <label>Name</label>
