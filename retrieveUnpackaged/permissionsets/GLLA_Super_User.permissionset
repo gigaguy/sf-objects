@@ -1295,7 +1295,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Project__c.Actual_Total_Amount__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1310,7 +1310,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Project__c.Cash_Contributions__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1325,22 +1325,22 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Project__c.Estimated_Federal_Cost_Share__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Project__c.Estimated_NFS_Cost_Share__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Project__c.Estimated_Total_Amount__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Project__c.Federal_Cost_Share__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1350,7 +1350,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Project__c.In_Kind_Contributions__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1370,7 +1370,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Project__c.NFS_Cost_Share_Balance__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -1435,7 +1435,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Project__c.Total_Contributions__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -1905,7 +1905,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Project__c.GLLA_Project</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Project__c.Project</recordType>
