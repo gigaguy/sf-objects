@@ -20,4 +20,19 @@ public class UtilityMethods_Test {
         */
         utilityMethods.validateSession('12345', u.id);
     }
+    @isTest
+    static void testGetPCRecordTypes(){
+        Map<String,String> result = UtilityMethods.getPCRequestRecordTypes();
+        System.assert(result.values().size() ==9);
+    }
+    @isTest
+    static void testIsPurchaseCardFormId(){
+		Boolean res = UtilityMethods.isPurchaseCardFormId('abc');
+        System.assert(res!=null);
+    }
+    @isTest
+    static void testPCRequestRecordTypeMappings(){
+		Map<String,String> res = UtilityMethods.getPCRequestRecordTypeMappings();
+        System.assert(res!=null);
+    }
 }

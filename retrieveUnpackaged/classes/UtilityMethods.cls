@@ -100,4 +100,39 @@ public class UtilityMethods {
         return false;
     }
     
+    /*
+     *This method returns all possible purchase card request types and corresponding record types.
+	 */
+    public static Map<String,String> getPCRequestRecordTypes(){
+        Map<String,String> pcRecordTypes = new Map<String,String>();
+        Map<String,String> mappingRecordTypes = UtilityMethods.getPCRequestRecordTypeMappings();
+        for(String pcOption : mappingRecordTypes.keySet()){
+            try{
+                String recordTypeValue = mappingRecordTypes.get(pcOption);
+    	        Id recordTypeId = [select id from RecordType where name = :recordTypeValue limit 1].ID;
+	            pcRecordTypes.put(pcOption, recordTypeId);
+            }catch(Exception e){
+                System.debug(e.getMessage());
+            }            
+        }
+        return pcRecordTypes;                                                  
+    }
+    public static Map<String,String> getPCRequestRecordTypeMappings(){
+        return new Map<String,String>{
+            	'New Purchase Card' => 'Purchase Card',
+                'New Convenience Check' => 'New-Convenience Check',
+                'New Approving Official (AO)' => 'New-Approving Official (AO)',
+                'Cancellation of Card or Check' => 'Cancellation-Check or Card',
+                'Change Cardholder AO' => 'Change-Cardholder AO',
+                'Change Contact Information' => 'Change-Contact Information',
+                'Change Monthly Limit' => 'Change-Monthly Limit',
+                'Change Name on Card or Check' => 'Change-Name on Card/Check',
+                'Suspension of Card or Check' => 'Change-Suspension of Card/Check'};
+    }
+    public static Boolean isPurchaseCardFormId(String formId){
+        Map<String,String> allFormIds = UtilityMethods.getPCRequestRecordTypes();
+        Set<String> allValues = new Set<String>();
+        allValues.addAll(allFormIds.values());
+        return allValues.contains(formId);
+    }
 }

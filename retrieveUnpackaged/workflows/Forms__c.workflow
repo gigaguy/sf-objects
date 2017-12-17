@@ -53,6 +53,16 @@
         <template>unfiled$public/Dev_Sandbox_Request_Recall_Notification_Template</template>
     </alerts>
     <alerts>
+        <fullName>FinalApproval</fullName>
+        <description>FinalApproval</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Purchase_Card_Email_Template_Approved_Confirmation</template>
+    </alerts>
+    <alerts>
         <fullName>Final_Approval_Email</fullName>
         <description>Final Approval Email</description>
         <protected>false</protected>
@@ -79,6 +89,16 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Forms_Final_Rejection</template>
+    </alerts>
+    <alerts>
+        <fullName>Reject_Request</fullName>
+        <description>Reject Request</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Purchase_Card_Email_Template_Rejected_Confirmation</template>
     </alerts>
     <alerts>
         <fullName>Sandbox_Approved_Jira_Alert</fullName>
@@ -181,6 +201,24 @@
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Approval_Step_Sent_to_AO</fullName>
+        <field>Approval_Step__c</field>
+        <formula>&quot;Awaiting AO Approval&quot;</formula>
+        <name>Approval Step - Sent to AO</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Approval_Step_Sent_to_DD</fullName>
+        <field>Approval_Step__c</field>
+        <formula>&quot;Awaiting Division Director/Manager Approval&quot;</formula>
+        <name>Approval Step - Sent to DD</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Approval_Step_Sent_to_Supervisor</fullName>
         <field>Approval_Step__c</field>
         <formula>&quot;Awaiting Supervisor Approval&quot;</formula>
@@ -199,6 +237,24 @@
         <operation>Formula</operation>
         <protected>false</protected>
         <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Approval_Step_Update_Approved</fullName>
+        <field>Approval_Step__c</field>
+        <formula>&quot;Approved&quot;</formula>
+        <name>Approval Step - Update Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Approval_Step_Update_Rejected</fullName>
+        <field>Approval_Step__c</field>
+        <formula>&quot;Rejected&quot;</formula>
+        <name>Approval Step - Update Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Manager_Signature</fullName>
@@ -245,6 +301,26 @@
         <name>Status Updated to Rejected</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>UpdateAOApprovalStep</fullName>
+        <description>Update approval official approval step value.</description>
+        <field>Approval_Step__c</field>
+        <formula>&quot;1&quot;</formula>
+        <name>UpdateAOApprovalStep</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>UpdateManagerApprovalStep</fullName>
+        <description>update approval step value.</description>
+        <field>Approval_Step__c</field>
+        <formula>&quot;2&quot;</formula>
+        <name>UpdateManagerApprovalStep</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
 </Workflow>

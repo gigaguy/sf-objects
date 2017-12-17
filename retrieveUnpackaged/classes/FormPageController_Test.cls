@@ -1,11 +1,11 @@
 @istest
 public class FormPageController_Test {
-
+	
     @isTest
     static void testGetFormRTs(){
-         insert new Contact_Approvers__c(name='Use Contact Fields', Use_Contact__c = false); // checkbox from "Contact Approvers" Custom Setting
-         User u = [select id from User where isActive = true and PRofile.Name = 'System Administrator' limit 1];
-         u.Session_Token__c = '123ABC';
+        insert new Contact_Approvers__c(name='Use Contact Fields', Use_Contact__c = false); // checkbox from "Contact Approvers" Custom Setting
+        User u = [select id from User where isActive = true and PRofile.Name = 'System Administrator' limit 1];
+        u.Session_Token__c = '123ABC';
         update u;
         
         PermissionSetAssignment psa = new PermissionSetAssignment(PermissionSetId = [select id from PermissionSet where Label like '%BAPForms User%' limit 1].ID, AssigneeID = u.Id);
@@ -22,7 +22,7 @@ public class FormPageController_Test {
     @isTest
     static void testInsertNewForms(){
          insert new Contact_Approvers__c(name='Use Contact Fields', Use_Contact__c = false); // checkbox from "Contact Approvers" Custom Setting
-         User u = [select id from User where isActive = true limit 1];
+        User u = [select id from User where isActive = true limit 1];
         User u2 = [select id from User where isActive = true and PRofile.Name = 'System Administrator' and id != :u.id limit 1];
         u.Session_Token__c = '123ABC';
         u.Supervisor__c = u2.id;
@@ -35,13 +35,13 @@ public class FormPageController_Test {
         insert testForm;
         
         
-        Forms__c form = FormPageController.insertNewForms('123ABC', [select id from RecordType where sObjectType = 'Forms__c' ORDER BY createddate limit 1].ID);     
-        form = FormPageController.insertNewForms('123ABC', [select id from RecordType where sObjectType = 'Forms__c' limit 1].ID);
+        Forms__c form = FormPageController.insertNewForms('123ABC', [select id from RecordType where sObjectType = 'Forms__c' ORDER BY createddate limit 1].ID,null);     
+        form = FormPageController.insertNewForms('123ABC', [select id from RecordType where sObjectType = 'Forms__c' limit 1].ID,null);
         
         Forms__c xform;
         
         try{
-            xform = FormPageController.insertNewForms('123ABC', [select id from RecordType where name = 'EPA-100' limit 1].ID);
+            xform = FormPageController.insertNewForms('123ABC', [select id from RecordType where name = 'EPA-100' limit 1].ID,null);
             }
             catch(exception ex){
                 system.debug(ex.getMessage());  
@@ -49,14 +49,13 @@ public class FormPageController_Test {
         
         Forms__c yform;
         try{
-            yform = FormPageController.insertNewForms('xyz', [select id from RecordType where name = 'EPA-100' limit 1].ID);
-            }
-             catch(exception ex){
-            system.debug(ex.getMessage());  
-              }
+            yform = FormPageController.insertNewForms('xyz', [select id from RecordType where name = 'EPA-100' limit 1].ID,null);
+            }catch(exception ex){
+            	system.debug(ex.getMessage());  
+           	}
                
-        if (xform.id != null) {FormPageController.submitForApproval(xform.ID, '123ABC'); }  
-        FormPageController.submitForApproval(form.ID, '123ABC');         
+        if (xform.id != null) {FormPageController.submitForApproval(xform.ID, '123ABC',''); }  
+        FormPageController.submitForApproval(form.ID, '123ABC','');         
         FormPageController.findExistingForms('xyz');
         FormPageController.findExistingForms('123ABC');
         FormPageController.viewForm(form.ID);
@@ -75,11 +74,38 @@ public class FormPageController_Test {
         update u;  
     
         try{
-          Forms__c zform = FormPageController.insertNewForms('123ABC', [select id from RecordType where sObjectType = 'Account' limit 1].ID);
+          Forms__c zform = FormPageController.insertNewForms('123ABC', [select id from RecordType where sObjectType = 'Account' limit 1].ID,null);
           }
         catch(exception ex){
             system.debug(ex.getMessage());  
-          }
-      
+          }      
       }
+    
+    @isTest
+    static void testNewPurchaseCardRequest(){
+	
+        String tokenId = '123ABC';
+        User user = [select id from User where isActive = true and PRofile.Name = 'System Administrator' limit 1];
+        user.Session_Token__c = tokenId;        
+        update user;
+        try{
+	        Forms__c pcform = FormPageController.insertNewForms(tokenId, 'Purchase Card','New Purchase Card');    	    
+            Id recordTypeId = [select id from RecordType where name = 'Purchase Card' limit 1].ID;
+            FormPageController.deleteForm(pcform.ID, tokenId);
+			FormPageController.submitForApproval(pcform.ID, tokenId,recordTypeId);                        
+        }
+        catch(exception ex){
+            system.debug(ex.getMessage());  
+          }
+    }
+    @isTest
+    static void testGetAllFormOptions(){
+       List<String> result = FormPageController.getAllFormOptions('sample');
+       System.assert(result.size()>0);        
+    }
+    @isTest
+    static void testGetFormIntroduction(){
+      String result = FormPageController.getFormIntroduction('New Purchase Card');
+       System.assert(result!=null);        
+    }
 }
