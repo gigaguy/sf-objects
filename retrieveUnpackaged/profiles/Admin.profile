@@ -1712,6 +1712,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Project__c.Actual_Federal_Cost_Share__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Project__c.Actual_NFS_Cost_Share_Contribution__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Project__c.Actual_Total_Amount__c</field>
         <readable>true</readable>
@@ -1754,11 +1764,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Project__c.Estimated_Total_Amount__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Project__c.Federal_Cost_Share__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1849,11 +1854,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Project__c.Task_code__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Project__c.Total_Contributions__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2492,13 +2492,13 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Project__c.GLLA_Project</recordType>
+        <default>true</default>
+        <recordType>Project__c.DCR_Project</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Project__c.Project</recordType>
+        <default>false</default>
+        <recordType>Project__c.GLLA_Project</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

@@ -1688,6 +1688,16 @@ Manage system users</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Project__c.Actual_Federal_Cost_Share__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Project__c.Actual_NFS_Cost_Share_Contribution__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Project__c.Actual_Total_Amount__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1729,11 +1739,6 @@ Manage system users</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Project__c.Estimated_Total_Amount__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Project__c.Federal_Cost_Share__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1825,11 +1830,6 @@ Manage system users</description>
         <editable>true</editable>
         <field>Project__c.Task_code__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Project__c.Total_Contributions__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2083,9 +2083,9 @@ Manage system users</description>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>Project__c</object>
-        <viewAllRecords>true</viewAllRecords>
+        <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
         <apexPage>AnswersHome</apexPage>
@@ -2320,11 +2320,11 @@ Manage system users</description>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <recordType>Project__c.GLLA_Project</recordType>
-        <visible>false</visible>
+        <recordType>Project__c.DCR_Project</recordType>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <recordType>Project__c.Project</recordType>
+        <recordType>Project__c.GLLA_Project</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

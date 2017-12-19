@@ -494,9 +494,11 @@
         <lookupDialogsAdditionalFields>Project__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Master_Project_ID__c</lookupDialogsAdditionalFields>
         <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Project_Title__c</searchFilterFields>
         <searchFilterFields>Project__c</searchFilterFields>
         <searchFilterFields>Non_Federal_Sponsor__c</searchFilterFields>
         <searchFilterFields>Master_Project_ID__c</searchFilterFields>
+        <searchResultsAdditionalFields>Project_Title__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Master_Project_ID__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Non_Federal_Sponsor__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Project__c</searchResultsAdditionalFields>

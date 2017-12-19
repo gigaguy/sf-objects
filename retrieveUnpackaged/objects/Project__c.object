@@ -55,7 +55,7 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>AHRC__c</fullName>
         <externalId>false</externalId>
@@ -99,9 +99,33 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Actual_Federal_Cost_Share__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Federal Cost Share</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Actual_NFS_Cost_Share_Contribution__c</fullName>
+        <externalId>false</externalId>
+        <formula>Cash_Contributions__c +  In_Kind_Contributions__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Actual NFS Cost Share Contribution</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Actual_Total_Amount__c</fullName>
         <externalId>false</externalId>
-        <formula>Total_Contributions__c +  Federal_Cost_Share__c</formula>
+        <formula>Actual_NFS_Cost_Share_Contribution__c +  Actual_Federal_Cost_Share__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Actual Total Amount</label>
         <precision>18</precision>
@@ -325,17 +349,6 @@
         <formula>Estimated_Federal_Cost_Share__c +  Estimated_NFS_Cost_Share__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Estimated Total Amount</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
-    </fields>
-    <fields>
-        <fullName>Federal_Cost_Share__c</fullName>
-        <externalId>false</externalId>
-        <label>Federal Cost Share</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -641,7 +654,7 @@
     <fields>
         <fullName>NFS_Cost_Share_Balance__c</fullName>
         <externalId>false</externalId>
-        <formula>Estimated_NFS_Cost_Share__c -  Total_Contributions__c</formula>
+        <formula>Estimated_NFS_Cost_Share__c -  Actual_NFS_Cost_Share_Contribution__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>NFS Cost Share Balance</label>
         <precision>18</precision>
@@ -804,19 +817,6 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
-        <fullName>Total_Contributions__c</fullName>
-        <externalId>false</externalId>
-        <formula>Cash_Contributions__c +  In_Kind_Contributions__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Total Contributions</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
-    </fields>
     <label>Project</label>
     <listViews>
         <fullName>ASD_Projects</fullName>
@@ -915,6 +915,435 @@
     </nameField>
     <pluralLabel>Projects</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>DCR_Project</fullName>
+        <active>true</active>
+        <label>DCR Project</label>
+        <picklistValues>
+            <picklist>AHRC__c</picklist>
+            <values>
+                <fullName>561</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>56A - IO-DC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>56C - CD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>56D - TATD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>56E - IO-AA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>56F - TCD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>56H - ASD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Area_of_Concern__c</picklist>
+            <values>
+                <fullName>All AOCs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ashtabula River%2C OH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Black River%2C OH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Buffalo River%2C NY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clinton River%2C MI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cuyahoga River%2C OH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deer Lake</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Detroit River%2C MI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eighteenmile Creek%2C NY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fox River%2FGreen Bay%2C WI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand Calumet River%2FIndiana Harbor Canal%2C IN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kalamazoo River%2C MI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manistique River%2C MI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maumee River%2C OH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Menominee River%2C WI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Milwaukee Estuary%2C WI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Muskegon Lake%2C MI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Niagra River%2C NY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oswego River%2C NY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Presque Isle Bay%2C PA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>River Raisin%2C MI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rochester Embayment%2C NY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rouge River%2C MI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saginaw River%2C MI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sheboygan River%2C WI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>St%2E Clair River%2C MI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>St%2E Lawrence River%2C NY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>St%2E Louis River%2C MN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>St%2E Mary%27s River%2C MI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Torch Lake%2C MI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waukegon Harbor%2C IL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>White Lake%2C MI</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Location_State__c</picklist>
+            <values>
+                <fullName>AK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ID</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ND</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Project_Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <recordTypes>
         <fullName>GLLA_Project</fullName>
         <active>true</active>
@@ -1345,437 +1774,8 @@
             </values>
         </picklistValues>
     </recordTypes>
-    <recordTypes>
-        <fullName>Project</fullName>
-        <active>true</active>
-        <label>Project</label>
-        <picklistValues>
-            <picklist>AHRC__c</picklist>
-            <values>
-                <fullName>561</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>56A - IO-DC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>56C - CD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>56D - TATD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>56E - IO-AA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>56F - TCD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>56H - ASD</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Area_of_Concern__c</picklist>
-            <values>
-                <fullName>All AOCs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ashtabula River%2C OH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Black River%2C OH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Buffalo River%2C NY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Clinton River%2C MI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cuyahoga River%2C OH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Deer Lake</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Detroit River%2C MI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Eighteenmile Creek%2C NY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fox River%2FGreen Bay%2C WI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grand Calumet River%2FIndiana Harbor Canal%2C IN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Kalamazoo River%2C MI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Manistique River%2C MI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Maumee River%2C OH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Menominee River%2C WI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Milwaukee Estuary%2C WI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Muskegon Lake%2C MI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Niagra River%2C NY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not Applicable</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Oswego River%2C NY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Presque Isle Bay%2C PA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>River Raisin%2C MI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rochester Embayment%2C NY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rouge River%2C MI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saginaw River%2C MI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sheboygan River%2C WI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>St%2E Clair River%2C MI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>St%2E Lawrence River%2C NY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>St%2E Louis River%2C MN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>St%2E Mary%27s River%2C MI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Torch Lake%2C MI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Waukegon Harbor%2C IL</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>White Lake%2C MI</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Location_State__c</picklist>
-            <values>
-                <fullName>AK</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>AL</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>AR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>AS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>AZ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FL</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ID</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IL</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ME</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ND</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NJ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OK</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PW</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TX</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>UT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>WA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>WI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>WV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>WY</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Project_Status__c</picklist>
-            <values>
-                <fullName>Active</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Closed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
     <searchLayouts/>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>Minimum_4_digits</fullName>
         <active>true</active>

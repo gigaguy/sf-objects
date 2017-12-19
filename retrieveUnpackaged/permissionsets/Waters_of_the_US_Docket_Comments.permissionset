@@ -1687,6 +1687,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Project__c.Actual_Federal_Cost_Share__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Project__c.Actual_NFS_Cost_Share_Contribution__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Project__c.Actual_Total_Amount__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1728,11 +1738,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Project__c.Estimated_Total_Amount__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Project__c.Federal_Cost_Share__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1823,11 +1828,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Project__c.Task_code__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Project__c.Total_Contributions__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2336,11 +2336,11 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <recordType>Project__c.GLLA_Project</recordType>
+        <recordType>Project__c.DCR_Project</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <recordType>Project__c.Project</recordType>
+        <recordType>Project__c.GLLA_Project</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
