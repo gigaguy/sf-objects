@@ -197,6 +197,18 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Assigned_to__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Assigned to</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Forms3</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Authorization_Reason__c</fullName>
         <externalId>false</externalId>
         <label>Authorization Reason</label>
@@ -1188,6 +1200,16 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>I_Agree_with_Terms__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Please check this box to indicate you agree with the terms listed above.</inlineHelpText>
+        <label>I Agree with Terms</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Immediate_Supervisor_s_Digital_Signature__c</fullName>
         <externalId>false</externalId>
         <label>Immediate Supervisor&apos;s Digital Signature</label>
@@ -2036,6 +2058,17 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>State__c</fullName>
+        <externalId>false</externalId>
+        <label>State</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Submitted_on_Behalf_Of__c</fullName>
         <deleteConstraint>Restrict</deleteConstraint>
         <description>Submitted on Behalf Of</description>
@@ -2070,6 +2103,15 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Telephone_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Telephone Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
     </fields>
     <fields>
         <fullName>Unauthenticated_Owner__c</fullName>
@@ -2164,6 +2206,17 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>Zip__c</fullName>
+        <externalId>false</externalId>
+        <label>Zip</label>
+        <length>6</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>comments__c</fullName>
         <description>All comments in the approval process or any comments related a record can be placed in this field.</description>
         <externalId>false</externalId>
@@ -2220,6 +2273,37 @@
         <label>Developer Sandbox</label>
     </listViews>
     <listViews>
+        <fullName>New_Purchase_Card_Actions</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Cardholder_AO_Name__c</columns>
+        <columns>Approving_Official__c</columns>
+        <columns>Division_Director_Manager__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Assigned_to__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Forms__c.Cancellation_Check_or_Card,Forms__c.Change_Cardholder_AO,Forms__c.Change_Contact_Information,Forms__c.Change_Monthly_Limit,Forms__c.Change_Name_Name_on_CardCheck,Forms__c.Change_Suspension_of_cardcheck,Forms__c.New_Approving_Official_AO,Forms__c.New_Convenience_Check,Forms__c.Purchase_Card</value>
+        </filters>
+        <filters>
+            <field>Form_Status__c</field>
+            <operation>equals</operation>
+            <value>Pending</value>
+        </filters>
+        <label>Pending Purchase Card Actions</label>
+    </listViews>
+    <listViews>
+        <fullName>New_Purchase_Card_Actions_Forms</fullName>
+        <filterScope>Queue</filterScope>
+        <label>New Purchase Card Actions</label>
+        <queue>New_Purchase_Card_Actions</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>New_Purchase_Card_Forms</fullName>
         <columns>NAME</columns>
         <filterScope>Everything</filterScope>
@@ -2229,6 +2313,28 @@
             <value>Purchase Card</value>
         </filters>
         <label>New Purchase Card Forms</label>
+    </listViews>
+    <listViews>
+        <fullName>Processed_Purchase_Card_Actions</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Cardholder_AO_Name__c</columns>
+        <columns>Approving_Official__c</columns>
+        <columns>Division_Director_Manager__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Assigned_to__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Forms__c.Cancellation_Check_or_Card,Forms__c.Change_Cardholder_AO,Forms__c.Change_Contact_Information,Forms__c.Change_Monthly_Limit,Forms__c.Change_Name_Name_on_CardCheck,Forms__c.Change_Suspension_of_cardcheck,Forms__c.New_Approving_Official_AO,Forms__c.New_Convenience_Check,Forms__c.Purchase_Card</value>
+        </filters>
+        <filters>
+            <field>Form_Status__c</field>
+            <operation>equals</operation>
+            <value>Processed</value>
+        </filters>
+        <label>Processed Purchase Card Actions</label>
     </listViews>
     <nameField>
         <displayFormat>{00000}</displayFormat>
@@ -4373,7 +4479,7 @@
             </values>
             <values>
                 <fullName>Suspension of Card or Check</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -4820,7 +4926,7 @@
             </values>
             <values>
                 <fullName>New Approving Official %28AO%29</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>New Convenience Check</fullName>
@@ -5174,7 +5280,7 @@
             </values>
             <values>
                 <fullName>New Convenience Check</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>New Purchase Card</fullName>
@@ -5470,7 +5576,167 @@
         <picklistValues>
             <picklist>Location__c</picklist>
             <values>
+                <fullName>ADA OK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ANN ARBOR MI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ATHENS GA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BOISE ID</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BOSTON - REGION 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CHICAGO IL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CHICAGO REGION 5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CINCINNATI%2C OH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cincinnati OH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Corvallis OR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DULUTH MN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Edison NJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FAI On-Line</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fort Meade%2C MD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GULF BREEZE FL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HQ - CRYSTAL GATEWAY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HQ - CRYSTAL STATION</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HQ - OCFO ONLY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HQ - OFFICE OF WATER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HQ - OSTRI- CRYSTAL GATEWAY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HQ - WIC 3N</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HQ CMM2 OPP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HQ or Washington DC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HQ%2C CMM2%2C OPP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Las Vegas NV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Montgomery AL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NARRAGANSETT RI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Orleans%2C LA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OPPT%2FEAD NETI 2138</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>On-Line Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PC Refresher On-Line</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>REGION 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>REGION 3 - WELLINGING WV LAB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>REGION 6 - HOUSTON LAB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RTP NC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RTP NC%2C NC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Region 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Region 10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Region 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Region 4</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5478,11 +5744,91 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Region 6</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Region 7</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Region 8</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Region 9</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SHEPHARDSTOWN WV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>San Juan PR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shepherdstown WV</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Washington DC</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Washington DC - 1310 L St%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Washington DC - AR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Washington DC - AR North Room B-305</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Washington DC - AR South</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Washington DC - CG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Washington DC - CM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Washington DC - CS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Washington DC - EE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Washington DC - OFFICE OF WATER</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Washington DC - PY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Washington DC - RRB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Washington DC OCFO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Washington DC%2C OAM ONLY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web-Based Training</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6324,12 +6670,12 @@
         <customTabListAdditionalFields>Name__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>Form_Status__c</customTabListAdditionalFields>
-        <searchFilterFields>RECORDTYPE</searchFilterFields>
+        <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
         <searchFilterFields>Name__c</searchFilterFields>
+        <searchFilterFields>Purchase_Card_Request_Type__c</searchFilterFields>
+        <searchFilterFields>RECORDTYPE</searchFilterFields>
         <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Form_Owner__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>LAST_UPDATE</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Approval_Step__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Name__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>

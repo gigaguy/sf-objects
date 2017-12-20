@@ -219,6 +219,16 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Approval_Step_Sent_to_PCM</fullName>
+        <description>approval step to send to the purchase card manager for review</description>
+        <field>Approval_Step__c</field>
+        <formula>&quot;Awaiting Purchase Card Manager Approval&quot;</formula>
+        <name>Approval Step - Sent to PCM</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Approval_Step_Sent_to_Supervisor</fullName>
         <field>Approval_Step__c</field>
         <formula>&quot;Awaiting Supervisor Approval&quot;</formula>
@@ -265,6 +275,16 @@
         <operation>Literal</operation>
         <protected>false</protected>
         <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Send_to_Purchase_Card_Queue</fullName>
+        <field>OwnerId</field>
+        <lookupValue>New_Purchase_Card_Actions</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Send to Purchase Card Queue</name>
+        <notifyAssignee>true</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Status_Update_to_Submitted_for_Approval</fullName>
