@@ -2702,7 +2702,7 @@
             <picklist>Purchase_Card_Request_Type__c</picklist>
             <values>
                 <fullName>Cancellation of Card or Check</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Change Cardholder AO</fullName>
@@ -3055,7 +3055,7 @@
             </values>
             <values>
                 <fullName>Change Cardholder AO</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Change Contact Information</fullName>
@@ -3408,7 +3408,7 @@
             </values>
             <values>
                 <fullName>Change Contact Information</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Change Monthly Limit</fullName>
@@ -3761,7 +3761,7 @@
             </values>
             <values>
                 <fullName>Change Monthly Limit</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Change Name on Card or Check</fullName>
@@ -4114,7 +4114,7 @@
             </values>
             <values>
                 <fullName>Change Name on Card or Check</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>New Approving Official %28AO%29</fullName>
@@ -5875,7 +5875,7 @@
             </values>
             <values>
                 <fullName>New Purchase Card</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Suspension of Card or Check</fullName>
