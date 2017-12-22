@@ -1083,6 +1083,14 @@
                     <fullName>Completed</fullName>
                     <default>false</default>
                 </value>
+                <value>
+                    <fullName>Pending</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Processed</fullName>
+                    <default>false</default>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -2617,6 +2625,14 @@
                 <default>true</default>
             </values>
             <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Processed</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Recalled</fullName>
                 <default>false</default>
             </values>
@@ -2964,6 +2980,14 @@
             <values>
                 <fullName>New</fullName>
                 <default>true</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Processed</fullName>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Recalled</fullName>
@@ -3315,6 +3339,14 @@
                 <default>true</default>
             </values>
             <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Processed</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Recalled</fullName>
                 <default>false</default>
             </values>
@@ -3662,6 +3694,14 @@
             <values>
                 <fullName>New</fullName>
                 <default>true</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Processed</fullName>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Recalled</fullName>
@@ -4013,6 +4053,14 @@
                 <default>true</default>
             </values>
             <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Processed</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Recalled</fullName>
                 <default>false</default>
             </values>
@@ -4360,6 +4408,14 @@
             <values>
                 <fullName>New</fullName>
                 <default>true</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Processed</fullName>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Recalled</fullName>
@@ -4821,6 +4877,14 @@
                 <default>true</default>
             </values>
             <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Processed</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Recalled</fullName>
                 <default>false</default>
             </values>
@@ -5169,6 +5233,14 @@
             <values>
                 <fullName>New</fullName>
                 <default>true</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Processed</fullName>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Recalled</fullName>
@@ -5520,6 +5592,14 @@
             <values>
                 <fullName>New</fullName>
                 <default>true</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Processed</fullName>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Recalled</fullName>
