@@ -20,7 +20,7 @@ public class TrainingController_Test {
         insert trainingForm;
         
         List<Forms__c> trainings = TrainingController.getUserTrainingForms(sID);
-		System.assert(trainings!=null);
+		System.assert(trainings.size()>0);
     }
     @isTest
     static void testInsertTrainingFormWithOutParent(){

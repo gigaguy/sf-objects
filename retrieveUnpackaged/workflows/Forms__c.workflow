@@ -91,6 +91,21 @@
         <template>unfiled$public/Forms_Final_Rejection</template>
     </alerts>
     <alerts>
+        <fullName>Notify_Assigned_to_and_AO_for_Purchase_Card</fullName>
+        <description>Notify Assigned to and AO for Purchase Card</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Approving_Official__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <recipients>
+            <field>Assigned_to__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Notify_Pending_Action_Purchase_Card</template>
+    </alerts>
+    <alerts>
         <fullName>Reject_Request</fullName>
         <description>Reject Request</description>
         <protected>false</protected>
@@ -343,4 +358,23 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <rules>
+        <fullName>Purchase Card Assigned to Notification</fullName>
+        <actions>
+            <name>Notify_Assigned_to_and_AO_for_Purchase_Card</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Forms__c.Assigned_to__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Forms__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>New-Convenience Check,New-Approving Official (AO),Change-Cardholder AO,Change-Name on Card/Check,Change-Contact Information,Change-Suspension of Card/Check,Change-Monthly Limit,Cancellation-Check or Card,Purchase Card</value>
+        </criteriaItems>
+        <description>sends email notification to Assigned to and Approving Official for purchase card provisioning when the assigned to is entered</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
 </Workflow>

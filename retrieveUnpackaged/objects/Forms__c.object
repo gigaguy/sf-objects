@@ -45,7 +45,7 @@
         <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayoutAssignment>EPA_100</compactLayoutAssignment>
     <compactLayouts>
         <fullName>EPA_100</fullName>
         <fields>Name</fields>
@@ -133,6 +133,10 @@
                 </value>
                 <value>
                     <fullName>UPS</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TO</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
@@ -1299,7 +1303,6 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
@@ -2358,6 +2361,60 @@
         <description>BAP Provisioning Forms</description>
         <label>BAP Provisioning</label>
         <picklistValues>
+            <picklist>Account_Type__c</picklist>
+            <values>
+                <fullName>CO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>COOP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ERT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FSSI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IMPREST ACCOUNT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OSC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SACO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UPS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UTIL</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Are_you_replacing_an_existing_AO__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Authorization_Reason__c</picklist>
             <values>
                 <fullName>Application</fullName>
@@ -2369,6 +2426,21 @@
             </values>
             <values>
                 <fullName>Role</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Course_Title__c</picklist>
+            <values>
+                <fullName>GSA SmartPay Purchase Card Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PCard Agency Supplemental Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PaymentNet %28PNET%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2454,6 +2526,132 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Location__c</picklist>
+            <values>
+                <fullName>On-Line Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Region 5</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Washington DC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Washington DC - PY</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Pass_Fail__c</picklist>
+            <values>
+                <fullName>F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Purchase_Card_Request_Type__c</picklist>
+            <values>
+                <fullName>Cancellation of Card or Check</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Change Cardholder AO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Change Contact Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Change Monthly Limit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Change Name on Card or Check</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Approving Official %28AO%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Convenience Check</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Purchase Card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suspension of Card or Check</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason_for_Cancelling_Cardholder_Account__c</picklist>
+            <values>
+                <fullName>Account%28s%29 No Longer Needed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost of Misplace Card or Checks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resigned%2FTerminated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transferred</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason_for_Temporary_Closure__c</picklist>
+            <values>
+                <fullName>Detailed to a New Job%2FOffice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Extended Sick Leave</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leave of Absence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Request_is_for__c</picklist>
+            <values>
+                <fullName>Myself</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Role__c</picklist>
             <values>
                 <fullName>FCO</fullName>
@@ -2517,6 +2715,10 @@
             </values>
             <values>
                 <fullName>TA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TO</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2617,10 +2819,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>New</fullName>
                 <default>true</default>
             </values>
@@ -2718,7 +2916,7 @@
             <picklist>Purchase_Card_Request_Type__c</picklist>
             <values>
                 <fullName>Cancellation of Card or Check</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Change Cardholder AO</fullName>
@@ -2877,6 +3075,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>TO</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>UPS</fullName>
                 <default>false</default>
             </values>
@@ -3079,7 +3281,7 @@
             </values>
             <values>
                 <fullName>Change Cardholder AO</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Change Contact Information</fullName>
@@ -3234,6 +3436,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>TO</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>UPS</fullName>
                 <default>false</default>
             </values>
@@ -3440,7 +3646,7 @@
             </values>
             <values>
                 <fullName>Change Contact Information</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Change Monthly Limit</fullName>
@@ -3591,6 +3797,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>TO</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>UPS</fullName>
                 <default>false</default>
             </values>
@@ -3801,7 +4011,7 @@
             </values>
             <values>
                 <fullName>Change Monthly Limit</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Change Name on Card or Check</fullName>
@@ -3948,6 +4158,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>TO</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>UPS</fullName>
                 <default>false</default>
             </values>
@@ -4162,7 +4376,7 @@
             </values>
             <values>
                 <fullName>Change Name on Card or Check</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>New Approving Official %28AO%29</fullName>
@@ -4305,6 +4519,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>TO</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>UPS</fullName>
                 <default>false</default>
             </values>
@@ -4535,7 +4753,7 @@
             </values>
             <values>
                 <fullName>Suspension of Card or Check</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -4772,6 +4990,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>TO</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>UPS</fullName>
                 <default>false</default>
             </values>
@@ -4990,7 +5212,7 @@
             </values>
             <values>
                 <fullName>New Approving Official %28AO%29</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>New Convenience Check</fullName>
@@ -5130,6 +5352,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>TO</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>UPS</fullName>
                 <default>false</default>
             </values>
@@ -5352,7 +5578,7 @@
             </values>
             <values>
                 <fullName>New Convenience Check</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>New Purchase Card</fullName>
@@ -5489,6 +5715,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>TO</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>UPS</fullName>
                 <default>false</default>
             </values>
@@ -5586,10 +5816,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>New</fullName>
                 <default>true</default>
             </values>
@@ -5656,167 +5882,7 @@
         <picklistValues>
             <picklist>Location__c</picklist>
             <values>
-                <fullName>ADA OK</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ANN ARBOR MI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ATHENS GA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BOISE ID</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BOSTON - REGION 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CHICAGO IL</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CHICAGO REGION 5</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CINCINNATI%2C OH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cincinnati OH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Corvallis OR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DULUTH MN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Edison NJ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FAI On-Line</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fort Meade%2C MD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GULF BREEZE FL</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HQ - CRYSTAL GATEWAY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HQ - CRYSTAL STATION</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HQ - OCFO ONLY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HQ - OFFICE OF WATER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HQ - OSTRI- CRYSTAL GATEWAY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HQ - WIC 3N</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HQ CMM2 OPP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HQ or Washington DC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HQ%2C CMM2%2C OPP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Las Vegas NV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Montgomery AL</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NARRAGANSETT RI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New Orleans%2C LA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OPPT%2FEAD NETI 2138</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>On-Line Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PC Refresher On-Line</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>REGION 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>REGION 3 - WELLINGING WV LAB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>REGION 6 - HOUSTON LAB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RTP NC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RTP NC%2C NC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Region 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Region 10</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Region 3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Region 4</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5824,91 +5890,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Region 6</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Region 7</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Region 8</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Region 9</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SHEPHARDSTOWN WV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>San Juan PR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Shepherdstown WV</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Washington DC</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Washington DC - 1310 L St%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - AR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - AR North Room B-305</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - AR South</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - CG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - CM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - CS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - EE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - OFFICE OF WATER</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Washington DC - PY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - RRB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC OCFO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC%2C OAM ONLY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web-Based Training</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5955,7 +5941,7 @@
             </values>
             <values>
                 <fullName>New Purchase Card</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
             <values>
                 <fullName>Suspension of Card or Check</fullName>

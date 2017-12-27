@@ -16,7 +16,7 @@ public class TQBRequestHandler_Test {
         request.Intended_Track__c = TEST_TRACK;
         request.First_Line_Supervisor__c = u.Id;
         request.Second_Line_Supervisor__c = u.Id;
-        request.RecordTypeId = '012r00000005DW1AAM';
+        request.RecordTypeId = Schema.SObjectType.Candidate_Application__c.getRecordTypeInfosByName().get('Candidate Package').getRecordTypeId();
         insert request;
         
         System.debug('Status ' + request.Id + ' & Status '+ request.Intended_Track__c);        
