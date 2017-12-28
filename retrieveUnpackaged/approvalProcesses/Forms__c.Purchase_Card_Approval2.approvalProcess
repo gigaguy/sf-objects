@@ -3,6 +3,12 @@
     <active>true</active>
     <allowRecall>false</allowRecall>
     <allowedSubmitters>
+        <type>allInternalUsers</type>
+    </allowedSubmitters>
+    <allowedSubmitters>
+        <type>creator</type>
+    </allowedSubmitters>
+    <allowedSubmitters>
         <type>owner</type>
     </allowedSubmitters>
     <approvalPageFields>
@@ -149,6 +155,6 @@ CONTAINS( RecordType.Name, &apos;Change-Suspension of Card/Check&apos;)
             <type>FieldUpdate</type>
         </action>
     </recallActions>
-    <recordEditability>AdminOnly</recordEditability>
+    <recordEditability>AdminOrCurrentApprover</recordEditability>
     <showApprovalHistory>true</showApprovalHistory>
 </ApprovalProcess>
