@@ -332,7 +332,7 @@
         <label>Cardholder 1</label>
         <referenceTo>Contact</referenceTo>
         <relationshipLabel>Forms (Cardholder 1)</relationshipLabel>
-        <relationshipName>Forms4</relationshipName>
+        <relationshipName>Forms4b</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -603,7 +603,7 @@
         <label>Cardholder AO From</label>
         <referenceTo>Contact</referenceTo>
         <relationshipLabel>Forms (Cardholder AO From)</relationshipLabel>
-        <relationshipName>Forms3</relationshipName>
+        <relationshipName>Forms3b</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -698,33 +698,6 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Course_Title__c</fullName>
-        <externalId>false</externalId>
-        <label>Course Title</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>PCard Agency Supplemental Training</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>PaymentNet (PNET)</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>GSA SmartPay Purchase Card Training</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
     </fields>
     <fields>
         <fullName>Current_Approver__c</fullName>
@@ -1298,271 +1271,12 @@
         <fullName>Location__c</fullName>
         <externalId>false</externalId>
         <label>Location</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>ADA OK</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>ANN ARBOR MI</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>ATHENS GA</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>BOISE ID</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>BOSTON - REGION 1</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CHICAGO IL</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CHICAGO REGION 5</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CINCINNATI, OH</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Cincinnati OH</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Corvallis OR</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>DULUTH MN</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Edison NJ</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>FAI On-Line</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Fort Meade, MD</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>GULF BREEZE FL</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>HQ, CMM2, OPP</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>HQ CMM2 OPP</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>HQ - CRYSTAL GATEWAY</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>HQ - CRYSTAL STATION</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>HQ - OCFO ONLY</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>HQ - OFFICE OF WATER</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>HQ or Washington DC</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>HQ - OSTRI- CRYSTAL GATEWAY</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>HQ - WIC 3N</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Las Vegas NV</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Montgomery AL</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>NARRAGANSETT RI</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>New Orleans, LA</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>On-Line Training</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>OPPT/EAD NETI 2138</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Other</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>PC Refresher On-Line</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Region 1</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Region 10</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>REGION 2</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Region 3</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>REGION 3 - WELLINGING WV LAB</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Region 4</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Region 5</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Region 6</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>REGION 6 - HOUSTON LAB</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Region 7</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Region 8</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Region 9</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>RTP NC</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>RTP NC, NC</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>San Juan PR</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>SHEPHARDSTOWN WV</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Shepherdstown WV</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Washington DC</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Washington DC, OAM ONLY</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Washington DC - 1310 L St.</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Washington DC - AR</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Washington DC - AR North Room B-305</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Washington DC - AR South</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Washington DC - CG</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Washington DC - CM</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Washington DC - CS</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Washington DC - EE</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Washington DC OCFO</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Washington DC - OFFICE OF WATER</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Washington DC - PY</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Washington DC - RRB</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Web-Based Training</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Mail_Code__c</fullName>
@@ -1741,6 +1455,33 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PC_Course_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Course Title</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>PCard Agency Supplemental Training</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>PaymentNet (PNET)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>GSA SmartPay Purchase Card Training</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Pass_Fail__c</fullName>
@@ -2430,21 +2171,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Course_Title__c</picklist>
-            <values>
-                <fullName>GSA SmartPay Purchase Card Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PCard Agency Supplemental Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PaymentNet %28PNET%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Deployment_Destination__c</picklist>
             <values>
                 <fullName>BAPIntegration</fullName>
@@ -2526,21 +2252,17 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Location__c</picklist>
+            <picklist>PC_Course_Title__c</picklist>
             <values>
-                <fullName>On-Line Training</fullName>
+                <fullName>GSA SmartPay Purchase Card Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Region 5</fullName>
+                <fullName>PCard Agency Supplemental Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Washington DC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - PY</fullName>
+                <fullName>PaymentNet %28PNET%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2783,21 +2505,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Course_Title__c</picklist>
-            <values>
-                <fullName>GSA SmartPay Purchase Card Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PCard Agency Supplemental Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PaymentNet %28PNET%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Deployment_Destination__c</picklist>
             <values>
                 <fullName>BAPIntegration</fullName>
@@ -2883,21 +2590,17 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Location__c</picklist>
+            <picklist>PC_Course_Title__c</picklist>
             <values>
-                <fullName>On-Line Training</fullName>
+                <fullName>GSA SmartPay Purchase Card Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Region 5</fullName>
+                <fullName>PCard Agency Supplemental Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Washington DC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - PY</fullName>
+                <fullName>PaymentNet %28PNET%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3140,21 +2843,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Course_Title__c</picklist>
-            <values>
-                <fullName>GSA SmartPay Purchase Card Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PCard Agency Supplemental Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PaymentNet %28PNET%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Deployment_Destination__c</picklist>
             <values>
                 <fullName>BAPIntegration</fullName>
@@ -3244,21 +2932,17 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Location__c</picklist>
+            <picklist>PC_Course_Title__c</picklist>
             <values>
-                <fullName>On-Line Training</fullName>
+                <fullName>GSA SmartPay Purchase Card Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Region 5</fullName>
+                <fullName>PCard Agency Supplemental Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Washington DC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - PY</fullName>
+                <fullName>PaymentNet %28PNET%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3501,21 +3185,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Course_Title__c</picklist>
-            <values>
-                <fullName>GSA SmartPay Purchase Card Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PCard Agency Supplemental Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PaymentNet %28PNET%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Deployment_Destination__c</picklist>
             <values>
                 <fullName>BAPIntegration</fullName>
@@ -3605,21 +3274,17 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Location__c</picklist>
+            <picklist>PC_Course_Title__c</picklist>
             <values>
-                <fullName>On-Line Training</fullName>
+                <fullName>GSA SmartPay Purchase Card Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Region 5</fullName>
+                <fullName>PCard Agency Supplemental Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Washington DC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - PY</fullName>
+                <fullName>PaymentNet %28PNET%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3862,21 +3527,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Course_Title__c</picklist>
-            <values>
-                <fullName>GSA SmartPay Purchase Card Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PCard Agency Supplemental Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PaymentNet %28PNET%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Deployment_Destination__c</picklist>
             <values>
                 <fullName>BAPIntegration</fullName>
@@ -3966,21 +3616,17 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Location__c</picklist>
+            <picklist>PC_Course_Title__c</picklist>
             <values>
-                <fullName>On-Line Training</fullName>
+                <fullName>GSA SmartPay Purchase Card Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Region 5</fullName>
+                <fullName>PCard Agency Supplemental Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Washington DC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - PY</fullName>
+                <fullName>PaymentNet %28PNET%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4223,21 +3869,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Course_Title__c</picklist>
-            <values>
-                <fullName>GSA SmartPay Purchase Card Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PCard Agency Supplemental Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PaymentNet %28PNET%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Deployment_Destination__c</picklist>
             <values>
                 <fullName>BAPIntegration</fullName>
@@ -4327,21 +3958,17 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Location__c</picklist>
+            <picklist>PC_Course_Title__c</picklist>
             <values>
-                <fullName>On-Line Training</fullName>
+                <fullName>GSA SmartPay Purchase Card Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Region 5</fullName>
+                <fullName>PCard Agency Supplemental Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Washington DC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - PY</fullName>
+                <fullName>PaymentNet %28PNET%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4584,21 +4211,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Course_Title__c</picklist>
-            <values>
-                <fullName>GSA SmartPay Purchase Card Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PCard Agency Supplemental Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PaymentNet %28PNET%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Deployment_Destination__c</picklist>
             <values>
                 <fullName>BAPIntegration</fullName>
@@ -4688,21 +4300,17 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Location__c</picklist>
+            <picklist>PC_Course_Title__c</picklist>
             <values>
-                <fullName>On-Line Training</fullName>
+                <fullName>GSA SmartPay Purchase Card Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Region 5</fullName>
+                <fullName>PCard Agency Supplemental Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Washington DC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - PY</fullName>
+                <fullName>PaymentNet %28PNET%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5055,21 +4663,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Course_Title__c</picklist>
-            <values>
-                <fullName>GSA SmartPay Purchase Card Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PCard Agency Supplemental Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PaymentNet %28PNET%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Deployment_Destination__c</picklist>
             <values>
                 <fullName>BAPIntegration</fullName>
@@ -5159,21 +4752,17 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Location__c</picklist>
+            <picklist>PC_Course_Title__c</picklist>
             <values>
-                <fullName>On-Line Training</fullName>
+                <fullName>GSA SmartPay Purchase Card Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Region 5</fullName>
+                <fullName>PCard Agency Supplemental Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Washington DC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - PY</fullName>
+                <fullName>PaymentNet %28PNET%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5417,21 +5006,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Course_Title__c</picklist>
-            <values>
-                <fullName>GSA SmartPay Purchase Card Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PCard Agency Supplemental Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PaymentNet %28PNET%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Deployment_Destination__c</picklist>
             <values>
                 <fullName>BAPIntegration</fullName>
@@ -5521,21 +5095,17 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Location__c</picklist>
+            <picklist>PC_Course_Title__c</picklist>
             <values>
-                <fullName>On-Line Training</fullName>
+                <fullName>GSA SmartPay Purchase Card Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Region 5</fullName>
+                <fullName>PCard Agency Supplemental Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Washington DC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - PY</fullName>
+                <fullName>PaymentNet %28PNET%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5780,21 +5350,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Course_Title__c</picklist>
-            <values>
-                <fullName>GSA SmartPay Purchase Card Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PCard Agency Supplemental Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PaymentNet %28PNET%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Deployment_Destination__c</picklist>
             <values>
                 <fullName>BAPIntegration</fullName>
@@ -5880,21 +5435,17 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Location__c</picklist>
+            <picklist>PC_Course_Title__c</picklist>
             <values>
-                <fullName>On-Line Training</fullName>
+                <fullName>GSA SmartPay Purchase Card Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Region 5</fullName>
+                <fullName>PCard Agency Supplemental Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Washington DC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - PY</fullName>
+                <fullName>PaymentNet %28PNET%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6243,21 +5794,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Course_Title__c</picklist>
-            <values>
-                <fullName>GSA SmartPay Purchase Card Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PCard Agency Supplemental Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PaymentNet %28PNET%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Deployment_Destination__c</picklist>
             <values>
                 <fullName>BAPIntegration</fullName>
@@ -6339,261 +5875,17 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Location__c</picklist>
+            <picklist>PC_Course_Title__c</picklist>
             <values>
-                <fullName>ADA OK</fullName>
+                <fullName>GSA SmartPay Purchase Card Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ANN ARBOR MI</fullName>
+                <fullName>PCard Agency Supplemental Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ATHENS GA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BOISE ID</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BOSTON - REGION 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CHICAGO IL</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CHICAGO REGION 5</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CINCINNATI%2C OH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cincinnati OH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Corvallis OR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DULUTH MN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Edison NJ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FAI On-Line</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fort Meade%2C MD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GULF BREEZE FL</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HQ - CRYSTAL GATEWAY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HQ - CRYSTAL STATION</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HQ - OCFO ONLY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HQ - OFFICE OF WATER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HQ - OSTRI- CRYSTAL GATEWAY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HQ - WIC 3N</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HQ CMM2 OPP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HQ or Washington DC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HQ%2C CMM2%2C OPP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Las Vegas NV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Montgomery AL</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NARRAGANSETT RI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New Orleans%2C LA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OPPT%2FEAD NETI 2138</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>On-Line Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PC Refresher On-Line</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>REGION 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>REGION 3 - WELLINGING WV LAB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>REGION 6 - HOUSTON LAB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RTP NC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RTP NC%2C NC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Region 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Region 10</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Region 3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Region 4</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Region 5</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Region 6</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Region 7</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Region 8</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Region 9</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SHEPHARDSTOWN WV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>San Juan PR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Shepherdstown WV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - 1310 L St%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - AR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - AR North Room B-305</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - AR South</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - CG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - CM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - CS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - EE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - OFFICE OF WATER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - PY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC - RRB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC OCFO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Washington DC%2C OAM ONLY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web-Based Training</fullName>
+                <fullName>PaymentNet %28PNET%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

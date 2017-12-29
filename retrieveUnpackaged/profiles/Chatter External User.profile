@@ -1646,11 +1646,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Forms__c.Course_Title__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Forms__c.Current_Approver__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1922,6 +1917,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Organization_Allocation__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.PC_Course_Title__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
