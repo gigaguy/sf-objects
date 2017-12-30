@@ -1822,7 +1822,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Instructions__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -1968,6 +1968,11 @@
         <editable>true</editable>
         <field>Forms__c.Role__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.SF_182_Prepare_For_checker__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

@@ -46,6 +46,26 @@ public class UtilityMethods {
         return sessionID; 
     }
     
+    public static String getAnyUserID(String userFirstName, String userLastName) {
+        User u = [select id from User where FirstName = :userFirstName AND LastName = :userLastName];
+        return String.ValueOf(u.Id);
+    }
+    
+    public static void addFormShare(String formID, String siteUserID) {
+        List<Forms__Share> formShares = new List<Forms__Share>();
+        if (formID != null && siteUserID !=null) {
+            formShares.add(new Forms__Share(ParentID = formID, UserorGroupID = siteUserID, AccessLevel = 'edit'));
+            database.insert(formShares, false);
+        }
+    }
+    
+    public static void removeFormShare(String formID, String siteUserID) {  
+        if (formID != null && siteUserID !=null) {
+            Forms__Share formShare = [select id from Forms__Share where ParentID = :formID AND UserorGroupID = :siteUserID AND AccessLevel = 'edit'];
+            database.delete(formShare, false);
+        }
+    }
+    
     // 9/21/2017 - Larry Spackman - Disabled for deployment to Production because HeaderLogs custom object not being deployed
     /*
     public static void logHeaders() {
@@ -98,6 +118,38 @@ public class UtilityMethods {
         }
         // Return false unless all elements validate
         return false;
+    }
+    
+    public static string getCreatableFieldsSOQL(String objectName, String whereClause){
+         
+        String selects = '';
+         
+        if (whereClause == null || whereClause == ''){ return null; }
+         
+        // Get a map of field name and field token
+        Map<String, Schema.SObjectField> fMap = Schema.getGlobalDescribe().get(objectName.toLowerCase()).getDescribe().Fields.getMap();
+        list<string> selectFields = new list<string>();
+         
+        if (fMap != null){
+            for (Schema.SObjectField ft : fMap.values()){ // loop through all field tokens (ft)
+                Schema.DescribeFieldResult fd = ft.getDescribe(); // describe each field (fd)
+                if (fd.isCreateable() && fd.getName()!='Approval_Step__c') //editable fields to be copied on cloned form
+                  {                    
+                    selectFields.add(fd.getName());
+                  }
+            }
+        }
+         
+        if (!selectFields.isEmpty()){
+            for (string s:selectFields){
+                selects += s + ',';
+            }
+            if (selects.endsWith(',')){selects = selects.substring(0,selects.lastIndexOf(','));}
+             
+        }
+         
+        return 'SELECT ' + selects + ' FROM ' + objectName + ' WHERE ' + whereClause;
+         
     }
     
     /*
