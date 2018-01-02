@@ -1,4 +1,4 @@
-public class FormPageController {
+public without sharing class FormPageController {
     @auraEnabled
     public static List<RecordType> getFormRTs(string sID){
         //query for permissionsetassignments for this user
@@ -65,6 +65,7 @@ public class FormPageController {
             if (existingForm != null) return existingForm;*/
         }
         catch (exception ex){
+            System.debug('Error from insertNewFroms User query: ' + ex);
         }
         try{
             //no existing form
@@ -113,6 +114,7 @@ public class FormPageController {
             return message;
         }
         catch(exception ex){
+            System.debug('saveForm function error: ' + ex);
             message = ex.getMessage();
             return message;
         }
