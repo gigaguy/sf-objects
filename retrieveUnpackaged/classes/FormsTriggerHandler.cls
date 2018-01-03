@@ -103,7 +103,6 @@ public class FormsTriggerHandler {
         
         Map<id, List<id>> formIdToPeopleIds = new Map<id, List<id>>();
         for (ProcessInstance pi : processInstances){
-            system.debug(pi);
             for (ProcessInstanceHistory pih : pi.StepsAndWorkItems){
                 system.debug(pih);
                 //if (pih.isPending){
@@ -116,7 +115,6 @@ public class FormsTriggerHandler {
                 //}
             }
         }
-        system.debug(formIdToPeopleIds);
         List<id> formIds = new List<Id>();
         List<id> personIDs = new List<id>();
         for (id formID : formIdToPeopleIds.keyset()){

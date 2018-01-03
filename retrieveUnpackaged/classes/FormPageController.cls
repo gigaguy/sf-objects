@@ -50,14 +50,18 @@ public without sharing class FormPageController {
     
     @AuraEnabled
     public static Forms__c insertNewForms(string sID, string rtID, string siteUserID, string apiUserID, String formOption){
-        system.debug('Starting insertNewForms');
+
         string rtName = '';
-        if(formOption!=null && formOption!='' && rtID=='Purchase Card'){
+        string recordTypeIdForPurchaseCard = [select id from RecordType where name = 'Purchase Card' limit 1].ID;
+
+        if(formOption!=null && formOption!='' && rtID == recordTypeIdForPurchaseCard){
             rtName = 'Purchase_Card';
         }else{
-			rtName = [select id, developerName from recordtype where id = :rtID limit 1].developerName;            
+            rtName = [select id, developerName from recordtype where id = :rtID limit 1].developerName;            
         }        
         Forms__c existingForm;
+        
+
         User u;
         try{
             u = [select id, Name, Supervisor__c from User where Session_Token__c = :sID];            
@@ -77,7 +81,7 @@ public without sharing class FormPageController {
                 if(rtName != null && (rtName == 'Purchase_Card')){                    
                     prePopulatePruchaseCardDetails(nf, u,formOption);                    
                     if(formOption!=null){
-						nf.put('Purchase_Card_Request_Type__c',formOption);                        
+                        nf.put('Purchase_Card_Request_Type__c',formOption);                        
                     }
                 }else{
                     nf.put('RecordTypeId', rtID);
@@ -88,13 +92,12 @@ public without sharing class FormPageController {
                 
                 UtilityMethods.addFormShare(String.ValueOf(nf.Id), siteUserID);
                 
-                System.debug('newForms'+nf);
                 return nf;
             }
         }
         catch(DMLException ex){
            AuraHandledException e = new AuraHandledException(ex.getMessage() + ' - ' + string.valueOf(ex.getLineNumber()));
-            system.debug(ex.getMessage());
+            system.debug('DMLException in insertNewFroms: ' + ex.getMessage());
            throw e;
         }
         return null;        
@@ -110,11 +113,13 @@ public without sharing class FormPageController {
     public static string saveForm(Forms__c sentForm, string sID){
         String message = 'Saved';
         try{
+
             upsert sentForm;
+            System.debug('saveForm function upsert was successfull');
             return message;
         }
         catch(exception ex){
-            System.debug('saveForm function error: ' + ex);
+            System.debug('saveForm function upsert was un-successfull: ' + ex.getMessage());
             message = ex.getMessage();
             return message;
         }
@@ -122,9 +127,9 @@ public without sharing class FormPageController {
     
     @AuraEnabled
     public static string submitForApproval(ID formID, string sID, string recordTypeId){
+        System.debug('formID = ' + formID + ' sID = ' + sID + ' recordTypeId = ' + recordTypeId);
         String message = 'Not Submitted - Please check that all your approvers are set and try again';
         try{
-            system.debug(formId);
             User u = null;
             // For all purchase cards forms requestors, requestor should be the submittor
             if(UtilityMethods.isPurchaseCardFormId(recordTypeId)){
@@ -164,7 +169,6 @@ public without sharing class FormPageController {
         a.Name = fileName;
         a.ContentType = contentType; 
         insert a;
-        System.debug(a.Id);
         return a.Id;
     }
     
@@ -275,33 +279,33 @@ public without sharing class FormPageController {
     public static List<String> getAllFormOptions(String formTypeId){
         //Right now we are not using the form record type id.
         List<String> formOptions = null;
-		Schema.DescribeFieldResult formPickList = Forms__c.Purchase_Card_Request_Type__c.getDescribe();    
-		List<Schema.PicklistEntry> listValues = formPickList.getPicklistValues();
+        Schema.DescribeFieldResult formPickList = Forms__c.Purchase_Card_Request_Type__c.getDescribe();    
+        List<Schema.PicklistEntry> listValues = formPickList.getPicklistValues();
         if(listValues.size()>0){
             formOptions = new List<String>();
             for(Schema.PicklistEntry pEntry : listValues){
                 if(pEntry.isActive()){
-	                formOptions.add(pEntry.getValue());                    
+                    formOptions.add(pEntry.getValue());                    
                 }
             }
         }
         return formOptions;
-	}
+    }
     @AuraEnabled
     public static String getFormIntroduction(String formName){
         String introText = '';
         if(formName!=null){
             try{
                 Map<String,String> pcPageLayouts = UtilityMethods.getPCRequestRecordTypeMappings();
-	            String recordType = pcPageLayouts.get(formName);
+                String recordType = pcPageLayouts.get(formName);
                 if(recordType!=null){
                     formName = recordType;
                 }
-				Instructions__c instructions = null;
-	            instructions = [select Id, InstructionContent__c from Instructions__c where ParentRecordType__c = :formName];
+                Instructions__c instructions = null;
+                instructions = [select Id, InstructionContent__c from Instructions__c where ParentRecordType__c = :formName];
                 introText = instructions.InstructionContent__c;
             }catch(Exception e){
-                System.debug('getFormIntroduction');
+                System.debug('Try catch block getFormIntroduction: ' + e.getMessage());
             }
             //introText = '<p>As a reminder with a revision, the moratorium is still in effect on the issuance of new purchase card and convenience check accounts.</p> <p>For those instances where establishing a new account is mission critical, the cognizant senior resource official and/or Division Director must submit a written justification, explaining that mission criticality, to the EPA National Purchase Card Program Manager (NPCPM) Mr. Brian Long. </p> <p>Authorizations may be granted on an exception basis. </p> <p>Reminder: Refer to <a href="http://purchasecard.epa.gov">http://purchasecard.epa.gov</a> Important Reminders About Existing Agency Purchase Card Policy that are in effect and remain unchanged. </p> <p>The EPA Acquisition Guide (EPAAG) section 13.3.1 was posted in December 2015 which includes the latest policy for the purchase card program and is located at <a href="https://oamintra.epa.gov/EPAAG">https://oamintra.epa.gov/EPAAG</a>. </p>  <p>The EPA purchase card program provides an efficient and convenient way of buying commercial/off the shelf goods and services in order to meet the Agency mission. However, it is essential that cardholders and approving officials ensure that all purchases made with the purchase card comply with the rules and regulations, and that proper documentation is completed to justify all purchase card transactions. </p> <p>Please note that purchase card and/or convenience check misuse will result in either suspension or rescission of an Approving Official and/or Purchase Cardholder delegation of authority. </p> <p>All cardholders and approving officials are responsible for ensuring appropriate use of purchase cards. Please communicate this information to your subordinates and stress that you will personally hold purchase cardholders accountable for proper use of the purchase card. Approving Officials will also be held accountable for proper review and authorization of their purchase cardholder transactions and records. </p> <p>The Office of Acquisition Management provides this Purchase Card Web Site for cardholders. Before disputing any purchase card transaction please review the appropriate guidelines. </p> <p>SP2 JPMC Bank (Fleet): Dispute Guidelines Customer Service:(888)297-0781 SP2 JPMC Bank (Purchase): Dispute Guidelines Customer Service:(888)297-0781</p><p>Purchase Card Program issues: Dianne Lyles (202)564-6111</p><p>Fleet Card Program issues: Bryford Metoyer (202)564-0310</p><p>Allocation and Finance issues: Cynthia Spadaro (513)487-2069</p>';
         }
@@ -323,7 +327,7 @@ public without sharing class FormPageController {
             }
             // Marking the user id as the owner
             //form.put('OwnerId', user.Id);
-			form.put('EIN__c', (user.EmployeeNumber!=null?user.EmployeeNumber:''));
+            form.put('EIN__c', (user.EmployeeNumber!=null?user.EmployeeNumber:''));
             form.put('Mailing_Address__c', (user.street!=null?user.street:''));
             form.put('City__c', (user.city!=null?user.city:''));
             form.put('State__c', (user.state!=null?user.state:''));            
@@ -331,18 +335,18 @@ public without sharing class FormPageController {
             form.put('Email_Address__c',(user.Email!=null?user.Email:''));
             form.put('Purchase_Card_Request_Type__c', pcType);            
             if(cont != null){
-				form.put('Cardholder_AO_Name__c', cont.Id);
+                form.put('Cardholder_AO_Name__c', cont.Id);
                 form.put('Cardholder_AO_Display_Name__c', cont.Name);
-	            form.put('HR_Organization__c', cont.AccountId);                
+                form.put('HR_Organization__c', cont.AccountId);                
             }            
-			//form.put('Approval_Step__c','0');
+            //form.put('Approval_Step__c','0');
             String phoneNumber = user.Phone;
             if(phoneNumber == null){
                 phoneNumber = user.MobilePhone;
             }            
             form.put('Telephone_Number__c', (phoneNumber!=null?phoneNumber:''));
         }catch(Exception e){
-            System.debug('Exception - prePopulatePruchaseCardDetails - '+string.valueof(e));
+            System.debug('Try catch block prePopulatePruchaseCardDetails: '+ e.getMessage());
         }        
     }
 }
