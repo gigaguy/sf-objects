@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
-    <active>false</active>
+    <active>true</active>
     <allowRecall>false</allowRecall>
     <allowedSubmitters>
         <type>allInternalUsers</type>
@@ -86,6 +86,13 @@
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
         </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.RecordType</field>
+                <operation>equals</operation>
+                <value>New-Convenience Check,Purchase Card</value>
+            </criteriaItems>
+        </entryCriteria>
         <label>Purchase Card Manager Review</label>
         <name>Purchase_Card_Manager_Review</name>
         <rejectBehavior>
@@ -96,17 +103,11 @@
     <emailTemplate>unfiled$public/Purchase_Card_Email_Template_Notify_Approver</emailTemplate>
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
-        <formula>AND(ISBLANK(Approval_Step__c), OR(
-CONTAINS( RecordType.Name, &apos;Purchase Card&apos;),
-CONTAINS( RecordType.Name, &apos;New-Convenience Check&apos;),
-CONTAINS( RecordType.Name, &apos;New-Approving Official (AO)&apos;),
-CONTAINS( RecordType.Name, &apos;Cancellation-Check or Card&apos;),
-CONTAINS( RecordType.Name, &apos;Change-Cardholder AO&apos;),
-CONTAINS( RecordType.Name, &apos;Change-Contact Information&apos;),
-CONTAINS( RecordType.Name, &apos;Change-Monthly Limit&apos;),
-CONTAINS( RecordType.Name, &apos;Change-Name on Card/Check&apos;),
-CONTAINS( RecordType.Name, &apos;Change-Suspension of Card/Check&apos;)
-))</formula>
+        <criteriaItems>
+            <field>Forms__c.RecordType</field>
+            <operation>equals</operation>
+            <value>Cancellation-Check or Card,Change-Cardholder AO,Change-Contact Information,Change-Monthly Limit,Change-Name on Card/Check,Change-Suspension of Card/Check,New-Approving Official (AO),New-Convenience Check,Purchase Card</value>
+        </criteriaItems>
     </entryCriteria>
     <finalApprovalActions>
         <action>

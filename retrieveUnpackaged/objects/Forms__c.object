@@ -2113,7 +2113,7 @@
     <recordTypes>
         <fullName>BAP_Provisioning</fullName>
         <active>true</active>
-        <description>BAP Provisioning Forms</description>
+        <description>BAP User Activation Requests</description>
         <label>BAP Provisioning</label>
         <picklistValues>
             <picklist>Account_Type__c</picklist>

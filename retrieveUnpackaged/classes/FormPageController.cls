@@ -115,7 +115,6 @@ public without sharing class FormPageController {
         try{
 
             upsert sentForm;
-            System.debug('saveForm function upsert was successfull');
             return message;
         }
         catch(exception ex){
@@ -127,7 +126,6 @@ public without sharing class FormPageController {
     
     @AuraEnabled
     public static string submitForApproval(ID formID, string sID, string recordTypeId){
-        System.debug('formID = ' + formID + ' sID = ' + sID + ' recordTypeId = ' + recordTypeId);
         String message = 'Not Submitted - Please check that all your approvers are set and try again';
         try{
             User u = null;
@@ -316,12 +314,19 @@ public without sharing class FormPageController {
      *  This method prepopulate all user detials in  the form record.
      * */
     private static void prePopulatePruchaseCardDetails(Forms__c form, User user, String pcType){
-        
+       
+
         try{
+            System.debug('user = ' + user);
             user = [select id, Name,EmployeeNumber,LAN_ID__c,Phone, MobilePhone,Email,street, PostalCode, city,state, country, Supervisor__c from User where Id = :user.Id];
+            System.debug('user.id = ' + user.id);
+            System.debug('user.LAN_ID__c = ' + user.LAN_ID__c );
             Contact cont = [Select Id, Name, AccountId  from Contact where LAN_ID__c = :user.LAN_ID__c];
+            System.debug('cont.Id = ' + cont.Id);
             Map<String,String> pcPageLayouts = UtilityMethods.getPCRequestRecordTypes();
+            System.debug('pcPageLayouts.size() = ' + pcPageLayouts.size());
             String recordType = pcPageLayouts.get(pcType);
+            System.debug('this is the recordType id for ' + pcType + ' = ' + recordType);
             if(recordType!=null){
                 form.put('RecordTypeId', recordType);
             }
