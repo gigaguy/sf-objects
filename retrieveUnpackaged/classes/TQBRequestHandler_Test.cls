@@ -25,6 +25,7 @@ public class TQBRequestHandler_Test {
         // Validate if questoin responses have been updated with relavent questions.
 		List<Question_Response__c> newRecords = [Select Id,Question__c from Question_Response__c where Candidate_Application__r.Id =:request.Id];
         List<Questions__c> relatedQuestions = [Select id,Question__c from Questions__c where Track__c =:TEST_TRACK];
+        System.debug('newRecords.size() = ' + newRecords.size() + ' relatedQuestions.size() = ' + relatedQuestions.size());
         System.assertEquals(newRecords.size(),relatedQuestions.size());
     }
 }

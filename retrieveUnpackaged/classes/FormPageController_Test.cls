@@ -41,7 +41,7 @@ public class FormPageController_Test {
         User uAU = [select id from User where isActive = true AND id != :u.id AND id != :u2.id AND id != :uSU.id limit 1];
 
         Contact c = new contact(FirstName='Bob', LastName='Smith', Lan_ID__c = 'thetest');
-        
+        insert c;
         Forms__c testForm = new Forms__c();
 
         testForm.Unauthenticated_Owner__c = u.Id;
