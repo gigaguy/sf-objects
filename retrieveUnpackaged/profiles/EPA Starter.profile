@@ -1585,4 +1585,8 @@
         <enabled>true</enabled>
         <name>ViewPublicReports</name>
     </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewSetup</name>
+    </userPermissions>
 </Profile>
