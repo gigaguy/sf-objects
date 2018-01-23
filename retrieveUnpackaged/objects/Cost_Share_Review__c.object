@@ -60,7 +60,7 @@
         <fullName>Agreement__c</fullName>
         <externalId>false</externalId>
         <label>Agreement</label>
-        <referenceTo>Agreement__c</referenceTo>
+        <referenceTo>GLLA_Agreement__c</referenceTo>
         <relationshipName>Quarterly_Review</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
@@ -270,6 +270,10 @@
     <label>Cost-Share Review</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Review_Start_Date__c</columns>
+        <columns>Review_End_Date__c</columns>
+        <columns>Cost_Share_Review_Status__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
@@ -279,6 +283,11 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Cost-Share Reviews</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <customTabListAdditionalFields>Project_Title__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Review_Start_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Review_End_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Cost_Share_Review_Status__c</customTabListAdditionalFields>
+    </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

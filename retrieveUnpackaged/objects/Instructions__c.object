@@ -115,14 +115,6 @@
         </valueSet>
     </fields>
     <label>Instructions</label>
-    <listViews>
-        <fullName>All</fullName>
-        <columns>NAME</columns>
-        <columns>ParentRecordType__c</columns>
-        <columns>InstructionContent__c</columns>
-        <filterScope>Everything</filterScope>
-        <label>All</label>
-    </listViews>
     <nameField>
         <displayFormat>I-{0000}</displayFormat>
         <label>Instructions Name</label>

@@ -1,84 +1,71 @@
 @istest
 public class FormPageController_Test {
-    
+
     @isTest
     static void testGetFormRTs(){
-        insert new Contact_Approvers__c(name='Use Contact Fields', Use_Contact__c = false); // checkbox from "Contact Approvers" Custom Setting
-        User u = [select id from User where isActive = true and PRofile.Name = 'System Administrator' limit 1];
-        u.Session_Token__c = '123ABC';
+         insert new Contact_Approvers__c(name='Use Contact Fields', Use_Contact__c = false); // checkbox from "Contact Approvers" Custom Setting
+         User u = [select id from User where isActive = true and PRofile.Name = 'System Administrator' limit 1];
+         u.Session_Token__c = '123ABC';
         update u;
         
         PermissionSetAssignment psa = new PermissionSetAssignment(PermissionSetId = [select id from PermissionSet where Label like '%BAPForms User%' limit 1].ID, AssigneeID = u.Id);
         try{
-            //This will never work because you cannot update a setup object and another sObject durring the same transaction. 
             insert psa;
         }
         catch (Exception e){
-            System.debug('Try Catch block for testGetFormRTs function: ' + e.getMessage());
+            system.debug(e.getMessage());
         }
         
-        System.assert(FormPageController.getFormRTs('123ABC').size() > 0);
+        system.assert(FormPageController.getFormRTs('123ABC').size() > 0);
     }
-
-    @isTest
+@isTest
     static void testInsertNewForms(){
-        insert new Contact_Approvers__c(name='Use Contact Fields', Use_Contact__c = false); // checkbox from "Contact Approvers" Custom Setting
-        
-        User u = [select id from User where isActive = true limit 1];
+         insert new Contact_Approvers__c(name='Use Contact Fields', Use_Contact__c = false); // checkbox from "Contact Approvers" Custom Setting
+         User u = [select id from User where isActive = true limit 1];
         User u2 = [select id from User where isActive = true and PRofile.Name = 'System Administrator' and id != :u.id limit 1];
-        
         u.Session_Token__c = '123ABC';
         u.Supervisor__c = u2.id;
         u.Supervisor_2__c = u2.id;
         u.Lan_ID__c = 'thetest';
-        
         update u;
 
         //siteUser
         User uSU = [select id from User where isActive = true AND id != :u.id AND id != :u2.id limit 1];
-
+        
         //apiUser
         User uAU = [select id from User where isActive = true AND id != :u.id AND id != :u2.id AND id != :uSU.id limit 1];
 
-        Contact c = new contact(FirstName='Bob', LastName='Smith', Lan_ID__c = 'thetest');
+        contact c = new contact(FirstName='Bob', LastName='Smith', Lan_ID__c = 'thetest');
         insert c;
+     
         Forms__c testForm = new Forms__c();
-
         testForm.Unauthenticated_Owner__c = u.Id;
         testForm.approval_step__c = 'Form Prepared for you by test';
         testForm.RecordTypeID = [select id from RecordType where sObjectType = 'Forms__c' ORDER BY createddate limit 1].id;
-        
         insert testForm;
-
-        String sIDString = '123ABC';
-        String sIDString2 = 'xyz'; //Intended to for yform to fail insertNewForm Function
-        String rtIDString = [select id from RecordType where sObjectType = 'Forms__c' ORDER BY createddate limit 1].ID;
-        String rtIDString2 = [select id from RecordType where name = 'EPA-100' limit 1].ID;
-        String siteUserIDString = uSU.id;
-        String apiUserIDString = uAU.id;
-        String formOptionString = null;
-
+              
+        Forms__c form = FormPageController.insertNewForms('123ABC', [select id from RecordType where sObjectType = 'Forms__c' ORDER BY createddate limit 1].ID, uSU.id, uAU.id, '');     
+ //       form = FormPageController.insertNewForms('123ABC', [select id from RecordType where sObjectType = 'Forms__c' limit 1].ID);
         
-        Forms__c form = FormPageController.insertNewForms(sIDString, rtIDString, siteUserIDString, apiUserIDString, formOptionString);     
-        
-        Forms__c xform;
-        
+  //      Forms__c xform = FormPageController.insertNewForms('123ABC', [select id from RecordType where name = 'EPA-100' limit 1].ID);
+          Forms__c xform;
+    
         try{
-            xform = FormPageController.insertNewForms(sIDString, rtIDString2, siteUserIDString, apiUserIDString, formOptionString);
+            xform = FormPageController.insertNewForms('123ABC', [select id from RecordType where name = 'EPA-100' limit 1].ID, uSU.id, uAU.id, '');
             }
             catch(exception ex){
-                System.debug('Try catch block xform testInsertNewForms: ' + ex.getMessage());  
+                system.debug(ex.getMessage());  
               }
         
         Forms__c yform;
-        
         try{
-            yform = FormPageController.insertNewForms(sIDString2, rtIDString2, siteUserIDString , apiUserIDString, formOptionString);
-            }catch(exception ex){
-                System.debug('Try catch block yform testInsertNewForms: ' + ex.getMessage());  
+            yform = FormPageController.insertNewForms('xyz', [select id from RecordType where name = 'EPA-100' limit 1].ID, uSU.id, uAU.id, '');
             }
+             catch(exception ex){
+            system.debug(ex.getMessage());  
+              }
                
-        if (xform.id != null) {FormPageController.submitForApproval(xform.ID, '123ABC',''); }  
+        if (xform.id != null) {FormPageController.submitForApproval(xform.ID, '123ABC', ''); }  
         FormPageController.submitForApproval(form.ID, '123ABC','');         
         FormPageController.findExistingForms('xyz');
         FormPageController.findExistingForms('123ABC');
@@ -91,75 +78,41 @@ public class FormPageController_Test {
         FormPageController.getSiteUserID();
         FormPageController.getAPIUserID();
         FormPageController.removeFormShare(xform.ID, uSU.id);
+                
     }
-
+    
     @isTest
     static void testErrorDML(){
-        insert new Contact_Approvers__c(name='Use Contact Fields', Use_Contact__c = false); // checkbox from "Contact Approvers" Custom Setting
-        User u = [select id from User where isActive = true and PRofile.Name = 'System Administrator' limit 1];
-        u.Session_Token__c = '123ABC';
-        update u;
-
-        //siteUser
-        User uSU = [select id from User where isActive = true AND id != :u.id limit 1];
-        
-        //apiUser
-        User uAU = [select id from User where isActive = true AND id != :u.id AND id != :uSU.id limit 1];
-
-        String sIDString = '123ABC';
-        String rtIDString = [select id from RecordType where sObjectType = 'Account' limit 1].ID;
-        String siteUserIDString = uSU.id;
-        String apiUserIDString = uAU.id;
-        String formOptionString = null;
+         insert new Contact_Approvers__c(name='Use Contact Fields', Use_Contact__c = false); // checkbox from "Contact Approvers" Custom Setting
+         User u = [select id from User where isActive = true and PRofile.Name = 'System Administrator' limit 1];
+         u.Session_Token__c = '123ABC';
+        update u;  
     
         try{
-          Forms__c zform = FormPageController.insertNewForms(sIDString, rtIDString, siteUserIDString, apiUserIDString, formOptionString);
+          Forms__c zform = FormPageController.insertNewForms('123ABC', [select id from RecordType where sObjectType = 'Account' limit 1].ID,'' ,'' ,null);
           }
         catch(exception ex){
-            System.debug('Try catch block testErrorDML: ' + ex.getMessage());  
-        }      
-    }
-
+            system.debug(ex.getMessage());  
+          }      
+      }
+    
     @isTest
     static void testNewPurchaseCardRequest(){
-        insert new Contact_Approvers__c(name='Use Contact Fields', Use_Contact__c = false);
-        User u = [select id from User where isActive = true limit 1];
-        User u2 = [select id from User where isActive = true and Profile.Name = 'System Administrator' and id != :u.id limit 1];
-
-        u.Session_Token__c = '123ABC';
-        u.Supervisor__c = u2.id;
-        u.Supervisor_2__c = u2.id;
-        u.Lan_ID__c = 'thetest';
-
-        update u;
-
-        //siteUser
-        User uSU = [select id from User where isActive = true AND id != :u.id limit 1];
-        
-        //apiUser
-        User uAU = [select id from User where isActive = true AND id != :u.id AND id != :uSU.id limit 1];
-
-        Contact c = new contact(FirstName='Bob', LastName='Smith', Lan_ID__c = 'thetest');
-        insert c;
-
-        String sIDString = '123ABC';
-        String rtIDString = [select id from RecordType where name = 'Purchase Card' limit 1].ID;
-        String siteUserIDString = uSU.id;
-        String apiUserIDString = uAU.id;
-        String formOptionString = 'New Purchase Card';
-        
-        Forms__c pcform;
+	
+        String tokenId = '123ABC';
+        User user = [select id from User where isActive = true and PRofile.Name = 'System Administrator' limit 1];
+        user.Session_Token__c = tokenId;        
+        update user;
         try{
-            pcform = FormPageController.insertNewForms(sIDString, rtIDString, siteUserIDString, apiUserIDString, formOptionString);
-            FormPageController.deleteForm(pcform.ID, sIDString);
-            FormPageController.submitForApproval(pcform.ID, sIDString, rtIDString);                        
+	        Forms__c pcform = FormPageController.insertNewForms(tokenId, 'Purchase Card', '','' ,'New Purchase Card');    	    
+            Id recordTypeId = [select id from RecordType where name = 'Purchase Card' limit 1].ID;
+            FormPageController.deleteForm(pcform.ID, tokenId);
+			FormPageController.submitForApproval(pcform.ID, tokenId,recordTypeId);                        
         }
         catch(exception ex){
-            System.debug('Try catch block testNewPurchaseCardRequest: ' + ex.getMessage());  
+            system.debug(ex.getMessage());  
           }
     }
-    
-    
     @isTest
     static void testGetAllFormOptions(){
        List<String> result = FormPageController.getAllFormOptions('sample');
@@ -170,7 +123,7 @@ public class FormPageController_Test {
       String result = FormPageController.getFormIntroduction('New Purchase Card');
        System.assert(result!=null);        
     }
-
+    
     @isTest
         static void testAttachmentMethods(){
             insert new Contact_Approvers__c(name='Use Contact Fields', Use_Contact__c = false); // checkbox from "Contact Approvers" Custom Setting
@@ -179,7 +132,7 @@ public class FormPageController_Test {
             u.Lan_ID__c = 'thetest';
             update u;
     
-            Contact c = new contact(FirstName='Bob', LastName='Smith', Lan_ID__c = 'thetest');
+            contact c = new contact(FirstName='Bob', LastName='Smith', Lan_ID__c = 'thetest');
             insert c;
          
             Forms__c testForm = new Forms__c();
@@ -225,5 +178,4 @@ public class FormPageController_Test {
             FormPageController.getListOfFiles(formID); 
             
       }
-      
 }

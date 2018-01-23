@@ -106,7 +106,7 @@
         <criteriaItems>
             <field>Forms__c.RecordType</field>
             <operation>equals</operation>
-            <value>Cancellation-Check or Card,Change-Cardholder AO,Change-Contact Information,Change-Monthly Limit,Change-Name on Card/Check,Change-Suspension of Card/Check,New-Approving Official (AO),New-Convenience Check,Purchase Card</value>
+            <value>New-Convenience Check,New-Approving Official (AO),Change-Cardholder AO,Change-Name on Card/Check,Change-Contact Information,Change-Suspension of Card/Check,Change-Monthly Limit,Cancellation-Check or Card,Purchase Card</value>
         </criteriaItems>
     </entryCriteria>
     <finalApprovalActions>

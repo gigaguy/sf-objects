@@ -40,11 +40,11 @@
         <allowDelegate>false</allowDelegate>
         <assignedApprover>
             <approver>
-                <name>TQB_Coordinator__c</name>
+                <name>TQB_Coordinator_2__c</name>
                 <type>relatedUserField</type>
             </approver>
             <approver>
-                <name>TQB_Coordinator_2__c</name>
+                <name>TQB_Coordinator__c</name>
                 <type>relatedUserField</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
@@ -73,11 +73,6 @@
     <emailTemplate>TQB_Email_Templates/TQB_Candidate_Package_Approval_Request</emailTemplate>
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
-        <criteriaItems>
-            <field>Candidate_Application__c.LOI_Approved__c</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
         <criteriaItems>
             <field>Candidate_Application__c.RecordType</field>
             <operation>equals</operation>

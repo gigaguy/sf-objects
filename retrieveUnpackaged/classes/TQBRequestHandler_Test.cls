@@ -16,7 +16,7 @@ public class TQBRequestHandler_Test {
         request.Intended_Track__c = TEST_TRACK;
         request.First_Line_Supervisor__c = u.Id;
         request.Second_Line_Supervisor__c = u.Id;
-        request.RecordTypeId = Schema.SObjectType.Candidate_Application__c.getRecordTypeInfosByName().get('Candidate Package').getRecordTypeId();
+        request.RecordTypeId = '012r00000005DW1AAM';
         insert request;
         
         System.debug('Status ' + request.Id + ' & Status '+ request.Intended_Track__c);        
@@ -25,7 +25,6 @@ public class TQBRequestHandler_Test {
         // Validate if questoin responses have been updated with relavent questions.
 		List<Question_Response__c> newRecords = [Select Id,Question__c from Question_Response__c where Candidate_Application__r.Id =:request.Id];
         List<Questions__c> relatedQuestions = [Select id,Question__c from Questions__c where Track__c =:TEST_TRACK];
-        System.debug('newRecords.size() = ' + newRecords.size() + ' relatedQuestions.size() = ' + relatedQuestions.size());
         System.assertEquals(newRecords.size(),relatedQuestions.size());
     }
 }

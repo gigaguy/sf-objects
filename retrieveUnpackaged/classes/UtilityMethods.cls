@@ -1,10 +1,10 @@
 public class UtilityMethods { 
 
     public static string getLicName(id uID) {
-    	string licName;
-    	if (uid != null) {
-    	licName = [select id, Profile.UserLicense.Name from user where ID = :uID limit 1].Profile.UserLicense.Name;
-    	}
+        string licName;
+        if (uid != null) {
+        licName = [select id, Profile.UserLicense.Name from user where ID = :uID limit 1].Profile.UserLicense.Name;
+        }
      return licName;
     }
     
@@ -66,8 +66,8 @@ public class UtilityMethods {
         }
     }
     
-    // 9/21/2017 - Larry Spackman - Disabled for deployment to Production because HeaderLogs custom object not being deployed
-    /*
+    // 2017/09/21 - Larry Spackman - Disabled for deployment to Production because HeaderLogs custom object not being deployed
+     /*
     public static void logHeaders() {
     // Collects header info sent from WAM
         // Log Header & Parameters
@@ -103,17 +103,20 @@ public class UtilityMethods {
         insert hl;
         // End Log Header & Parameters
     }
-	*/
+    */
     
     public static boolean validateSession(String sessionID, string userID) {    
         User u = [select id, Session_Token__c, Session_IP__c, Session_Environment__c, Session_Timestamp__c from User where id = :userID AND Session_Token__c = :sessionID];
         // Check that the IP address and user environment is the same as when the session was created, and that the session is less than 12 hours old
         system.debug(u);
-        system.debug(ApexPages.currentPage().getHeaders());
+        system.debug(u.Session_IP__c);
+        system.debug('check 92: ' + ApexPages.currentPage().getHeaders().get('X-Salesforce-SIP'));
+        system.debug(ApexPages.currentPage().getHeaders().get('X-Salesforce-SIP'));
         if (u.Session_IP__c == ApexPages.currentPage().getHeaders().get('X-Salesforce-SIP') &&
                 u.Session_Environment__c == ApexPages.currentPage().getHeaders().get('User-Agent') &&
                 u.Session_Timestamp__c != null &&
-                u.Session_Timestamp__c.addHours(12) > System.now()) {
+                u.Session_Timestamp__c.addHours(6) > System.now()) {
+            system.debug('valid = true');
             return true;
         }
         // Return false unless all elements validate
@@ -151,18 +154,18 @@ public class UtilityMethods {
         return 'SELECT ' + selects + ' FROM ' + objectName + ' WHERE ' + whereClause;
          
     }
-    
+
     /*
      *This method returns all possible purchase card request types and corresponding record types.
-	 */
+     */
     public static Map<String,String> getPCRequestRecordTypes(){
         Map<String,String> pcRecordTypes = new Map<String,String>();
         Map<String,String> mappingRecordTypes = UtilityMethods.getPCRequestRecordTypeMappings();
         for(String pcOption : mappingRecordTypes.keySet()){
             try{
                 String recordTypeValue = mappingRecordTypes.get(pcOption);
-    	        Id recordTypeId = [select id from RecordType where name = :recordTypeValue limit 1].ID;
-	            pcRecordTypes.put(pcOption, recordTypeId);
+                Id recordTypeId = [select id from RecordType where name = :recordTypeValue limit 1].ID;
+                pcRecordTypes.put(pcOption, recordTypeId);
             }catch(Exception e){
                 System.debug(e.getMessage());
             }            
@@ -171,7 +174,7 @@ public class UtilityMethods {
     }
     public static Map<String,String> getPCRequestRecordTypeMappings(){
         return new Map<String,String>{
-            	'New Purchase Card' => 'Purchase Card',
+                'New Purchase Card' => 'Purchase Card',
                 'New Convenience Check' => 'New-Convenience Check',
                 'New Approving Official (AO)' => 'New-Approving Official (AO)',
                 'Cancellation of Card or Check' => 'Cancellation-Check or Card',
@@ -187,4 +190,5 @@ public class UtilityMethods {
         allValues.addAll(allFormIds.values());
         return allValues.contains(formId);
     }
+    
 }

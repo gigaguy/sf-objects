@@ -1,8 +1,8 @@
-public without sharing class FormPageController {
-    @auraEnabled
+public without sharing class FormPageController  {
+    @AuraEnabled
     public static List<RecordType> getFormRTs(string sID){
         //query for permissionsetassignments for this user
-        User u = [select id, Name, Supervisor__c from User where Session_Token__c = :sID];        
+        User u = [select id, Name, Supervisor__c from User where Session_Token__c = :sID Limit 1];
         
         Set<id> psIds = new Set<id>();
         for (PermissionSetAssignment psa : [select id, PermissionSetId from PermissionSetAssignment where AssigneeId = :u.Id]){
@@ -13,7 +13,8 @@ public without sharing class FormPageController {
         for (PermissionSet ps : [select id, Label from PermissionSet where id in :psIDs]){
             
             formNames.add(ps.label.removeStart('BAPForms User - '));
-            //hardcoding EPA-100 for all users
+            //hardcoding form RTs for all users
+            formNames.add('BAP Provisioning');
             formNames.add('EPA-100');
             formNames.add('SF-182');
             formNames.add('ORD-111');
@@ -37,39 +38,41 @@ public without sharing class FormPageController {
     }
     
     @AuraEnabled
-    public static Forms__c viewForm(string formID, string siteUserId){
-        UtilityMethods.addFormShare(formId, siteUserID);
+    public static Forms__c viewForm(string formID, string siteUserID) {
+        UtilityMethods.addFormShare(formID, siteUserID);
+
         forms__c form = [select id, name, Approval_step__c, SF_182_Prepare_For_checker__c from Forms__c where id = :formID limit 1];
+        
+        //Section from oarm
         if(form.approval_step__c != null){
-        if(string.valueOf(form.approval_step__c).startsWith('Form Prepared for you')){
-            form.approval_step__c = null;
-            update form;}
-          }
-        return form;        
+            if(string.valueOf(form.approval_step__c).startsWith('Form Prepared for you')){
+                form.approval_step__c = null;
+                update form;
+            }
+        }
+
+        return form;
     }
     
     @AuraEnabled
-    public static Forms__c insertNewForms(string sID, string rtID, string siteUserID, string apiUserID, String formOption){
+    public static Forms__c insertNewForms(string sID, string rtID, string siteUserID, string apiUserID, string formOption){
+        system.debug('Starting insertNewForms');
+        string rtName;
 
-        string rtName = '';
-        string recordTypeIdForPurchaseCard = [select id from RecordType where name = 'Purchase Card' limit 1].ID;
-
-        if(formOption!=null && formOption!='' && rtID == recordTypeIdForPurchaseCard){
+        if(formOption!=null && formOption!='' && rtID=='Purchase Card'){
             rtName = 'Purchase_Card';
         }else{
             rtName = [select id, developerName from recordtype where id = :rtID limit 1].developerName;            
-        }        
-        Forms__c existingForm;
+        }    
         
-
+        Forms__c existingForm;
         User u;
         try{
-            u = [select id, Name, Supervisor__c from User where Session_Token__c = :sID];            
+            u = [select id, Name, Supervisor__c from User where Session_Token__c = :sID];
             /*existingForm = [select id, Approval_step__c, AWL_Phone_Number__c, User_Supervisor__c from Forms__c where RecordTypeId = :rtID and Unauthenticated_Owner__c = :u.ID and Approval_Step__c != 'Approved' order by CreatedDate DESC limit 1];
             if (existingForm != null) return existingForm;*/
-        }
-        catch (exception ex){
-            System.debug('Error from insertNewFroms User query: ' + ex);
+        }catch (exception ex){
+            System.debug('Insert of user in insertNewFroms() failed. Exception: ' + ex.getMessage());
         }
         try{
             //no existing form
@@ -77,7 +80,6 @@ public without sharing class FormPageController {
                 Forms__c nf = new Forms__c();
                 nf.put('Unauthenticated_Owner__c', u.id);
                 if(rtName != 'SF_182') nf.put('User_Supervisor__c', u.Supervisor__c);
-                // Pre populate user detials for the purchase card form
                 if(rtName != null && (rtName == 'Purchase_Card')){                    
                     prePopulatePruchaseCardDetails(nf, u,formOption);                    
                     if(formOption!=null){
@@ -85,27 +87,29 @@ public without sharing class FormPageController {
                     }
                 }else{
                     nf.put('RecordTypeId', rtID);
-                }                                
+                }
+                
                 nf.put('Quantity__c', 1);
+                // LS 2017/11/19: Set Owner to "API" user
                 nf.put('OwnerId', apiUserID);
                 insert nf;
-                
+                // LS 2017/11/19: Add FormShare for force.com site user to new form record
                 UtilityMethods.addFormShare(String.ValueOf(nf.Id), siteUserID);
-                
+                System.debug('newForms'+nf);
                 return nf;
             }
-        }
-        catch(DMLException ex){
-           AuraHandledException e = new AuraHandledException(ex.getMessage() + ' - ' + string.valueOf(ex.getLineNumber()));
-            system.debug('DMLException in insertNewFroms: ' + ex.getMessage());
-           throw e;
+        }catch(DMLException ex){
+            AuraHandledException e = new AuraHandledException(ex.getMessage() + ' - ' + string.valueOf(ex.getLineNumber()));
+            system.debug('DMLExcetion thrown: ' + ex.getMessage());
+            throw e;
         }
         return null;        
     }
     
     @AuraEnabled
     public static string deleteForm(ID formID, string sID){
-        delete [select id from Forms__c where ID = :formID];        
+        delete [select id from Forms__c where ID = :formID];
+        
         return 'Form Deleted';
     }
     
@@ -113,12 +117,10 @@ public without sharing class FormPageController {
     public static string saveForm(Forms__c sentForm, string sID){
         String message = 'Saved';
         try{
-
             upsert sentForm;
             return message;
         }
         catch(exception ex){
-            System.debug('saveForm function upsert was un-successfull: ' + ex.getMessage());
             message = ex.getMessage();
             return message;
         }
@@ -127,6 +129,8 @@ public without sharing class FormPageController {
     @AuraEnabled
     public static string submitForApproval(ID formID, string sID, string recordTypeId){
         String message = 'Not Submitted - Please check that all your approvers are set and try again';
+        system.debug('submitForApproval: formID = ' + formId + ' sID = ' + sID + ' recordTypeId = ' + recordTypeId);
+
         try{
             User u = null;
             // For all purchase cards forms requestors, requestor should be the submittor
@@ -135,7 +139,7 @@ public without sharing class FormPageController {
             }else{
               u = [select id from User where Name = 'EPA Business Automation Platform User' limit 1];    
             }
-                        
+            
             Approval.ProcessSubmitRequest req1 = new Approval.ProcessSubmitRequest();
             req1.setComments('Automatically Submitted');
             req1.setObjectId(formId);
@@ -167,6 +171,7 @@ public without sharing class FormPageController {
         a.Name = fileName;
         a.ContentType = contentType; 
         insert a;
+        System.debug(a.Id);
         return a.Id;
     }
     
@@ -175,7 +180,7 @@ public without sharing class FormPageController {
         return [select id, Name, CreatedDate from Attachment where parentID = :formID order by CreatedDate DESC];        
     }
     
-    @AuraEnabled
+     @AuraEnabled
     public static List<ContentVersion> getListOfFiles(String formID) {        
         list<ContentDocumentLink> filez = [SELECT ContentDocumentId, LinkedEntityId FROM ContentDocumentLink where LinkedEntityId = :formID];
         List<ID> fileIDs = new List<ID>();
@@ -190,7 +195,7 @@ public without sharing class FormPageController {
         
         return [Select Id, ContentDocumentId, Title, createddate, IsLatest FROM ContentVersion where ContentDocumentID in :docIDs AND IsLatest = true];        
     }
-    
+        
     @AuraEnabled
     public static string deleteFormAttachment(ID attID){
      
@@ -222,7 +227,7 @@ public without sharing class FormPageController {
  
         return Id.valueOf(fileId);
     }
-    
+ 
     public static Id saveTheFile(Id parentId, String fileName, String base64Data, String contentType) {
         base64Data = EncodingUtil.urlDecode(base64Data, 'UTF-8');
  
@@ -237,7 +242,7 @@ public without sharing class FormPageController {
  
         return oAttachment.Id;
     }
-    
+ 
     private static void appendToFile(Id fileId, String base64Data) {
         base64Data = EncodingUtil.urlDecode(base64Data, 'UTF-8');
  
@@ -269,7 +274,7 @@ public without sharing class FormPageController {
         UtilityMethods.removeFormShare(formID, siteUserID);
     }
 
-    
+    //Added functions from oarm
     /**
      * This method return list of options for a given form type id
      * */
@@ -303,7 +308,7 @@ public without sharing class FormPageController {
                 instructions = [select Id, InstructionContent__c from Instructions__c where ParentRecordType__c = :formName];
                 introText = instructions.InstructionContent__c;
             }catch(Exception e){
-                System.debug('Try catch block getFormIntroduction: ' + e.getMessage());
+                System.debug('getFormIntroduction');
             }
             //introText = '<p>As a reminder with a revision, the moratorium is still in effect on the issuance of new purchase card and convenience check accounts.</p> <p>For those instances where establishing a new account is mission critical, the cognizant senior resource official and/or Division Director must submit a written justification, explaining that mission criticality, to the EPA National Purchase Card Program Manager (NPCPM) Mr. Brian Long. </p> <p>Authorizations may be granted on an exception basis. </p> <p>Reminder: Refer to <a href="http://purchasecard.epa.gov">http://purchasecard.epa.gov</a> Important Reminders About Existing Agency Purchase Card Policy that are in effect and remain unchanged. </p> <p>The EPA Acquisition Guide (EPAAG) section 13.3.1 was posted in December 2015 which includes the latest policy for the purchase card program and is located at <a href="https://oamintra.epa.gov/EPAAG">https://oamintra.epa.gov/EPAAG</a>. </p>  <p>The EPA purchase card program provides an efficient and convenient way of buying commercial/off the shelf goods and services in order to meet the Agency mission. However, it is essential that cardholders and approving officials ensure that all purchases made with the purchase card comply with the rules and regulations, and that proper documentation is completed to justify all purchase card transactions. </p> <p>Please note that purchase card and/or convenience check misuse will result in either suspension or rescission of an Approving Official and/or Purchase Cardholder delegation of authority. </p> <p>All cardholders and approving officials are responsible for ensuring appropriate use of purchase cards. Please communicate this information to your subordinates and stress that you will personally hold purchase cardholders accountable for proper use of the purchase card. Approving Officials will also be held accountable for proper review and authorization of their purchase cardholder transactions and records. </p> <p>The Office of Acquisition Management provides this Purchase Card Web Site for cardholders. Before disputing any purchase card transaction please review the appropriate guidelines. </p> <p>SP2 JPMC Bank (Fleet): Dispute Guidelines Customer Service:(888)297-0781 SP2 JPMC Bank (Purchase): Dispute Guidelines Customer Service:(888)297-0781</p><p>Purchase Card Program issues: Dianne Lyles (202)564-6111</p><p>Fleet Card Program issues: Bryford Metoyer (202)564-0310</p><p>Allocation and Finance issues: Cynthia Spadaro (513)487-2069</p>';
         }
@@ -314,19 +319,12 @@ public without sharing class FormPageController {
      *  This method prepopulate all user detials in  the form record.
      * */
     private static void prePopulatePruchaseCardDetails(Forms__c form, User user, String pcType){
-       
-
+        
         try{
-            System.debug('user = ' + user);
-            user = [select id, Name,EmployeeNumber,LAN_ID__c,Phone, MobilePhone,Email,street, PostalCode, city,state, country, Supervisor__c from User where Id = :user.Id];
-            System.debug('user.id = ' + user.id);
-            System.debug('user.LAN_ID__c = ' + user.LAN_ID__c );
+            user = [select id, Name,EmployeeNumber,LAN_ID__c,Phone, MobilePhone,Email,street, PostalCode, Mail_Stop__c, city,state, country, Supervisor__c from User where Id = :user.Id];
             Contact cont = [Select Id, Name, AccountId  from Contact where LAN_ID__c = :user.LAN_ID__c];
-            System.debug('cont.Id = ' + cont.Id);
             Map<String,String> pcPageLayouts = UtilityMethods.getPCRequestRecordTypes();
-            System.debug('pcPageLayouts.size() = ' + pcPageLayouts.size());
             String recordType = pcPageLayouts.get(pcType);
-            System.debug('this is the recordType id for ' + pcType + ' = ' + recordType);
             if(recordType!=null){
                 form.put('RecordTypeId', recordType);
             }
@@ -335,7 +333,8 @@ public without sharing class FormPageController {
             form.put('EIN__c', (user.EmployeeNumber!=null?user.EmployeeNumber:''));
             form.put('Mailing_Address__c', (user.street!=null?user.street:''));
             form.put('City__c', (user.city!=null?user.city:''));
-            form.put('State__c', (user.state!=null?user.state:''));            
+            form.put('State__c', (user.state!=null?user.state:''));
+			form.put('Mail_Code__c', (user.Mail_Stop__c!=null?user.Mail_Stop__c:''));            
             form.put('Zip__c', (user.PostalCode!=null?user.PostalCode:''));            
             form.put('Email_Address__c',(user.Email!=null?user.Email:''));
             form.put('Purchase_Card_Request_Type__c', pcType);            
@@ -351,7 +350,8 @@ public without sharing class FormPageController {
             }            
             form.put('Telephone_Number__c', (phoneNumber!=null?phoneNumber:''));
         }catch(Exception e){
-            System.debug('Try catch block prePopulatePruchaseCardDetails: '+ e.getMessage());
+            System.debug('Exception - prePopulatePruchaseCardDetails - '+string.valueof(e));
         }        
     }
+     
 }

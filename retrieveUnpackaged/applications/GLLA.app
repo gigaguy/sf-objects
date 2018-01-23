@@ -6,8 +6,8 @@
     <formFactors>Large</formFactors>
     <label>GLLA</label>
     <navType>Standard</navType>
-    <tab>Project__c</tab>
-    <tab>Agreement__c</tab>
+    <tab>GLLA_Project__c</tab>
+    <tab>GLLA_Agreement__c</tab>
     <tab>Cost_Share_Review__c</tab>
     <tab>Cost_Share_Contribution__c</tab>
     <uiType>Lightning</uiType>

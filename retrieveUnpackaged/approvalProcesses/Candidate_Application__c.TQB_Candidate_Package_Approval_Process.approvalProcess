@@ -70,11 +70,6 @@
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
         <criteriaItems>
-            <field>Candidate_Application__c.LOI_Approved__c</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
-        <criteriaItems>
             <field>Candidate_Application__c.RecordType</field>
             <operation>equals</operation>
             <value>Candidate Package</value>

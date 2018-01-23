@@ -5,8 +5,12 @@
         <description>GLLA Cost-Share Review Final Notification</description>
         <protected>false</protected>
         <recipients>
-            <recipient>nathaniel.villforth3@csra.com.epa</recipient>
-            <type>user</type>
+            <field>RR_Branch_Chief__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <recipients>
+            <field>RR_Section_Chief__c</field>
+            <type>userLookup</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>GLLA_Email_Notifications/GLLA_Cost_Share_Review_Final_Notifciation</template>
@@ -16,8 +20,12 @@
         <description>GLLA Cost-Share Review Initial Notification</description>
         <protected>false</protected>
         <recipients>
-            <recipient>nathaniel.villforth3@csra.com.epa</recipient>
-            <type>user</type>
+            <field>GLLA_Finance_Lead__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <recipients>
+            <field>ORC_GLLA_Finance_Contact__c</field>
+            <type>userLookup</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>GLLA_Email_Notifications/GLLA_Review_Ready_Notifciation</template>
