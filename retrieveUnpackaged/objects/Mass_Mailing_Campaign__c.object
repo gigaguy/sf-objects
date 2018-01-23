@@ -101,7 +101,7 @@
                     <default>false</default>
                 </value>
                 <value>
-                    <fullName>Undecided</fullName>
+                    <fullName>Undetermined</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
@@ -126,6 +126,7 @@
         <columns>Pro_Cons__c</columns>
         <columns>Docket_Count__c</columns>
         <columns>Mass_Mailing_Campaign_Content__c</columns>
+        <columns>OBJECT_ID</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
@@ -135,6 +136,79 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Mass Mailing Campaigns</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Bristol_Bay</fullName>
+        <active>true</active>
+        <label>Bristol Bay</label>
+        <picklistValues>
+            <picklist>Pro_Cons__c</picklist>
+            <values>
+                <fullName>Negative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neutral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Positive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Undetermined</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>WOTUS_Recommendations</fullName>
+        <active>true</active>
+        <label>WOTUS Recommendations</label>
+        <picklistValues>
+            <picklist>Pro_Cons__c</picklist>
+            <values>
+                <fullName>Negative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neutral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Positive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Undetermined</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Waters_of_the_US</fullName>
+        <active>true</active>
+        <label>Waters of the US</label>
+        <picklistValues>
+            <picklist>Pro_Cons__c</picklist>
+            <values>
+                <fullName>Negative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neutral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Positive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Undetermined</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>Sponsoring_Entity__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Docket_Count__c</customTabListAdditionalFields>
@@ -145,5 +219,5 @@
         <searchResultsAdditionalFields>Docket_Count__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Pro_Cons__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
 </CustomObject>

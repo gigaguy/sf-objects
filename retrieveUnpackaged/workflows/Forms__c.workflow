@@ -20,7 +20,7 @@
             <type>user</type>
         </recipients>
         <recipients>
-            <recipient>twinkle.malhotra2@csra.com</recipient>
+            <recipient>vr2@csra.com</recipient>
             <type>user</type>
         </recipients>
         <senderType>CurrentUser</senderType>
@@ -46,7 +46,7 @@
             <type>user</type>
         </recipients>
         <recipients>
-            <recipient>twinkle.malhotra2@csra.com</recipient>
+            <recipient>vr2@csra.com</recipient>
             <type>user</type>
         </recipients>
         <senderType>CurrentUser</senderType>

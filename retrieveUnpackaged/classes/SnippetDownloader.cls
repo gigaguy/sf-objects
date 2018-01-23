@@ -22,7 +22,7 @@ public class SnippetDownloader {
          
 	public PageReference printView() {        
      requests.put('userText', userText);
-   	 PageReference oPageRef = Page.DemoWordGeneration;
+   	 PageReference oPageRef = Page.TopicDownloadPage;
      oPageRef.setRedirect(false);
      return oPageRef;
 	}

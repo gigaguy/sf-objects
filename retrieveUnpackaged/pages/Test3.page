@@ -1,0 +1,4 @@
+<apex:page >
+    <flow:interview name="Record_Selection_for_Docket_Copy">
+    </flow:interview>
+</apex:page>

@@ -104,5 +104,5 @@
         <searchResultsAdditionalFields>Submission__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Topic__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
 </CustomObject>
