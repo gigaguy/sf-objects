@@ -163,12 +163,12 @@ public class TopicDownloadController {
     public static Map<String,Object> getAllSnippets(String topicId) {
         Map<String,Object> result = new Map<String,Object>();
         // get topic number for the selected topic
-        List<Topic__c> topics = [select Name,Topic_Number__c from Topic__c where id = :topicId];
+        List<Topic__c> topics = [select Name,Topic_Number__c,RecordTypeId from Topic__c where id = :topicId];
         if(topics.size() > 0){
 			Topic__c topic = topics[0];
             List<Topic__c> relatedTopicIds = TopicDownloadController.getAllRelatedTopics(topic.Topic_Number__c);
        	 	result.put('topic', topic);
-			result.put('snippets', [select Name,Topic__r.Name,Submission__r.Commenter_Name__c,Submission__r.Letter_Type__c,Submission__r.Submission_Number__c,Submission__r.Agency_Name__c,Snippet_Status__c from Snippet__c where Topic__c in :relatedTopicIds]);            
+            result.put('snippets', [select Name,Topic__r.Name,Submission__r.Commenter_Name__c,Submission__r.Letter_Type__c,Submission__r.Submission_Number__c,Submission__r.Agency_Name__c,Snippet_Status__c from Snippet__c where Topic__c in :relatedTopicIds]);            
         }
         return result;
     }
