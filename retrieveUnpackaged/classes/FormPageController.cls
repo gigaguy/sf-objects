@@ -14,7 +14,7 @@ public without sharing class FormPageController  {
             
             formNames.add(ps.label.removeStart('BAPForms User - '));
             //hardcoding form RTs for all users
-            formNames.add('BAP Provisioning');
+            formNames.add('Purchase Card');
             formNames.add('EPA-100');
             formNames.add('SF-182');
             formNames.add('ORD-111');
@@ -321,7 +321,7 @@ public without sharing class FormPageController  {
     private static void prePopulatePruchaseCardDetails(Forms__c form, User user, String pcType){
         
         try{
-            user = [select id, Name,EmployeeNumber,LAN_ID__c,Phone, MobilePhone,Email,street, PostalCode, Mail_Stop__c, city,state, country, Supervisor__c from User where Id = :user.Id];
+            user = [select id, Name,EmployeeNumber,LAN_ID__c,Phone, MobilePhone,Email,street, PostalCode,Mail_Stop__c, city,state, country, Supervisor__c from User where Id = :user.Id];
             Contact cont = [Select Id, Name, AccountId  from Contact where LAN_ID__c = :user.LAN_ID__c];
             Map<String,String> pcPageLayouts = UtilityMethods.getPCRequestRecordTypes();
             String recordType = pcPageLayouts.get(pcType);

@@ -2,7 +2,6 @@
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <brand>
         <headerColor>#0070D2</headerColor>
-        <logoVersion>1</logoVersion>
     </brand>
     <description>BAP Agency Forms</description>
     <formFactors>Large</formFactors>
@@ -14,6 +13,7 @@
     <tab>Edit_My_Approvers</tab>
     <tab>standard-Contact</tab>
     <tab>standard-Account</tab>
+    <tab>standard-report</tab>
     <uiType>Lightning</uiType>
     <utilityBar>BAP_Agency_Forms_UtilityBar</utilityBar>
 </CustomApplication>

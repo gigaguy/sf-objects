@@ -1483,6 +1483,11 @@ Manage system users</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Forms__c.Approver_Information__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Forms__c.Approving_Official__c</field>
         <readable>false</readable>
     </fieldPermissions>
