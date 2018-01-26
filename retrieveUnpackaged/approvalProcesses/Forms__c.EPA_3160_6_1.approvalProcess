@@ -26,7 +26,7 @@
         </approvalActions>
         <assignedApprover>
             <approver>
-                <name>mcafee.shirley2@epa.gov</name>
+                <name>lspackman@innovateteam.com.epaoei</name>
                 <type>user</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>

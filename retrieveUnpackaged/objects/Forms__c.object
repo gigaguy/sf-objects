@@ -6135,6 +6135,10 @@ Prepare_Form_for__r.Email
                 <default>false</default>
             </values>
             <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>New</fullName>
                 <default>true</default>
             </values>
