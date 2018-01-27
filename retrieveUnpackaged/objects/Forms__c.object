@@ -349,6 +349,18 @@ Type_1_Owner_Contact__r.FirstName &amp;&quot; &quot;&amp; Type_1_Owner_Contact__
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Approver_1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Approver 1</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Forms4_Approver_1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Approver_2__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -362,7 +374,7 @@ Type_1_Owner_Contact__r.FirstName &amp;&quot; &quot;&amp; Type_1_Owner_Contact__
     </fields>
     <fields>
         <fullName>Approver_Information__c</fullName>
-        <defaultValue>&quot;The User Supervisor field should be the Approving Official for the request. The User Supervisor 2 field will be used for the Division Director/Manager. To update these approvers, please go back to the Forms Page and select the Edit My Approvers option.&quot;</defaultValue>
+        <defaultValue>&quot;The Supervisor 1 field should be the Approving Official for the request. The Supervisor 2 field will be used for the Division Director/Manager. To update these approvers, please go back to the Forms Page and select the Edit My Approvers option.&quot;</defaultValue>
         <externalId>false</externalId>
         <label>Approver Information</label>
         <length>1200</length>
@@ -2181,6 +2193,17 @@ TEXT(Training_End_Date__c))</formula>
         <formula>Name</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Form Record Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Form_Record_Type_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>RecordType.Id</formula>
+        <label>Form Record Type ID</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -22563,7 +22586,7 @@ Prepare_Form_for__r.Email
     </validationRules>
     <validationRules>
         <fullName>Purchase_Card_Limit_Validation</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>OR(
 ISPICKVAL(Account_Type__c, &apos;COOP&apos;),
 ISPICKVAL(Account_Type__c, &apos;ERT&apos;),
@@ -22586,7 +22609,7 @@ Single_Purchase_Limit__c  &lt;&gt; 3500
     </validationRules>
     <validationRules>
         <fullName>Purchase_Card_Limit_Validation_Top</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>OR(
 ISPICKVAL(Account_Type__c, &apos;COOP&apos;),
 ISPICKVAL(Account_Type__c, &apos;ERT&apos;),

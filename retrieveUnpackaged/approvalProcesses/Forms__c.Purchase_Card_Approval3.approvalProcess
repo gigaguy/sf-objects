@@ -119,6 +119,10 @@
             <type>Alert</type>
         </action>
         <action>
+            <name>Purchase_Card_Approved_Notice_to_PC_Team_for_Action</name>
+            <type>Alert</type>
+        </action>
+        <action>
             <name>Send_to_Purchase_Card_Queue</name>
             <type>FieldUpdate</type>
         </action>

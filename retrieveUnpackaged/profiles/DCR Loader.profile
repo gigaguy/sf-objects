@@ -1504,6 +1504,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Forms__c.Approver_1__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Forms__c.Approver_2__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2136,6 +2141,11 @@
         <editable>false</editable>
         <field>Forms__c.Form_Record_Name__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Form_Record_Type_ID__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

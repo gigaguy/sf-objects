@@ -1504,6 +1504,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Forms__c.Approver_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Forms__c.Approver_2__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2135,6 +2140,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Form_Record_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Forms__c.Form_Record_Type_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3813,6 +3823,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Forms__c.BAP_Provisioning</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -3879,7 +3890,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Forms__c.Purchase_Card</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

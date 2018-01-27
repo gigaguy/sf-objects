@@ -157,6 +157,17 @@
         <template>unfiled$public/ORD_111_Forms_Submission_Confirm_submitted_by_other_person</template>
     </alerts>
     <alerts>
+        <fullName>Purchase_Card_Approved_Notice_to_PC_Team_for_Action</fullName>
+        <description>Purchase Card Approved Notice to PC Team for Action</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>misty.grooms2@csra.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Purchase_Card_Provisioning_Templates/Send_to_Purchase_Card_Team</template>
+    </alerts>
+    <alerts>
         <fullName>Reject_Request</fullName>
         <description>Reject Request</description>
         <protected>false</protected>
