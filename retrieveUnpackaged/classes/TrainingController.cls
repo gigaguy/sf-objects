@@ -45,7 +45,7 @@ public class TrainingController {
     }
     @AuraEnabled
     public static string deleteForm(ID formID){
-        delete [select id from Forms__c where ID = :formID];		
+        delete [select id from Forms__c where ID = :formID];
         return 'Form Deleted';
     }
     @AuraEnabled

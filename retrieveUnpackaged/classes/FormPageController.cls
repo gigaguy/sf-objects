@@ -1,4 +1,4 @@
-public without sharing class FormPageController  {
+public  class FormPageController  {
     @AuraEnabled
     public static List<RecordType> getFormRTs(string sID){
         //query for permissionsetassignments for this user
@@ -37,8 +37,10 @@ public without sharing class FormPageController  {
         return null;
     }
     
+    
+    //This works but cant use it, because it fires too late. I need a list.
     @AuraEnabled
-    public static String getTheRecordTypeIdForSelectedRecord(string formID, string formName){
+    public static String getTheRecordTypeIdForSelectedRecord(string formName){
         String thisRecordTypeId;
         List<RecordType> myRecordType = [SELECT Id FROM RecordType WHERE Name = :formName Limit 1];
         for(RecordType recordTypes : myRecordType){
@@ -46,6 +48,12 @@ public without sharing class FormPageController  {
         }
         return thisRecordTypeId;
     }
+    
+    @AuraEnabled
+    public static List<RecordType> getAllRecordTypesWithTheirIds(string sID){
+        return [SELECT Id, Name FROM RecordType];
+    }
+    
     
     @AuraEnabled
     public static Forms__c viewForm(string formID, string siteUserID) {
