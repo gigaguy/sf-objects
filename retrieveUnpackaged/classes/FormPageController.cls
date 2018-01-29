@@ -1,4 +1,4 @@
-public  class FormPageController  {
+public without sharing class FormPageController  {
     @AuraEnabled
     public static List<RecordType> getFormRTs(string sID){
         //query for permissionsetassignments for this user
@@ -30,7 +30,7 @@ public  class FormPageController  {
         try{
             u = [select id, Name, Supervisor__c from User where Session_Token__c = :sID];
             
-            return [select id, Name, Form_Type_Name__c, Form_Record_Type_ID__c, RecordTypeId, Approval_Step__c, CreatedDate, LastModifiedDate, AWL_Phone_Number__c, User_Supervisor__c from Forms__c where Unauthenticated_Owner__c = :u.ID order by CreatedDate DESC];
+            return [select id, Name, Form_Type_Name__c, RecordTypeId, Approval_Step__c, CreatedDate, LastModifiedDate, AWL_Phone_Number__c, User_Supervisor__c from Forms__c where Unauthenticated_Owner__c = :u.ID order by CreatedDate DESC];
         }
         catch (exception e){}
         
