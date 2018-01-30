@@ -2220,7 +2220,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Instructions_ORD111__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2468,7 +2468,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Forms__c.Purchase_Card_Request__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3707,7 +3707,7 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
+        <default>false</default>
         <recordType>Forms__c.EPA_100</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -3732,7 +3732,8 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Forms__c.Purchase_Card</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>

@@ -60,6 +60,25 @@ public class TrainingController {
  
         return Id.valueOf(fileId);
     }
+    //1.29.18 Trellis - delete the purchase card and its related forms
+    @AuraEnabled
+    public static void deleteAllCards(Id parentId) {
+
+        List<Forms__c> formsToDelete = [SELECT id FROM Forms__c where (ID =: parentId or Purchase_Card_Request__c =: parentId)];
+       
+        if(formsToDelete.size()>0)
+            delete formsToDelete;
+    }
+    //1.29.18 Trellis
+   
+    //1.29.18 Trellis
+    @AuraEnabled
+    public static Attachment retrieveFileName(Id trainingFormID) {
+        
+        Attachment file = [SELECT id, Name FROM Attachment where ParentId =: trainingFormID limit 1];
+        return file;
+    }
+    //1.29.18 Trellis
  
     public static Id saveTheFile(Id parentId, String fileName, String base64Data, String contentType) {
         

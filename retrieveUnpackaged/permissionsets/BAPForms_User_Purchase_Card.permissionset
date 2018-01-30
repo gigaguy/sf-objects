@@ -3633,27 +3633,27 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Forms__c.Cancellation_Check_or_Card</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Forms__c.Change_Cardholder_AO</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Forms__c.Change_Contact_Information</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Forms__c.Change_Monthly_Limit</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Forms__c.Change_Name_Name_on_CardCheck</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Forms__c.Change_Suspension_of_cardcheck</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Forms__c.EPA3160_6v5</recordType>
@@ -3669,11 +3669,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Forms__c.New_Approving_Official_AO</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Forms__c.New_Convenience_Check</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Forms__c.ORD_111</recordType>
@@ -3681,7 +3681,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Forms__c.Purchase_Card</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Forms__c.SF_182</recordType>
@@ -3689,7 +3689,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Forms__c.Training</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>GLLA_Agreement__c.Amendment</recordType>

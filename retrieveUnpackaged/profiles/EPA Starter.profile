@@ -1578,9 +1578,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Business_Justification__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -1615,7 +1615,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Cancelling__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -1783,9 +1783,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.City__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1928,7 +1928,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2040,7 +2040,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Email_Address__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -2218,7 +2218,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Forms__c.Instructions_ORD111__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2230,7 +2230,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Justification_for_8_or_more_cardholders__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2260,7 +2260,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Location__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -2270,12 +2270,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Mail_Code__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Mailing_Address__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2540,7 +2540,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Related_Application_Name__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -2630,7 +2630,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.State__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2645,7 +2645,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Target_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2655,7 +2655,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Telephone_Number__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -2873,7 +2873,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Forms__c.Zip__c</field>
         <readable>true</readable>
     </fieldPermissions>
