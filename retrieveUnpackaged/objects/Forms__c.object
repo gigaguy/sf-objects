@@ -22765,6 +22765,28 @@ NOT(REGEX( Service_Comp_Date_MM_YYYY__c  ,&quot;^((0[1-9])|(1[0-2]))/[0-9]{4}$&q
         <errorDisplayField>Deployment_Source_Sandbox__c</errorDisplayField>
         <errorMessage>Please enter a vaild source</errorMessage>
     </validationRules>
+    <validationRules>
+        <fullName>Warning_Empty_User_in_Contact_Record</fullName>
+        <active>true</active>
+        <description>A validation to prevent the Process Builder from pulling information from a blank user field in the contact record.</description>
+        <errorConditionFormula>AND(
+ISCHANGED( Cardholder_AO_Name__c ),
+TEXT(Request_is_for__c ) = &apos;Other&apos;,
+ISBLANK(Cardholder_AO_Name__r.User__c),
+OR(
+ RecordType.Name = &apos;Cancellation-Check or Card&apos;,
+ RecordType.Name = &apos;Change-Cardholder AO&apos;,
+ RecordType.Name = &apos;Change-Contact Information&apos;,
+ RecordType.Name = &apos;Change-Monthly Limit&apos;,
+ RecordType.Name = &apos;Change-Name on Card/Check&apos;,
+ RecordType.Name = &apos;Change-Suspension of Card/Check&apos;,
+ RecordType.Name = &apos;New-Approving Official (AO)&apos;,
+ RecordType.Name = &apos;New-Convenience Check&apos;,
+ RecordType.Name = &apos;Purchase Card&apos;,
+ RecordType.Name = &apos;Training&apos;
+))</errorConditionFormula>
+        <errorMessage>Warning -- The user field for the selected Cardholder/AO Name contact record is empty. This process cannot proceed until the error have been resolved</errorMessage>
+    </validationRules>
     <webLinks>
         <fullName>Printable_View</fullName>
         <availability>online</availability>
