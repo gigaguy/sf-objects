@@ -22593,6 +22593,10 @@ Prepare_Form_for__r.Email
         <searchResultsAdditionalFields>Name__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
+    <sharingReasons>
+        <fullName>Share_Records_with_Approvers__c</fullName>
+        <label>Share Records with Approvers</label>
+    </sharingReasons>
     <validationRules>
         <fullName>Application_User_Reason</fullName>
         <active>true</active>

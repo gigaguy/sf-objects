@@ -75,7 +75,7 @@ public class TrainingController {
     @AuraEnabled
     public static Attachment retrieveFileName(Id trainingFormID) {
         
-        Attachment file = [SELECT id, Name FROM Attachment where ParentId =: trainingFormID limit 1];
+        Attachment file = [SELECT id, Name, createddate FROM Attachment where ParentId =: trainingFormID order by createddate desc limit 1];
         return file;
     }
     //1.29.18 Trellis
