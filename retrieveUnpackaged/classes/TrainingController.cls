@@ -70,6 +70,26 @@ public class TrainingController {
             delete formsToDelete;
     }
     //1.29.18 Trellis
+    
+    //1.31.18 Trellis
+    @AuraEnabled
+    public static Boolean doesAttachmentExist(Id trainingFormID) {
+        
+        try
+        {
+            Attachment file = [SELECT id, Name, createddate FROM Attachment where ParentId =: trainingFormID order by createddate desc limit 1];
+            if(file == null)
+                return false;
+            else 
+                return true;
+        }catch(exception e)
+        {
+            return false;
+        }
+        
+        
+    }
+    //1.31.18 Trellis
    
     //1.29.18 Trellis
     @AuraEnabled
