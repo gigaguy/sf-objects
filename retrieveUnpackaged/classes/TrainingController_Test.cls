@@ -18,9 +18,12 @@ public class TrainingController_Test {
         trainingForm.put('Approval_Step__c', TRAINING_RECORD_DEFUALT_APPROVAL_STEP);
         trainingForm.put('Unauthenticated_Owner__c',u.Id);        
         insert trainingForm;
-        
+        TrainingController.getUserTrainingForms(sID);
+        TrainingController.doesAttachmentExist(TRAINING_RECORD_TYPE_ID);
         List<Forms__c> trainings = TrainingController.getUserTrainingForms(sID);
 		System.assert(trainings.size()>0);
+        
+        
     }
     @isTest
     static void testInsertTrainingFormWithOutParent(){
@@ -54,7 +57,9 @@ public class TrainingController_Test {
         String parentId = ''+pcform.ID;
      
         Forms__c trainingForm = TrainingController.insertTrainingForm(sID,parentId);
+        
         System.assert(trainingForm!=null);
+        TrainingController.deleteAllCards(parentId);
     }
     @isTest
     static void testDeleteForm(){
@@ -128,5 +133,7 @@ public class TrainingController_Test {
         fileId = TrainingController.saveChunk(trainingForm.Id, fileName, base64Data, contentType, fileId);
         fileId = TrainingController.saveChunk(trainingForm.Id, fileName, base64Data, contentType, fileId);
 		System.assert(fileId!=null);
+        
+        TrainingController.retrieveFileName(trainingForm.Id);
     }
 }
