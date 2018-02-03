@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
-    <active>false</active>
-    <allowRecall>true</allowRecall>
+    <active>true</active>
+    <allowRecall>false</allowRecall>
+    <allowedSubmitters>
+        <type>allInternalUsers</type>
+    </allowedSubmitters>
     <allowedSubmitters>
         <type>creator</type>
     </allowedSubmitters>
@@ -10,544 +13,726 @@
     </allowedSubmitters>
     <approvalPageFields>
         <field>Name</field>
-        <field>Applicant_Name_Last_First_MI2__c</field>
-        <field>Course_Title__c</field>
-        <field>Training_Start_Date__c</field>
-        <field>Training_End_Date__c</field>
-        <field>Name_and_Address_of_Vendor__c</field>
-        <field>Location_of_Training_Site__c</field>
-        <field>Training_Objective__c</field>
-        <field>Training_or_course_credit_hours__c</field>
-        <field>Continued_Service_Agreement__c</field>
-        <field>Tuition_and_Fees__c</field>
-        <field>Books_Materials__c</field>
-        <field>Per_diem__c</field>
-        <field>Direct_Cost_Total__c</field>
-        <field>Indirect_Total__c</field>
-        <field>Furnish_Invoice_to__c</field>
-        <field>Billing_Instructions__c</field>
+        <field>RecordType</field>
         <field>Owner</field>
+        <field>00N35000000jiHz</field>
+        <field>Primary_or_Alternate__c</field>
+        <field>RPIO_Code__c</field>
+        <field>00N35000000jiId</field>
     </approvalPageFields>
     <approvalStep>
         <allowDelegate>true</allowDelegate>
         <approvalActions>
             <action>
-                <name>Approval_Step_Sent_to_Next_Approver_1</name>
-                <type>FieldUpdate</type>
-            </action>
-            <action>
-                <name>Manager_Signature</name>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
                 <type>FieldUpdate</type>
             </action>
         </approvalActions>
         <assignedApprover>
             <approver>
-                <name>User_Supervisor__c</name>
+                <name>App_Approval_OAR</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>OAR</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to OAR Duplication Reviewer</label>
+        <name>Send_to_OAR_Duplication_Reviewer</name>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_OCSPP</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>OCSPP</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to OCSPP Duplication Reviewer</label>
+        <name>Send_to_OCSPP_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>false</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_OECA</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>OECA</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to OECA Duplication Reviewer</label>
+        <name>Send_to_OECA_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_OEI</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>OEI</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to OEI Duplication Reviewer</label>
+        <name>Send_to_OEI_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_OGC</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>OGC</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to OGC Duplication Reviewer</label>
+        <name>Send_to_OGC_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_OIG</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>OIG</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to OIG Duplication Reviewer</label>
+        <name>Send_to_OIG_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_OITA</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>OITA</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to OITA Duplication Reviewer</label>
+        <name>Send_to_OITA_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_OLEM</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>OLEM</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to OLEM Duplication Reviewer</label>
+        <name>Send_to_OLEM_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_ORD</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>ORD</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to ORD Duplication Reviewer</label>
+        <name>Send_to_ORD_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_AO</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>AO</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to AO Duplication Reviewer</label>
+        <name>Send_to_AO_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_OCFO</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>OCFO</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to OCFO Duplication Reviewer</label>
+        <name>Send_to_OCFO_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_OW</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>OW</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to OW Duplication Reviewer</label>
+        <name>Send_to_OW_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_OARM</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>OARM</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to OARM Duplication Reviewer</label>
+        <name>Send_to_OARM_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_R01</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>R01</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to R01 Duplication Reviewer</label>
+        <name>Send_to_R01_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_R02</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>R02</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to R02 Duplication Reviewer</label>
+        <name>Send_to_R02_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_R03</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>R03</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to R03 Duplication Reviewer</label>
+        <name>Send_to_R03_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_R04</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>R04</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to R04 Duplication Reviewer</label>
+        <name>Send_to_R04_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_R05</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>R05</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to R05 Duplication Reviewer</label>
+        <name>Send_to_R05_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_R06</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>R06</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to R06 Duplication Reviewer</label>
+        <name>Send_to_R06_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_R07</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>R07</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to R07 Duplication Reviewer</label>
+        <name>Send_to_R07_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_R08</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>R08</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to R08 Duplication Reviewer</label>
+        <name>Send_to_R08_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_R09</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>R09</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to R09 Duplication Reviewer</label>
+        <name>Send_to_R09_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Reviewer</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>App_Approval_R10</name>
+                <type>queue</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>Forms__c.Office_or_Region__c</field>
+                <operation>equals</operation>
+                <value>R10</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>Send to R10 Duplication Reviewer</label>
+        <name>Send_to_R10_Duplication_Reviewer</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>true</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Approval_Step_Sent_to_SITL_Group</name>
+                <type>FieldUpdate</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>Approver_1__c</name>
                 <type>relatedUserField</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
         </assignedApprover>
-        <label>Send to Supervisor</label>
-        <name>Send_to_Supervisor</name>
-    </approvalStep>
-    <approvalStep>
-        <allowDelegate>true</allowDelegate>
-        <approvalActions>
-            <action>
-                <name>Approval_Step_Sent_to_Funding_Official</name>
-                <type>FieldUpdate</type>
-            </action>
-        </approvalActions>
-        <assignedApprover>
-            <approver>
-                <name>User_Supervisor_2__c</name>
-                <type>relatedUserField</type>
-            </approver>
-            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
-        </assignedApprover>
-        <entryCriteria>
-            <criteriaItems>
-                <field>Forms__c.of_Approval_Supervisors__c</field>
-                <operation>equals</operation>
-                <value>2</value>
-            </criteriaItems>
-        </entryCriteria>
-        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
-        <label>Send to Supervisor 2</label>
-        <name>Send_to_Supervisor_2</name>
+        <label>Send to SITL Reviewer</label>
+        <name>Send_to_SITL_Reviewer</name>
         <rejectBehavior>
             <type>RejectRequest</type>
         </rejectBehavior>
     </approvalStep>
     <approvalStep>
         <allowDelegate>true</allowDelegate>
-        <approvalActions>
-            <action>
-                <name>Approval_Step_Sent_to_Queue_Approval</name>
-                <type>FieldUpdate</type>
-            </action>
-        </approvalActions>
         <assignedApprover>
             <approver>
-                <name>User_Funding_Official__c</name>
-                <type>relatedUserField</type>
-            </approver>
-            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
-        </assignedApprover>
-        <label>Send to Funding Official</label>
-        <name>Send_to_Funding_Official</name>
-        <rejectBehavior>
-            <type>RejectRequest</type>
-        </rejectBehavior>
-    </approvalStep>
-    <approvalStep>
-        <allowDelegate>true</allowDelegate>
-        <approvalActions>
-            <action>
-                <name>Approval_Step_Sent_to_Escalated_Apprvr</name>
-                <type>FieldUpdate</type>
-            </action>
-        </approvalActions>
-        <assignedApprover>
-            <approver>
-                <name>SF182_HQ_Office_of_Human_Resources</name>
+                <name>App_Approval_SITL</name>
                 <type>queue</type>
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
         </assignedApprover>
-        <entryCriteria>
-            <criteriaItems>
-                <field>Forms__c.Approval_Routing_Options__c</field>
-                <operation>equals</operation>
-                <value>HQ Office of Human Resources</value>
-            </criteriaItems>
-        </entryCriteria>
-        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
-        <label>Send to HQ Office of Human Resources Queue</label>
-        <name>Send_to_HQ_Office_of_Human_Resources_Queue</name>
-        <rejectBehavior>
-            <type>RejectRequest</type>
-        </rejectBehavior>
-    </approvalStep>
-    <approvalStep>
-        <allowDelegate>true</allowDelegate>
-        <approvalActions>
-            <action>
-                <name>Approval_Step_Sent_to_Escalated_Apprvr</name>
-                <type>FieldUpdate</type>
-            </action>
-        </approvalActions>
-        <assignedApprover>
-            <approver>
-                <name>SF182_Region_1</name>
-                <type>queue</type>
-            </approver>
-            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
-        </assignedApprover>
-        <entryCriteria>
-            <criteriaItems>
-                <field>Forms__c.Approval_Routing_Options__c</field>
-                <operation>equals</operation>
-                <value>Region 1</value>
-            </criteriaItems>
-        </entryCriteria>
-        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
-        <label>Send to Region 1 Queue</label>
-        <name>Send_to_Region_1_Queue</name>
-        <rejectBehavior>
-            <type>RejectRequest</type>
-        </rejectBehavior>
-    </approvalStep>
-    <approvalStep>
-        <allowDelegate>true</allowDelegate>
-        <approvalActions>
-            <action>
-                <name>Approval_Step_Sent_to_Escalated_Apprvr</name>
-                <type>FieldUpdate</type>
-            </action>
-        </approvalActions>
-        <assignedApprover>
-            <approver>
-                <name>SF182_Region_2</name>
-                <type>queue</type>
-            </approver>
-            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
-        </assignedApprover>
-        <entryCriteria>
-            <criteriaItems>
-                <field>Forms__c.Approval_Routing_Options__c</field>
-                <operation>equals</operation>
-                <value>Region 2</value>
-            </criteriaItems>
-        </entryCriteria>
-        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
-        <label>Send to Region 2 Queue</label>
-        <name>Send_to_Region_2_Queue</name>
-        <rejectBehavior>
-            <type>RejectRequest</type>
-        </rejectBehavior>
-    </approvalStep>
-    <approvalStep>
-        <allowDelegate>true</allowDelegate>
-        <approvalActions>
-            <action>
-                <name>Approval_Step_Sent_to_Escalated_Apprvr</name>
-                <type>FieldUpdate</type>
-            </action>
-        </approvalActions>
-        <assignedApprover>
-            <approver>
-                <name>SF182_Region_3</name>
-                <type>queue</type>
-            </approver>
-            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
-        </assignedApprover>
-        <entryCriteria>
-            <criteriaItems>
-                <field>Forms__c.Approval_Routing_Options__c</field>
-                <operation>equals</operation>
-                <value>Region 3</value>
-            </criteriaItems>
-        </entryCriteria>
-        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
-        <label>Send to Region 3 Queue</label>
-        <name>Send_to_Region_3_Queue</name>
-        <rejectBehavior>
-            <type>RejectRequest</type>
-        </rejectBehavior>
-    </approvalStep>
-    <approvalStep>
-        <allowDelegate>true</allowDelegate>
-        <approvalActions>
-            <action>
-                <name>Approval_Step_Sent_to_Escalated_Apprvr</name>
-                <type>FieldUpdate</type>
-            </action>
-        </approvalActions>
-        <assignedApprover>
-            <approver>
-                <name>SF182_Region_4</name>
-                <type>queue</type>
-            </approver>
-            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
-        </assignedApprover>
-        <entryCriteria>
-            <criteriaItems>
-                <field>Forms__c.Approval_Routing_Options__c</field>
-                <operation>equals</operation>
-                <value>Region 4</value>
-            </criteriaItems>
-        </entryCriteria>
-        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
-        <label>Send to Region 4 Queue</label>
-        <name>Send_to_Region_4_Queue</name>
-        <rejectBehavior>
-            <type>RejectRequest</type>
-        </rejectBehavior>
-    </approvalStep>
-    <approvalStep>
-        <allowDelegate>true</allowDelegate>
-        <approvalActions>
-            <action>
-                <name>Approval_Step_Sent_to_Escalated_Apprvr</name>
-                <type>FieldUpdate</type>
-            </action>
-        </approvalActions>
-        <assignedApprover>
-            <approver>
-                <name>SF182_Region_5</name>
-                <type>queue</type>
-            </approver>
-            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
-        </assignedApprover>
-        <entryCriteria>
-            <criteriaItems>
-                <field>Forms__c.Approval_Routing_Options__c</field>
-                <operation>equals</operation>
-                <value>Region 5</value>
-            </criteriaItems>
-        </entryCriteria>
-        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
-        <label>Send to Region 5 Queue</label>
-        <name>Send_to_Region_5_Queue</name>
-        <rejectBehavior>
-            <type>RejectRequest</type>
-        </rejectBehavior>
-    </approvalStep>
-    <approvalStep>
-        <allowDelegate>true</allowDelegate>
-        <approvalActions>
-            <action>
-                <name>Approval_Step_Sent_to_Escalated_Apprvr</name>
-                <type>FieldUpdate</type>
-            </action>
-        </approvalActions>
-        <assignedApprover>
-            <approver>
-                <name>SF182_Region_6</name>
-                <type>queue</type>
-            </approver>
-            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
-        </assignedApprover>
-        <entryCriteria>
-            <criteriaItems>
-                <field>Forms__c.Approval_Routing_Options__c</field>
-                <operation>equals</operation>
-                <value>Region 6</value>
-            </criteriaItems>
-        </entryCriteria>
-        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
-        <label>Send to Region 6 Queue</label>
-        <name>Send_to_Region_6_Queue</name>
-        <rejectBehavior>
-            <type>RejectRequest</type>
-        </rejectBehavior>
-    </approvalStep>
-    <approvalStep>
-        <allowDelegate>true</allowDelegate>
-        <approvalActions>
-            <action>
-                <name>Approval_Step_Sent_to_Escalated_Apprvr</name>
-                <type>FieldUpdate</type>
-            </action>
-        </approvalActions>
-        <assignedApprover>
-            <approver>
-                <name>SF182_Region_7</name>
-                <type>queue</type>
-            </approver>
-            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
-        </assignedApprover>
-        <entryCriteria>
-            <criteriaItems>
-                <field>Forms__c.Approval_Routing_Options__c</field>
-                <operation>equals</operation>
-                <value>Region 7</value>
-            </criteriaItems>
-        </entryCriteria>
-        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
-        <label>Send to Region 7 Queue</label>
-        <name>Send_to_Region_7_Queue</name>
-        <rejectBehavior>
-            <type>RejectRequest</type>
-        </rejectBehavior>
-    </approvalStep>
-    <approvalStep>
-        <allowDelegate>true</allowDelegate>
-        <approvalActions>
-            <action>
-                <name>Approval_Step_Sent_to_Escalated_Apprvr</name>
-                <type>FieldUpdate</type>
-            </action>
-        </approvalActions>
-        <assignedApprover>
-            <approver>
-                <name>SF182_Region_8</name>
-                <type>queue</type>
-            </approver>
-            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
-        </assignedApprover>
-        <entryCriteria>
-            <criteriaItems>
-                <field>Forms__c.Approval_Routing_Options__c</field>
-                <operation>equals</operation>
-                <value>Region 8</value>
-            </criteriaItems>
-        </entryCriteria>
-        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
-        <label>Send to Region 8 Queue</label>
-        <name>Send_to_Region_8_Queue</name>
-        <rejectBehavior>
-            <type>RejectRequest</type>
-        </rejectBehavior>
-    </approvalStep>
-    <approvalStep>
-        <allowDelegate>true</allowDelegate>
-        <approvalActions>
-            <action>
-                <name>Approval_Step_Sent_to_Escalated_Apprvr</name>
-                <type>FieldUpdate</type>
-            </action>
-        </approvalActions>
-        <assignedApprover>
-            <approver>
-                <name>SF182_Region_9</name>
-                <type>queue</type>
-            </approver>
-            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
-        </assignedApprover>
-        <entryCriteria>
-            <criteriaItems>
-                <field>Forms__c.Approval_Routing_Options__c</field>
-                <operation>equals</operation>
-                <value>Region 9</value>
-            </criteriaItems>
-        </entryCriteria>
-        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
-        <label>Send to Region 9 Queue</label>
-        <name>Send_to_Region_9_Queue</name>
-        <rejectBehavior>
-            <type>RejectRequest</type>
-        </rejectBehavior>
-    </approvalStep>
-    <approvalStep>
-        <allowDelegate>true</allowDelegate>
-        <approvalActions>
-            <action>
-                <name>Approval_Step_Sent_to_Escalated_Apprvr</name>
-                <type>FieldUpdate</type>
-            </action>
-        </approvalActions>
-        <assignedApprover>
-            <approver>
-                <name>SF182_Region_10</name>
-                <type>queue</type>
-            </approver>
-            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
-        </assignedApprover>
-        <entryCriteria>
-            <criteriaItems>
-                <field>Forms__c.Approval_Routing_Options__c</field>
-                <operation>equals</operation>
-                <value>Region 10</value>
-            </criteriaItems>
-        </entryCriteria>
-        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
-        <label>Send to Region 10 Queue</label>
-        <name>Send_to_Region_10_Queue</name>
-        <rejectBehavior>
-            <type>RejectRequest</type>
-        </rejectBehavior>
-    </approvalStep>
-    <approvalStep>
-        <allowDelegate>true</allowDelegate>
-        <approvalActions>
-            <action>
-                <name>Approval_Step_Sent_to_Escalated_Apprvr</name>
-                <type>FieldUpdate</type>
-            </action>
-        </approvalActions>
-        <assignedApprover>
-            <approver>
-                <name>SF182_Ann_Arbor</name>
-                <type>queue</type>
-            </approver>
-            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
-        </assignedApprover>
-        <entryCriteria>
-            <criteriaItems>
-                <field>Forms__c.Approval_Routing_Options__c</field>
-                <operation>equals</operation>
-                <value>Ann Arbor</value>
-            </criteriaItems>
-        </entryCriteria>
-        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
-        <label>Send to Ann Arbor Queue</label>
-        <name>Send_to_Ann_Arbor_Queue</name>
-        <rejectBehavior>
-            <type>RejectRequest</type>
-        </rejectBehavior>
-    </approvalStep>
-    <approvalStep>
-        <allowDelegate>true</allowDelegate>
-        <approvalActions>
-            <action>
-                <name>Approval_Step_Sent_to_Escalated_Apprvr</name>
-                <type>FieldUpdate</type>
-            </action>
-        </approvalActions>
-        <assignedApprover>
-            <approver>
-                <name>SF182_Research_Triangle_Park</name>
-                <type>queue</type>
-            </approver>
-            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
-        </assignedApprover>
-        <entryCriteria>
-            <criteriaItems>
-                <field>Forms__c.Approval_Routing_Options__c</field>
-                <operation>equals</operation>
-                <value>Research Triangle Park</value>
-            </criteriaItems>
-        </entryCriteria>
-        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
-        <label>Send to Research Triangle Park Queue</label>
-        <name>Send_to_Research_Triangle_Park_Queue</name>
-        <rejectBehavior>
-            <type>RejectRequest</type>
-        </rejectBehavior>
-    </approvalStep>
-    <approvalStep>
-        <allowDelegate>true</allowDelegate>
-        <approvalActions>
-            <action>
-                <name>Approval_Step_Sent_to_Escalated_Apprvr</name>
-                <type>FieldUpdate</type>
-            </action>
-        </approvalActions>
-        <assignedApprover>
-            <approver>
-                <name>SF182_Cincinnati</name>
-                <type>queue</type>
-            </approver>
-            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
-        </assignedApprover>
-        <entryCriteria>
-            <criteriaItems>
-                <field>Forms__c.Approval_Routing_Options__c</field>
-                <operation>equals</operation>
-                <value>Cincinnati</value>
-            </criteriaItems>
-        </entryCriteria>
-        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
-        <label>Send to Cincinnati Queue</label>
-        <name>Send_to_Cincinnati_Queue</name>
-        <rejectBehavior>
-            <type>RejectRequest</type>
-        </rejectBehavior>
-    </approvalStep>
-    <approvalStep>
-        <allowDelegate>true</allowDelegate>
-        <assignedApprover>
-            <approver>
-                <name>ridings.sharon2@epa.gov</name>
-                <type>user</type>
-            </approver>
-            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
-        </assignedApprover>
-        <entryCriteria>
-            <booleanFilter>1 OR 2 OR 3</booleanFilter>
-            <criteriaItems>
-                <field>Forms__c.Escalate_to_Chief_Learning_Officer__c</field>
-                <operation>equals</operation>
-                <value>True</value>
-            </criteriaItems>
-            <criteriaItems>
-                <field>Forms__c.Training_Start_Date__c</field>
-                <operation>lessOrEqual</operation>
-                <value>TODAY</value>
-            </criteriaItems>
-            <criteriaItems>
-                <field>Forms__c.Direct_Cost_Total__c</field>
-                <operation>greaterThan</operation>
-                <value>25000</value>
-            </criteriaItems>
-        </entryCriteria>
-        <label>Send to Sharon (Escalated Approver)</label>
-        <name>Send_to_Sharon_Escalated_Approver</name>
+        <label>Send to SITL Group</label>
+        <name>Send_to_SITL_Group</name>
         <rejectBehavior>
             <type>RejectRequest</type>
         </rejectBehavior>
     </approvalStep>
     <emailTemplate>unfiled$public/Form_Submission_Notification_Template</emailTemplate>
-    <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
+    <enableMobileDeviceAccess>true</enableMobileDeviceAccess>
     <entryCriteria>
-        <formula>AND(
- RecordType.Name  = &apos;SF-182&apos;,
- NOT( ISPICKVAL(Approval_Routing_Options__c, &apos;&apos;) ),
- ISBLANK( Prepare_Form_for__c ),
-  Approval_Step__c &lt;&gt; &apos;Approved&apos;
-)</formula>
+        <criteriaItems>
+            <field>Forms__c.RecordType</field>
+            <operation>equals</operation>
+            <value>Application Approval</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Forms__c.Approval_Step__c</field>
+            <operation>notEqual</operation>
+            <value>Approved</value>
+        </criteriaItems>
     </entryCriteria>
     <finalApprovalActions>
         <action>
@@ -556,10 +741,6 @@
         </action>
         <action>
             <name>Final_Approval_Email</name>
-            <type>Alert</type>
-        </action>
-        <action>
-            <name>SF_182_Final_Approval_to_Funding_Official</name>
             <type>Alert</type>
         </action>
     </finalApprovalActions>
@@ -573,15 +754,11 @@
             <name>Final_Rejection_Email</name>
             <type>Alert</type>
         </action>
-        <action>
-            <name>Rejection_Remove_Manager_Signature</name>
-            <type>FieldUpdate</type>
-        </action>
     </finalRejectionActions>
     <finalRejectionRecordLock>false</finalRejectionRecordLock>
     <initialSubmissionActions>
         <action>
-            <name>Approval_Step_Sent_to_Supervisor</name>
+            <name>Approval_Step_Sent_to_Dup_Reviewer</name>
             <type>FieldUpdate</type>
         </action>
         <action>
@@ -589,7 +766,7 @@
             <type>Alert</type>
         </action>
     </initialSubmissionActions>
-    <label>SF-182 (1)</label>
+    <label>Application Approval</label>
     <recallActions>
         <action>
             <name>Approval_Step_Recalled</name>
