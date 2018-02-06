@@ -71,6 +71,18 @@ public class TrainingController {
     }
     //1.29.18 Trellis
     
+    //2.04.18 Trellis - delete the purchase card and its related forms
+    @AuraEnabled
+    public static void deleteTrainingCard(Id trainingId) {
+
+        List<Forms__c> formsToDelete = [SELECT id FROM Forms__c where ID =: trainingId limit 1];
+       
+        if(formsToDelete.size()>0)
+            delete formsToDelete;
+    }
+    //2.04.18 Trellis
+    
+    
     //1.31.18 Trellis
     @AuraEnabled
     public static Boolean doesAttachmentExist(Id trainingFormID) {

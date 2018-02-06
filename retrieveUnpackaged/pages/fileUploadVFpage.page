@@ -1,0 +1,28 @@
+<!-- This VF page hosts a Lightning Component. -->
+<apex:page standardcontroller="Forms__c">
+	
+  <!-- Load Lightning dependencies -->
+  <apex:includeLightning />
+
+  <div class="slds">
+    <!-- Target div for the Lightning component -->
+    <div id="fileUpload"></div>
+  </div>
+
+  <script>
+    var recordId = '{!Forms__c.id}';
+
+    $Lightning.use("c:fileUploadApp", function() {
+      var attributes = {
+        recordId: recordId
+      };
+
+      var targetElementId = 'fileUpload';
+
+      $Lightning.createComponent('c:fileUpload', attributes, targetElementId,
+        function(cmp) {
+          // At this point the component has been created and loaded
+      });
+    });
+  </script>
+</apex:page>
