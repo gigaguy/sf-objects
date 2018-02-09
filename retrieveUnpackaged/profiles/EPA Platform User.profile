@@ -2967,6 +2967,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Line_Item__c.Item_Name_li__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Line_Item__c.Item_Price_li__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3193,6 +3198,16 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Forms__c.SF_182</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Line_Item__c.Form_EPA_100_Line_Item</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Line_Item__c.Form_PCOR_Line_Item</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <userLicense>Salesforce Platform</userLicense>

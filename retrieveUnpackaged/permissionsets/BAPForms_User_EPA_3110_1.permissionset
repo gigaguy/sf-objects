@@ -2943,6 +2943,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Line_Item__c.Item_Name_li__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Line_Item__c.Item_Price_li__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3160,6 +3165,14 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Forms__c.SF_182</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Line_Item__c.Form_EPA_100_Line_Item</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Line_Item__c.Form_PCOR_Line_Item</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
 </PermissionSet>
