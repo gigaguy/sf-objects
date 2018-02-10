@@ -787,7 +787,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Forms__c.I_Agree_with_Terms__c</field>
+        <field>Forms__c.I_Agree_with_Terms_Approver_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Forms__c.I_Agree_with_Terms_Approver_2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1113,11 +1118,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Line_Item__c.Other_Location__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Line_Item__c.Pass_Fail__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
