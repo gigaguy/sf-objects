@@ -3052,6 +3052,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Line_Item__c.Travel_Comp_Time_Applicable__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Line_Item__c.Travel_Time_End__c</field>
         <readable>false</readable>
     </fieldPermissions>
