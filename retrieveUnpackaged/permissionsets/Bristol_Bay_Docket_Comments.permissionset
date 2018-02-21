@@ -386,7 +386,7 @@
         <field>Topic__c.Topic_Response_Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <hasActivationRequired>true</hasActivationRequired>
+    <hasActivationRequired>false</hasActivationRequired>
     <label>Bristol Bay Docket Comments</label>
     <objectPermissions>
         <allowCreate>false</allowCreate>
