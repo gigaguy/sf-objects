@@ -3297,12 +3297,17 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Line_Item__c.Form_ORD_111_Line_Item</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Line_Item__c.Form_PCOR_Line_Item</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Line_Item__c.Proposed_Hours</recordType>
+        <recordType>Line_Item__c.Form_TCTO_Request_Line_Item</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <userLicense>Chatter Free</userLicense>
