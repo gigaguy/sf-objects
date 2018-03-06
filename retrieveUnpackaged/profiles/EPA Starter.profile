@@ -1699,7 +1699,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Forms__c.Originator_Type1__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
