@@ -3620,6 +3620,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Submission__c.Missouri_NNC_Docket</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Submission__c.WOTUS_Recommendations</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
