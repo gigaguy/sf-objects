@@ -3727,6 +3727,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Mass_Mailing_Campaign__c.Missouri_NNC_Docket</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Mass_Mailing_Campaign__c.WOTUS_Recommendations</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -3744,6 +3749,11 @@
         <default>false</default>
         <recordType>Snippet__c.Bristol_Bay</recordType>
         <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Snippet__c.Missouri_NNC_Docket</recordType>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -3789,6 +3799,11 @@
         <default>false</default>
         <recordType>Topic__c.Bristol_Bay</recordType>
         <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Topic__c.Missouri_NNC_Docket</recordType>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
