@@ -4362,7 +4362,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Line_Item__c.Training</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Mass_Mailing_Campaign__c.Bristol_Bay</recordType>
