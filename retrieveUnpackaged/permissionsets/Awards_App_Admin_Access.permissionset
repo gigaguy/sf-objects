@@ -4220,7 +4220,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Award__c.Standard_Award</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Cost_Share_Contribution__c.Cash_Contribution</recordType>
@@ -4240,7 +4240,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Document__c.Document_Award_Budget</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Document__c.Document_Contract</recordType>
@@ -4348,7 +4348,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Group_Award__c.Standard_Group_Award</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Line_Item__c.Form_Sample_Record_Type_Line_Item</recordType>
